@@ -1,0 +1,4424 @@
+{
+  "cities": [
+    {
+      "city": "北京",
+      "attractions": [
+        {
+          "name": "故宫博物院",
+          "city": "北京",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "景山前街4号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/2f968490d105bb2741e17f90b85c6b79",
+            "https://store.is.autonavi.com/showpic/73460c62b7f1767b0000007074600562?type=pic",
+            "https://store.is.autonavi.com/showpic/5b11f8221d1de73e0d1b16967c78b6de"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.9,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "世界遗产|科教文化服务"
+          ],
+          "lat": 39.917839,
+          "lon": 116.397029,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "景山前街4号"
+            },
+            {
+              "label": "所在区域",
+              "value": "北京市东城区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;世界遗产|科教文化服务;博物馆;博物馆"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "电话",
+              "value": "4009501925"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "天坛公园",
+          "city": "北京",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "天坛东里甲1号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/d7027a05ce598752d0bf69423d80ac94",
+            "https://store.is.autonavi.com/showpic/614e8e93e0040431933a1dcabd1cbaca",
+            "https://store.is.autonavi.com/showpic/3249fd791ffa120ecb3b9590688623f9"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.9,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "公园"
+          ],
+          "lat": 39.881913,
+          "lon": 116.410829,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "天坛东里甲1号"
+            },
+            {
+              "label": "所在区域",
+              "value": "北京市东城区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;公园"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "中国国家博物馆",
+          "city": "北京",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "东长安街16号天安门广场东侧",
+          "images": [
+            "https://aos-comment.amap.com/B000A83U0P/headerImg/c18b1708f9b307ca92bf78809f7a0220_2048_2048_80.jpg",
+            "http://store.is.autonavi.com/showpic/620280e69fbdcc9681f8bf30f62fb9eb",
+            "http://store.is.autonavi.com/showpic/d44b1c52716bc8bb56489a3504846f34"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.9,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "科教文化服务",
+            "博物馆",
+            "博物馆"
+          ],
+          "lat": 39.905374,
+          "lon": 116.401304,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "东长安街16号天安门广场东侧"
+            },
+            {
+              "label": "所在区域",
+              "value": "北京市东城区"
+            },
+            {
+              "label": "类型",
+              "value": "科教文化服务;博物馆;博物馆"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "电话",
+              "value": "010-65116400"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "颐和园",
+          "city": "北京",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "新建宫门路19号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/a4b326f43a84d36b581d7f6e856fe858",
+            "http://store.is.autonavi.com/showpic/62d1eddc858545a18923b0ef9cb5ac68",
+            "http://store.is.autonavi.com/showpic/00b99d99388ca17f613291491d905feb"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.9,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "世界遗产"
+          ],
+          "lat": 39.999617,
+          "lon": 116.275179,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "新建宫门路19号"
+            },
+            {
+              "label": "所在区域",
+              "value": "北京市海淀区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;世界遗产"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "电话",
+              "value": "010-62881144"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "景山公园",
+          "city": "北京",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "景山西街44号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/10eb01af2fd301e54e50d42ea636ccef",
+            "http://store.is.autonavi.com/showpic/f26ea189993c113b5535715fa145b746",
+            "http://store.is.autonavi.com/showpic/7f5ec8b99eab51bcde3749b389da6b55"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "公园"
+          ],
+          "lat": 39.925875,
+          "lon": 116.396551,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "景山西街44号"
+            },
+            {
+              "label": "所在区域",
+              "value": "北京市西城区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;公园"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "010-64038098"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "北海公园",
+          "city": "北京",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "文津街1号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/68a92863a790f69d2221f7c53906c8c2",
+            "http://store.is.autonavi.com/showpic/cde94b02af66721b49f43e75628a0430",
+            "http://store.is.autonavi.com/showpic/56c62f9ae4b90f99306d84fb4b35e7a8"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "公园"
+          ],
+          "lat": 39.928775,
+          "lon": 116.391802,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "文津街1号"
+            },
+            {
+              "label": "所在区域",
+              "value": "北京市西城区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;公园"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "010-64037972"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "王府井步行街",
+          "city": "北京",
+          "category": "购物",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "王府井大街256号(金鱼胡同地铁站B东口步行80米)",
+          "images": [
+            "https://store.is.autonavi.com/showpic/87df7eca6d6858bc0ba30baca710205f",
+            "https://store.is.autonavi.com/showpic/8e44d69b90a7097311c86c8ca15f3bf6",
+            "https://store.is.autonavi.com/showpic/6a57c9183de937ac8af8b4fde8bc1cde"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "购物服务",
+            "特色商业街",
+            "步行街"
+          ],
+          "lat": 39.913479,
+          "lon": 116.412007,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "王府井大街256号(金鱼胡同地铁站B东口步行80米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "北京市东城区"
+            },
+            {
+              "label": "类型",
+              "value": "购物服务;特色商业街;步行街"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "中国美术馆",
+          "city": "北京",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "五四大街1号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/7bd6fc174fed670cf2ea3a6ffcfa303a",
+            "http://store.is.autonavi.com/showpic/0a804e54f16a353ed7b0ca9ff6ad8e08",
+            "http://store.is.autonavi.com/showpic/45f5465e2586f381321924003444933a"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "科教文化服务",
+            "博物馆",
+            "博物馆"
+          ],
+          "lat": 39.925255,
+          "lon": 116.408939,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "五四大街1号"
+            },
+            {
+              "label": "所在区域",
+              "value": "北京市东城区"
+            },
+            {
+              "label": "类型",
+              "value": "科教文化服务;博物馆;博物馆"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "010-64006326;010-64011816"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "中山公园",
+          "city": "北京",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "中华路4号(天安门西侧)",
+          "images": [
+            "http://store.is.autonavi.com/showpic/4d1216ff3ef92137912db31aaacd3c5f",
+            "http://store.is.autonavi.com/showpic/8456aec2327c026f940c81b400ddb44d",
+            "http://store.is.autonavi.com/showpic/d712c5194b3096b8f24c7ee2116a5e6c"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "公园"
+          ],
+          "lat": 39.910707,
+          "lon": 116.394407,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "中华路4号(天安门西侧)"
+            },
+            {
+              "label": "所在区域",
+              "value": "北京市东城区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;公园"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "010-66055431"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "太庙",
+          "city": "北京",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "东长安街16号(劳动人民文化宫内)",
+          "images": [
+            "http://store.is.autonavi.com/showpic/3029a20076593ba33b5ebbdcfea7e569",
+            "http://store.is.autonavi.com/showpic/93e66606c9603106cd4948202ec9dea9",
+            "http://store.is.autonavi.com/showpic/3fb022eae396cd6d29bb8b85a6b89e89"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "寺庙道观"
+          ],
+          "lat": 39.911374,
+          "lon": 116.399898,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "东长安街16号(劳动人民文化宫内)"
+            },
+            {
+              "label": "所在区域",
+              "value": "北京市东城区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;寺庙道观"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "010-65116776"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "上海",
+      "attractions": [
+        {
+          "name": "外滩",
+          "city": "上海",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "中山东一路",
+          "images": [
+            "http://store.is.autonavi.com/showpic/b9c402b7d34ea98654cc915e567761dd",
+            "http://store.is.autonavi.com/showpic/979602e27511b1d60f296d840bcfdbb6",
+            "http://store.is.autonavi.com/showpic/619751b016fe3cb5c1c90b9a771ca444"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.9,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "风景名胜"
+          ],
+          "lat": 31.233516,
+          "lon": 121.492127,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "中山东一路"
+            },
+            {
+              "label": "所在区域",
+              "value": "上海市黄浦区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;风景名胜"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "南京路步行街",
+          "city": "上海",
+          "category": "购物",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "南京东路558号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/79c863fb97e496744108947dfad8ea10",
+            "https://aos-comment.amap.com/B0FFF5VNSV/comment/CF516C9E_B303_4607_9963_4C05B7A5E5C8_L0_001_1500_200_1767928116411_44014148.jpg",
+            "https://aos-comment.amap.com/B0FFF5VNSV/comment/content_media_external_file_4835_1768319295004_72008616.jpg"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.9,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "购物服务",
+            "购物相关场所",
+            "购物相关场所"
+          ],
+          "lat": 31.235983,
+          "lon": 121.479494,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "南京东路558号"
+            },
+            {
+              "label": "所在区域",
+              "value": "上海市黄浦区"
+            },
+            {
+              "label": "类型",
+              "value": "购物服务;购物相关场所;购物相关场所"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "龙华寺",
+          "city": "上海",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "龙华路2853号(近龙华西路)",
+          "images": [
+            "http://store.is.autonavi.com/showpic/b6ea7de3def130dc93884d08f080d2fb",
+            "http://store.is.autonavi.com/showpic/359312a379d73b785a67a0bf94fb960c",
+            "http://store.is.autonavi.com/showpic/0e4e60ca8dfe04051da3ff5ac5e58d1d"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.9,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "寺庙道观"
+          ],
+          "lat": 31.175174,
+          "lon": 121.451842,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "龙华路2853号(近龙华西路)"
+            },
+            {
+              "label": "所在区域",
+              "value": "上海市徐汇区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;寺庙道观"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "电话",
+              "value": "021-64566085;021-64571440"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "上海豫园",
+          "city": "上海",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "福佑路168号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/faeb0264854cd82fbb315cb2ccacea0f",
+            "http://store.is.autonavi.com/showpic/a1ae7c02fc36b06b55307525ce4d692c",
+            "http://store.is.autonavi.com/showpic/64f950cea19a60bbca1cdfa056a0d2a1"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "国家级景点"
+          ],
+          "lat": 31.227714,
+          "lon": 121.492497,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "福佑路168号"
+            },
+            {
+              "label": "所在区域",
+              "value": "上海市黄浦区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;国家级景点"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "021-63260830"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "东方明珠广播电视塔",
+          "city": "上海",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "世纪大道1号(陆家嘴地铁站1号入口步行220米)",
+          "images": [
+            "http://store.is.autonavi.com/showpic/797bc3a3aa5722ea6c6f867929f80777",
+            "http://store.is.autonavi.com/showpic/311209b13c3e95d3772b13db68a1f50c",
+            "http://store.is.autonavi.com/showpic/3f1c20fe363c2ed628733393c0f9d7c0"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "国家级景点"
+          ],
+          "lat": 31.239703,
+          "lon": 121.499718,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "世纪大道1号(陆家嘴地铁站1号入口步行220米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "上海市浦东新区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;国家级景点"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "021-58791888"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "上海四行仓库抗战纪念馆",
+          "city": "上海",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "光复路21号(曲阜路地铁站2号口步行300米)",
+          "images": [
+            "http://store.is.autonavi.com/showpic/226114beba3c4dd97642941abbb9f441",
+            "https://store.is.autonavi.com/showpic/096d04c38dcf5f8cb9636c732f7018ae",
+            "https://store.is.autonavi.com/showpic/ecf51d073e378c0715d51b045076132d"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "纪念馆"
+          ],
+          "lat": 31.24034,
+          "lon": 121.471104,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "光复路21号(曲阜路地铁站2号口步行300米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "上海市静安区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;纪念馆"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "021-63800180;021-63808222"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "LV巨轮",
+          "city": "上海",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "石门一路与吴江路交叉口南40米(南京西路地铁站5号口旁)",
+          "images": [
+            "https://store.is.autonavi.com/showpic/f5d99ef1973665280000003082546650?type=pic",
+            "https://store.is.autonavi.com/showpic/14701728f91b3f7e0000003761162393?type=pic",
+            "https://store.is.autonavi.com/showpic/581229b93b3717e30000005277104900?type=pic"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "风景名胜"
+          ],
+          "lat": 31.229952,
+          "lon": 121.462166,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "石门一路与吴江路交叉口南40米(南京西路地铁站5号口旁)"
+            },
+            {
+              "label": "所在区域",
+              "value": "上海市静安区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;风景名胜"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "上海城隍庙",
+          "city": "上海",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "方浜中路249号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/518f824f343115a063effa52ea4cb224",
+            "https://store.is.autonavi.com/showpic/636e52104f3c58480000003740658114?type=pic",
+            "https://store.is.autonavi.com/showpic/d1b1efe1163e74140000006901326517?type=pic"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "寺庙道观"
+          ],
+          "lat": 31.225879,
+          "lon": 121.492466,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "方浜中路249号"
+            },
+            {
+              "label": "所在区域",
+              "value": "上海市黄浦区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;寺庙道观"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "021-63284494"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "静安寺",
+          "city": "上海",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "南京西路1686号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/9a0edf88a3c25c8021ebb17015aa4f0d",
+            "http://store.is.autonavi.com/showpic/73fd7a96d0d6e87c3eea22b79802326f",
+            "http://store.is.autonavi.com/showpic/f9d30fef14b38483f4eb9b42e177445f"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "寺庙道观"
+          ],
+          "lat": 31.223505,
+          "lon": 121.44532,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "南京西路1686号"
+            },
+            {
+              "label": "所在区域",
+              "value": "上海市静安区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;寺庙道观"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "021-62566366"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "上海新天地",
+          "city": "上海",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "太仓路181弄6-15号",
+          "images": [
+            "https://aos-comment.amap.com/B00155KUM0/comment/3079A2CE_113B_4FDF_9DF5_A6F526BC3859_L0_001_1179_860_1735268846304_48305373.jpg",
+            "https://aos-comment.amap.com/B00155KUM0/comment/2C0F9F2C_C0E0_4D75_8EA7_841A95E15A24_L0_001_1179_875_1735268846305_26290928.jpg",
+            "https://aos-comment.amap.com/B00155KUM0/comment/60D79104_4B22_4F33_92A5_B26B3D1F854D_L0_001_750_699_1729517745971_11402694.jpg"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "购物服务",
+            "特色商业街",
+            "步行街"
+          ],
+          "lat": 31.220484,
+          "lon": 121.474465,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "太仓路181弄6-15号"
+            },
+            {
+              "label": "所在区域",
+              "value": "上海市黄浦区"
+            },
+            {
+              "label": "类型",
+              "value": "购物服务;特色商业街;步行街"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "021-63112288"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "成都",
+      "attractions": [
+        {
+          "name": "铁像寺水街",
+          "city": "成都",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "铁像寺路88号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/f8551c9093ae77f52ec1f624def23892",
+            "http://store.is.autonavi.com/showpic/ec8850f1accca577673a103b5261bf79",
+            "http://store.is.autonavi.com/showpic/ae61857d6d22448dc13a4e9c2c576c79"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "国家级景点"
+          ],
+          "lat": 30.557844,
+          "lon": 104.050038,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "铁像寺路88号"
+            },
+            {
+              "label": "所在区域",
+              "value": "成都市武侯区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;国家级景点"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "028-65292065"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "超级奈尔宝SUPER NEOBIO(成都环球中心店)",
+          "city": "成都",
+          "category": "购物",
+          "estimated_duration": "2小时",
+          "ticket_price": 228.0,
+          "ticket_known": true,
+          "description": "天府大道北段1700号环球中心S1-S2",
+          "images": [
+            "http://store.is.autonavi.com/showpic/70d8be02d20c6da1b642ce93409ad1d8",
+            "https://aos-comment.amap.com/B0FFL07C7T/comment/20260323-dc9bd0a6bf990af79fc539dd-4JmC9QpjMHF7LflnDevre7.jpg",
+            "https://aos-comment.amap.com/comment/content_service__1769487777497_49185604_1769487792986_66165233.jpg"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "购物服务",
+            "购物相关场所",
+            "购物相关场所"
+          ],
+          "lat": 30.566505,
+          "lon": 104.0616,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "天府大道北段1700号环球中心S1-S2"
+            },
+            {
+              "label": "所在区域",
+              "value": "成都市武侯区"
+            },
+            {
+              "label": "类型",
+              "value": "购物服务;购物相关场所;购物相关场所"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "人均/门票",
+              "value": "¥228"
+            },
+            {
+              "label": "电话",
+              "value": "4008169988"
+            }
+          ]
+        },
+        {
+          "name": "成都博物馆",
+          "city": "成都",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "小河街1号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/2892dfb3b4f73400dc26209b74a74fdb",
+            "https://comment-oss-online.oss-cn-wulanchabu.aliyuncs.com/B001C8SBG2/headerImg/content_media_external_images_media_430_1651815910144_4885fc78.jpg",
+            "http://store.is.autonavi.com/showpic/2f26f6db24cd260224f15cfe1060075c"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "科教文化服务",
+            "博物馆",
+            "博物馆"
+          ],
+          "lat": 30.657297,
+          "lon": 104.063749,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "小河街1号"
+            },
+            {
+              "label": "所在区域",
+              "value": "成都市青羊区"
+            },
+            {
+              "label": "类型",
+              "value": "科教文化服务;博物馆;博物馆"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "028-68277011"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "宽窄巷子景区",
+          "city": "成都",
+          "category": "购物",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "少城街道金河路口宽窄巷子",
+          "images": [
+            "https://aos-comment.amap.com/B0KULU7RGH/comment/content_media_external_file_1000009867_ss__1749366824374_55625255.jpg",
+            "https://store.is.autonavi.com/showpic/9f8f11e3b10fe94d0000006609966600?type=pic",
+            "https://store.is.autonavi.com/showpic/8ac147908fee29660000006281372146?type=pic"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "购物服务",
+            "特色商业街",
+            "特色商业街|风景名胜"
+          ],
+          "lat": 30.663869,
+          "lon": 104.053307,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "少城街道金河路口宽窄巷子"
+            },
+            {
+              "label": "所在区域",
+              "value": "成都市青羊区"
+            },
+            {
+              "label": "类型",
+              "value": "购物服务;特色商业街;特色商业街|风景名胜;风景名胜相关;旅游景点"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "028-86124258;028-86154758;028-86259233"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "文殊院",
+          "city": "成都",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "文殊院街66号(文殊院地铁站K口步行400米)",
+          "images": [
+            "http://store.is.autonavi.com/showpic/5651e33f9486e7100862d905161aa4b1",
+            "http://store.is.autonavi.com/showpic/fe9557ac4c7d8d363fad3392868b2ed6",
+            "http://store.is.autonavi.com/showpic/13ae8501a205f8e5ad365c6fee04a3b0"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "寺庙道观"
+          ],
+          "lat": 30.675418,
+          "lon": 104.072527,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "文殊院街66号(文殊院地铁站K口步行400米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "成都市青羊区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;寺庙道观"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "028-86930623;028-86932375"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "成都杜甫草堂博物馆",
+          "city": "成都",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "青华路37号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/afa4c7dfa19bb60e18618913136bda7d",
+            "http://store.is.autonavi.com/showpic/59f06bb43e1b5cd7f6ec27052fa220af",
+            "http://store.is.autonavi.com/showpic/5c37ea973d74d7949607dd75d9f36821"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "科教文化服务",
+            "博物馆",
+            "博物馆"
+          ],
+          "lat": 30.660153,
+          "lon": 104.028514,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "青华路37号"
+            },
+            {
+              "label": "所在区域",
+              "value": "成都市青羊区"
+            },
+            {
+              "label": "类型",
+              "value": "科教文化服务;博物馆;博物馆"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "028-68921800;028-87345202;028-87327392"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "交子公园",
+          "city": "成都",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "天府大道北段",
+          "images": [
+            "http://aos-cdn-image.amap.com/sns/ugccomment/f1a60da1-1b90-4f04-bdff-819ab95e8a48.jpg",
+            "https://store.is.autonavi.com/showpic/740333de65738bbd0000002861802313?type=pic",
+            "https://store.is.autonavi.com/showpic/9dc7ea98943c99120000002779374746?type=pic"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "公园"
+          ],
+          "lat": 30.582568,
+          "lon": 104.072828,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "天府大道北段"
+            },
+            {
+              "label": "所在区域",
+              "value": "成都市武侯区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;公园"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "双子塔夜景打卡点",
+          "city": "成都",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "交子大道与益州大道北段交叉口东40米",
+          "images": [
+            "https://aos-comment.amap.com/B0K2D9EUZC/comment/20260313-f7a8e508486ebc612a06d026-9ZaORXyAfm48lqQUKX81bx.jpg",
+            "https://aos-comment.amap.com/B0K2D9EUZC/comment/20260322-bbaa8f56a722d0e681cffc0e-wuEnyALv5s8yJNxywJBKE.jpg",
+            "https://store.is.autonavi.com/showpic/936040b773bdf1b80000003129018762?type=pic"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "风景名胜"
+          ],
+          "lat": 30.582369,
+          "lon": 104.060512,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "交子大道与益州大道北段交叉口东40米"
+            },
+            {
+              "label": "所在区域",
+              "value": "成都市武侯区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;风景名胜"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "大源中央公园",
+          "city": "成都",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "成都高新区天府二街777号(大源地铁站D口旁)",
+          "images": [
+            "https://aos-comment.amap.com/B001C8OPDK/comment/23FE4588_05F0_47E2_A409_BB0D53794C0E_L0_001_2000_112_1764935247402_73757332.jpg",
+            "https://aos-comment.amap.com/B001C8OPDK/comment/content_media_external_images_media_1000054681_ss__1769516193310_93483846.jpg",
+            "https://aos-comment.amap.com/B001C8OPDK/comment/2933F682_B9B6_4FD1_A9BD_97740E0FA0F4_L0_001_2000_112_1764935247407_26341313.jpg"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "公园"
+          ],
+          "lat": 30.549059,
+          "lon": 104.049182,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "成都高新区天府二街777号(大源地铁站D口旁)"
+            },
+            {
+              "label": "所在区域",
+              "value": "成都市武侯区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;公园"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "13281029115"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "成都金融城双子塔",
+          "city": "成都",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "高新区锦晖西一街55号(金融城地铁站出入口旁)",
+          "images": [
+            "http://store.is.autonavi.com/showpic/4f01ee19a4ccff59a3b8c30702db3490",
+            "http://store.is.autonavi.com/showpic/08e3a8357539991aa65069b38e5fa6cb",
+            "http://store.is.autonavi.com/showpic/a9284427dedb6320022864aa38b0723f"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "商务住宅",
+            "楼宇",
+            "商务写字楼"
+          ],
+          "lat": 30.582588,
+          "lon": 104.064759,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "高新区锦晖西一街55号(金融城地铁站出入口旁)"
+            },
+            {
+              "label": "所在区域",
+              "value": "成都市武侯区"
+            },
+            {
+              "label": "类型",
+              "value": "商务住宅;楼宇;商务写字楼"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "西安",
+      "attractions": [
+        {
+          "name": "西安城墙",
+          "city": "西安",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "南大街2号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/f858d7753932ea21d02a7990a5bec413",
+            "http://store.is.autonavi.com/showpic/2e1e31967ad8581b8721203e322980cf",
+            "http://store.is.autonavi.com/showpic/68757b6cc3e1ab435e83e35150572c94"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "国家级景点"
+          ],
+          "lat": 34.2759,
+          "lon": 108.948183,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "南大街2号"
+            },
+            {
+              "label": "所在区域",
+              "value": "西安市新城区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;国家级景点"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "4008313555;029-87272792"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "西安钟楼",
+          "city": "西安",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "西安地铁2号线钟楼站C出口正对面",
+          "images": [
+            "http://aos-cdn-image.amap.com/sns/ugccomment/3b525983-7154-4c03-9423-6683ecfef221.jpg",
+            "http://store.is.autonavi.com/showpic/ac2ed4de49dc97fe83bf7b5cd008a38b",
+            "https://store.is.autonavi.com/showpic/cae1878a9b386a60d8d0260652544890"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "风景名胜"
+          ],
+          "lat": 34.25943,
+          "lon": 108.94703,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "西安地铁2号线钟楼站C出口正对面"
+            },
+            {
+              "label": "所在区域",
+              "value": "西安市莲湖区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;风景名胜"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "大唐不夜城",
+          "city": "西安",
+          "category": "购物",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "雁塔南路428号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/f90b753858943d71771aec94e12fa93c",
+            "http://store.is.autonavi.com/showpic/c65cb3c266a4d568b67cf50fb7705af3",
+            "https://store.is.autonavi.com/showpic/df918c048942db0e3b1a5ae421f0805e"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜相关",
+            "旅游景点|购物服务"
+          ],
+          "lat": 34.213866,
+          "lon": 108.964046,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "雁塔南路428号"
+            },
+            {
+              "label": "所在区域",
+              "value": "西安市雁塔区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜相关;旅游景点|购物服务;特色商业街;特色商业街"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "回民街",
+          "city": "西安",
+          "category": "购物",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "西仓南巷4号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/d26415f3cec64b43dec8326299534486",
+            "http://store.is.autonavi.com/showpic/80e8f02ef048dfea1ac1df45e38dcca8",
+            "https://store.is.autonavi.com/showpic/ccffa77d8a02405a1f2cf25f033d9786"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "购物服务",
+            "特色商业街",
+            "步行街"
+          ],
+          "lat": 34.264587,
+          "lon": 108.936378,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "西仓南巷4号"
+            },
+            {
+              "label": "所在区域",
+              "value": "西安市莲湖区"
+            },
+            {
+              "label": "类型",
+              "value": "购物服务;特色商业街;步行街"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "西安碑林博物馆",
+          "city": "西安",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "三学街15号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/31b765e59af511398d4be0efcecd1598",
+            "http://store.is.autonavi.com/showpic/afc03127a286251c0ab55521d0748d3b",
+            "http://store.is.autonavi.com/showpic/be25df6f462800762bb42ca1a897eb59"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "科教文化服务",
+            "博物馆",
+            "博物馆"
+          ],
+          "lat": 34.254497,
+          "lon": 108.95286,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "三学街15号"
+            },
+            {
+              "label": "所在区域",
+              "value": "西安市碑林区"
+            },
+            {
+              "label": "类型",
+              "value": "科教文化服务;博物馆;博物馆"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "029-87253331"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "广仁寺",
+          "city": "西安",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "城墙西北角西北一路152号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/c09b518f33c17363603a346f2e054ff7",
+            "http://store.is.autonavi.com/showpic/42afb749d29921f5a542f2f4f56328ff",
+            "http://store.is.autonavi.com/showpic/75390ab15e85dce08953f2949a0d2d28"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "寺庙道观"
+          ],
+          "lat": 34.274555,
+          "lon": 108.925865,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "城墙西北角西北一路152号"
+            },
+            {
+              "label": "所在区域",
+              "value": "西安市莲湖区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;寺庙道观"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "029-87341676;18302969999"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "大兴善寺",
+          "city": "西安",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "小寨兴善寺西街55号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/238a416376a52babe31adf7bd0d76990",
+            "https://store.is.autonavi.com/showpic/70ee711d5af99e930000002254870976",
+            "https://store.is.autonavi.com/showpic/f1e3385d8e924f7c0000002447946068"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "寺庙道观"
+          ],
+          "lat": 34.227081,
+          "lon": 108.943506,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "小寨兴善寺西街55号"
+            },
+            {
+              "label": "所在区域",
+              "value": "西安市雁塔区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;寺庙道观"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "029-85227071"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "西安鼓楼",
+          "city": "西安",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "北院门74号(广济街地铁站D1口步行370米)",
+          "images": [
+            "http://store.is.autonavi.com/showpic/6a0ee775f907dbd566bc65d211e8bd07",
+            "http://store.is.autonavi.com/showpic/14b3471974cd21c8f2f867d25ac44c20",
+            "http://store.is.autonavi.com/showpic/3af50e24b9969cfe7361485c940e3175"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "风景名胜"
+          ],
+          "lat": 34.260206,
+          "lon": 108.943512,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "北院门74号(广济街地铁站D1口步行370米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "西安市莲湖区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;风景名胜"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "029-87278797"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "西安城市运动公园",
+          "city": "西安",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "未央路168号(行政中心地铁站B5口旁)",
+          "images": [
+            "http://store.is.autonavi.com/showpic/dd4f9f57fdc51b278c87f09d5e7d83ff",
+            "http://store.is.autonavi.com/showpic/47fd6e3d2fcede4c07b3338ac7863aaf",
+            "http://store.is.autonavi.com/showpic/e0c7d9c65c3368b394850cda9fe9cb23"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "公园"
+          ],
+          "lat": 34.344373,
+          "lon": 108.943445,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "未央路168号(行政中心地铁站B5口旁)"
+            },
+            {
+              "label": "所在区域",
+              "value": "西安市未央区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;公园"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "大慈恩寺",
+          "city": "西安",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "慈恩路1号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/7fe93a8ea8185c31fb0e79711fa3ad6a",
+            "http://store.is.autonavi.com/showpic/cdb115e63076a8e5ba1069cb09f7eca8",
+            "http://store.is.autonavi.com/showpic/2dce6ff53fca0956d562dbe487e30f31"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "寺庙道观"
+          ],
+          "lat": 34.217954,
+          "lon": 108.96418,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "慈恩路1号"
+            },
+            {
+              "label": "所在区域",
+              "value": "西安市雁塔区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;寺庙道观"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "三亚",
+      "attractions": [
+        {
+          "name": "大东海旅游区",
+          "city": "三亚",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "榆亚大道(明月广场西南400米至大东海广场2.9公里海岸线)",
+          "images": [
+            "http://store.is.autonavi.com/showpic/d13e9b08dd3a19359b1102934dc08782",
+            "http://aos-cdn-image.amap.com/sns/ugccomment/39681614-448b-49a2-82cd-296f2c020fb8.jpg",
+            "http://aos-cdn-image.amap.com/sns/ugccomment/ce5c7ea1-d85e-444a-8809-7eade65cc73c.jpg"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.9,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "国家级景点"
+          ],
+          "lat": 18.22082,
+          "lon": 109.522212,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "榆亚大道(明月广场西南400米至大东海广场2.9公里海岸线)"
+            },
+            {
+              "label": "所在区域",
+              "value": "三亚市吉阳区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;国家级景点"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "电话",
+              "value": "19044130521"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "鹿回头风景区",
+          "city": "三亚",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "鹿岭路",
+          "images": [
+            "http://store.is.autonavi.com/showpic/5e741e3870348298407cc04bf881b99b",
+            "http://store.is.autonavi.com/showpic/a7188fdacd7748c0acbc3c2b42b462af",
+            "http://store.is.autonavi.com/showpic/f994dcf1956dc801c97bc1550ea569ed"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "公园"
+          ],
+          "lat": 18.225639,
+          "lon": 109.50131,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "鹿岭路"
+            },
+            {
+              "label": "所在区域",
+              "value": "三亚市吉阳区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;公园"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "0898-88210808;0898-88213740"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "海月广场",
+          "city": "三亚",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "迎宾路九号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/b3ddf37de3181e38102cde74d6a56a42",
+            "https://aos-comment.amap.com/B03830MO5B/comment/content_media_external_file_73556_ss__1767682333384_26240172.jpg",
+            "https://aos-comment.amap.com/B03830MO5B/comment/CD19EEF5_B690_4402_83EF_00BDBB18EC09_L0_001_2016_113_1767505303351_65631253.jpg"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "城市广场"
+          ],
+          "lat": 18.259085,
+          "lon": 109.494467,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "迎宾路九号"
+            },
+            {
+              "label": "所在区域",
+              "value": "三亚市天涯区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;城市广场"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "18876725597"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "凤凰岛桥头公园",
+          "city": "三亚",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "三亚湾路与光明街交叉口西60米",
+          "images": [
+            "https://store.is.autonavi.com/showpic/a7fd89e47025ac4f0000003776132286?type=pic",
+            "https://store.is.autonavi.com/showpic/44f1f9c79a7d66e30000002688960733?type=pic",
+            "https://store.is.autonavi.com/showpic/87cc29ef1f5002320000004869870516?type=pic"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "公园"
+          ],
+          "lat": 18.24604,
+          "lon": 109.500812,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "三亚湾路与光明街交叉口西60米"
+            },
+            {
+              "label": "所在区域",
+              "value": "三亚市天涯区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;公园"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "临春岭森林公园",
+          "city": "三亚",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "河东区街道凤凰路临春段(近艺术家新村)",
+          "images": [
+            "https://store.is.autonavi.com/showpic/f79039acdf3693d54f2666b492eb6448",
+            "http://store.is.autonavi.com/showpic/b9ff0081e882c317992450910e739625",
+            "https://aos-comment.amap.com/B0FFFGZYT1/comment/content_media_external_file_100008105_1763340680708_81962306.jpg"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "风景名胜"
+          ],
+          "lat": 18.260389,
+          "lon": 109.526536,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "河东区街道凤凰路临春段(近艺术家新村)"
+            },
+            {
+              "label": "所在区域",
+              "value": "三亚市吉阳区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;风景名胜"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "0898-88704481"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "三亚千古情景区",
+          "city": "三亚",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "河东区街道迎宾路333号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/9f81988788b31267411bb5467adcad6e",
+            "http://store.is.autonavi.com/showpic/86d53a0556e65ebfffcd96ca5f7d58bd",
+            "http://store.is.autonavi.com/showpic/dc936aa6679d44923d24166e40d6dc13"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "风景名胜"
+          ],
+          "lat": 18.291009,
+          "lon": 109.530925,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "河东区街道迎宾路333号"
+            },
+            {
+              "label": "所在区域",
+              "value": "三亚市吉阳区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;风景名胜"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "4008888518"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "大东海广场",
+          "city": "三亚",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "东海路与榆亚路交汇处东南150米",
+          "images": [
+            "http://store.is.autonavi.com/showpic/9ac5480b479b5dc50c4541f40c87dc6c",
+            "http://store.is.autonavi.com/showpic/c317d77f36d72e5493ad591377df814a",
+            "https://aos-comment.amap.com/B0383004F5/comment/content_media_external_file_100005411_1763688838143_70991732.jpg"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "公园广场"
+          ],
+          "lat": 18.221866,
+          "lon": 109.525524,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "东海路与榆亚路交汇处东南150米"
+            },
+            {
+              "label": "所在区域",
+              "value": "三亚市吉阳区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;公园广场"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "小东海",
+          "city": "三亚",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "小东海旅游度假区",
+          "images": [
+            "http://store.is.autonavi.com/showpic/332e0e6183b6018218b506a77c229d07",
+            "https://aos-comment.amap.com/B03830MO65/comment/content_media_external_images_media_100014142_1765869352104_70888357.jpg",
+            "http://store.is.autonavi.com/showpic/863a36fb328f2486cc02a65af7e1294b"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "风景名胜"
+          ],
+          "lat": 18.208582,
+          "lon": 109.502296,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "小东海旅游度假区"
+            },
+            {
+              "label": "所在区域",
+              "value": "三亚市吉阳区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;风景名胜"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "16720042004"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "南山寺",
+          "city": "三亚",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "南山文化旅游区内",
+          "images": [
+            "http://aos-cdn-image.amap.com/sns/ugccomment/3a0c31e3-9ebb-4853-a699-7ea727f57f29.jpg",
+            "http://store.is.autonavi.com/showpic/9093db3d9d8661f1071a329d26fd44c9",
+            "http://aos-cdn-image.amap.com/sns/ugccomment/66519267-8618-4176-b894-0774d294d4bc.jpg"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "寺庙道观"
+          ],
+          "lat": 18.289184,
+          "lon": 109.200489,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "南山文化旅游区内"
+            },
+            {
+              "label": "所在区域",
+              "value": "三亚市崖州区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;寺庙道观"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "0898-88837727;0898-88837873;0898-88837946"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "三亚·中交凤凰岛",
+          "city": "三亚",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "河西街道三亚湾路6号",
+          "images": [
+            "https://aos-comment.amap.com/B03830MONV/comment/0F175754_85B6_4AC5_A575_020B40FA2464_L0_001_1706_127_1769436180772_88835605.jpg",
+            "http://store.is.autonavi.com/showpic/07f18ec1b9cb5ccdae0a30dd4a9527f6",
+            "https://aos-comment.amap.com/B03830MONV/comment/content_media_external_images_media_100005524_1739131530758_12314454.jpg"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.6,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "地名地址信息",
+            "自然地名",
+            "岛屿|风景名胜"
+          ],
+          "lat": 18.240317,
+          "lon": 109.493908,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "河西街道三亚湾路6号"
+            },
+            {
+              "label": "所在区域",
+              "value": "三亚市天涯区"
+            },
+            {
+              "label": "类型",
+              "value": "地名地址信息;自然地名;岛屿|风景名胜;风景名胜;风景名胜"
+            },
+            {
+              "label": "评分",
+              "value": "4.6"
+            },
+            {
+              "label": "电话",
+              "value": "0898-31003697;0898-32997777;4008330307"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "杭州",
+      "attractions": [
+        {
+          "name": "杭州西湖风景名胜区",
+          "city": "杭州",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "西湖街道龙井路1号",
+          "images": [
+            "https://store.is.autonavi.com/showpic/78e3e7b400e9290d0000003670488183",
+            "http://store.is.autonavi.com/showpic/d7a717ff724702f42595f6a3f09c6aba",
+            "https://store.is.autonavi.com/showpic/cbfcd936353743108182141fbeddffe3"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.9,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "国家级景点"
+          ],
+          "lat": 30.222692,
+          "lon": 120.121358,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "西湖街道龙井路1号"
+            },
+            {
+              "label": "所在区域",
+              "value": "杭州市西湖区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;国家级景点"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "电话",
+              "value": "0571-87179617"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "灵隐寺",
+          "city": "杭州",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "法云弄1号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/4aa0a6a1b6ee72c9833441f363cbb43a",
+            "http://store.is.autonavi.com/showpic/c7cccce2249dbb7aa013ee0b06888e9d",
+            "http://store.is.autonavi.com/showpic/69e2dbe5322886d53ed57057e9ab5514"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.9,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "国家级景点"
+          ],
+          "lat": 30.240826,
+          "lon": 120.101406,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "法云弄1号"
+            },
+            {
+              "label": "所在区域",
+              "value": "杭州市西湖区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;国家级景点"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "雷峰塔景区",
+          "city": "杭州",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "南山路15号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/58fbc3bf5460862ef2056ae1aa053754",
+            "http://store.is.autonavi.com/showpic/df5fc383b00d7a4ac2948df8abbb9094",
+            "http://store.is.autonavi.com/showpic/066347d344b0cb6c8c5e305627524037"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "国家级景点"
+          ],
+          "lat": 30.230934,
+          "lon": 120.148849,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "南山路15号"
+            },
+            {
+              "label": "所在区域",
+              "value": "杭州市西湖区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;国家级景点"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "0571-87982111"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "湖滨步行街",
+          "city": "杭州",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "凤起路539-4号(龙翔桥地铁站C口步行120米)",
+          "images": [
+            "http://store.is.autonavi.com/showpic/38ed16d8a03d858a053ee774766900c1",
+            "https://store.is.autonavi.com/showpic/8f8208eb4b56162b0000001444184307?type=pic",
+            "https://store.is.autonavi.com/showpic/de14eb471ee1f32a0000003401144328?type=pic"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "购物服务",
+            "特色商业街",
+            "步行街"
+          ],
+          "lat": 30.254158,
+          "lon": 120.162923,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "凤起路539-4号(龙翔桥地铁站C口步行120米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "杭州市上城区"
+            },
+            {
+              "label": "类型",
+              "value": "购物服务;特色商业街;步行街"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "0571-88161688"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "西溪国家湿地公园",
+          "city": "杭州",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "天目山路518号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/ee8ba4fd213aa0ee5605e41415921500",
+            "http://store.is.autonavi.com/showpic/5723d86c8f567ebcbe763c66cb8258f6",
+            "http://store.is.autonavi.com/showpic/fae72ff9341884ff26f2c1102f20a2ab"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "国家级景点"
+          ],
+          "lat": 30.255079,
+          "lon": 120.061159,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "天目山路518号"
+            },
+            {
+              "label": "所在区域",
+              "value": "杭州市西湖区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;国家级景点"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "0571-88106696;0571-88106688"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "径山寺",
+          "city": "杭州",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "径山镇径山顶",
+          "images": [
+            "http://store.is.autonavi.com/showpic/50430717ad436468b4f646ff6cd4a775",
+            "http://store.is.autonavi.com/showpic/78c0afd2f224b62a08e82d2df6cd8821",
+            "http://aos-cdn-image.amap.com/sns/ugccomment/cb7f9ba3-1180-4a33-aa18-e6a42a22f974.jpg"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "寺庙道观"
+          ],
+          "lat": 30.379809,
+          "lon": 119.764982,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "径山镇径山顶"
+            },
+            {
+              "label": "所在区域",
+              "value": "杭州市余杭区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;寺庙道观"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "0571-88601090"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "钱江世纪公园",
+          "city": "杭州",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "秋韵路a7-2号",
+          "images": [
+            "http://aos-cdn-image.amap.com/sns/ugccomment/59beb1e9-9cda-4cd4-8c44-d3b51d9aff36.jpg",
+            "https://store.is.autonavi.com/showpic/011e50b6f2cea54f0000002794642462?type=pic",
+            "https://aos-comment.amap.com/B0FFHJTKKP/comment/20260310-a613e09bbc74044b0f4909b1-b74e14Ajbj8ktO7UpeOtv.jpg"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "公园"
+          ],
+          "lat": 30.244685,
+          "lon": 120.237194,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "秋韵路a7-2号"
+            },
+            {
+              "label": "所在区域",
+              "value": "杭州市萧山区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;公园"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "清河坊历史文化特色街区",
+          "city": "杭州",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "河坊街180号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/e7a956f2beba64afa31364a6858dac82",
+            "http://store.is.autonavi.com/showpic/fc632a87a09703d2de4492829fbbc3b5",
+            "http://store.is.autonavi.com/showpic/dd9e27c45d8b1904a4ab57989a34cf0a"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "国家级景点"
+          ],
+          "lat": 30.239827,
+          "lon": 120.169899,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "河坊街180号"
+            },
+            {
+              "label": "所在区域",
+              "value": "杭州市上城区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;国家级景点"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "0571-87822494;12301"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "胡雪岩旧居",
+          "city": "杭州",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "元宝街18号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/b326d6f2fc14213945e5925cbe65491d",
+            "http://aos-cdn-image.amap.com/sns/ugccomment/5ef7df70-b49e-47d8-9507-12f5ac4d50c5.JPG",
+            "http://store.is.autonavi.com/showpic/94adba298a0358aafb5f0b94799429eb"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "纪念馆"
+          ],
+          "lat": 30.237273,
+          "lon": 120.172906,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "元宝街18号"
+            },
+            {
+              "label": "所在区域",
+              "value": "杭州市上城区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;纪念馆"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "0571-86821131"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "清河坊步行街",
+          "city": "杭州",
+          "category": "购物",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "河坊街步行街南入口",
+          "images": [
+            "http://store.is.autonavi.com/showpic/6726f56b81871da6557190196f1ab04b",
+            "http://store.is.autonavi.com/showpic/bff25e539daaa5a58e31dc341e54bf92",
+            "http://store.is.autonavi.com/showpic/0fc1820aea8e7c3491d763f7d7121b08"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "购物服务",
+            "特色商业街",
+            "步行街"
+          ],
+          "lat": 30.240073,
+          "lon": 120.168923,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "河坊街步行街南入口"
+            },
+            {
+              "label": "所在区域",
+              "value": "杭州市上城区"
+            },
+            {
+              "label": "类型",
+              "value": "购物服务;特色商业街;步行街"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "厦门",
+      "attractions": [
+        {
+          "name": "鼓浪屿风景名胜区",
+          "city": "厦门",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "晃岩路35-6号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/05b0e6e576cf50058e6e2fad7e7dacdc",
+            "http://store.is.autonavi.com/showpic/d411b5a583400f0ca631ec86a065cde9",
+            "http://store.is.autonavi.com/showpic/f229741322203db59de5072af5aaf67a"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "国家级景点"
+          ],
+          "lat": 24.444695,
+          "lon": 118.06702,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "晃岩路35-6号"
+            },
+            {
+              "label": "所在区域",
+              "value": "厦门市思明区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;国家级景点"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "厦门园林植物园",
+          "city": "厦门",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "虎园路25号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/a63581fcb3adda672d35f22d835504a4",
+            "http://aos-cdn-image.amap.com/sns/ugccomment/353fd799-d49f-4143-a336-159dbc25aa92.jpg",
+            "http://aos-cdn-image.amap.com/sns/ugccomment/ed733c33-908c-45df-8ddd-1fc1d9c31b3c.jpg"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "植物园"
+          ],
+          "lat": 24.447728,
+          "lon": 118.109277,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "虎园路25号"
+            },
+            {
+              "label": "所在区域",
+              "value": "厦门市思明区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;植物园"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "0592-2985935"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "南普陀寺",
+          "city": "厦门",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "思明南路515号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/d9523753748f0cf2e26af8e5bffc8f89",
+            "http://store.is.autonavi.com/showpic/128a28e0d1d381c2125a913fa41d3aa6",
+            "http://store.is.autonavi.com/showpic/e503f4151fe16b89430942532103ad17"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "寺庙道观"
+          ],
+          "lat": 24.442641,
+          "lon": 118.097143,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "思明南路515号"
+            },
+            {
+              "label": "所在区域",
+              "value": "厦门市思明区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;寺庙道观"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "0592-2087282"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "鼓浪屿管风琴艺术中心",
+          "city": "厦门",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "鼓浪屿街道三明路1-4号(和记洋行货栈遗址旁)",
+          "images": [
+            "http://store.is.autonavi.com/showpic/df28cc37535a49d3a9b847bca796f49b",
+            "http://store.is.autonavi.com/showpic/fc5f4924653c422db284ebb7f0fc0035",
+            "http://store.is.autonavi.com/showpic/56564e37d4e34bd980641fa08d67abc3"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜相关",
+            "旅游景点"
+          ],
+          "lat": 24.448408,
+          "lon": 118.068862,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "鼓浪屿街道三明路1-4号(和记洋行货栈遗址旁)"
+            },
+            {
+              "label": "所在区域",
+              "value": "厦门市思明区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜相关;旅游景点"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "厦门山海健康步道",
+          "city": "厦门",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "邮轮码头(邮轮中心地铁站6号口步行470米)",
+          "images": [
+            "https://aos-comment.amap.com/B0FFLPCW7Y/comment/3AD1C7C8_ECF1_4C07_866C_7BC409880B7A_L0_001_1075_127_1772335033821_40943785.jpg",
+            "https://store.is.autonavi.com/showpic/2b0cd1a7f6d364b70000007154012815?type=pic",
+            "https://aos-comment.amap.com/B0FFLPCW7Y/comment/content_media_external_file_1000009536_ss__1769093559275_74931586.jpg"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜相关",
+            "旅游景点"
+          ],
+          "lat": 24.481175,
+          "lon": 118.078283,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "邮轮码头(邮轮中心地铁站6号口步行470米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "厦门市湖里区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜相关;旅游景点"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "0592-5576176"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "海湾公园",
+          "city": "厦门",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "西堤东路49号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/569c7d3ba310f5f3ce15f6a2",
+            "http://store.is.autonavi.com/showpic/62bd6ddbaf1a47ad07059131cc43e355",
+            "http://store.is.autonavi.com/showpic/299d707609802952167e134f898c28f0"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "公园"
+          ],
+          "lat": 24.473095,
+          "lon": 118.076287,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "西堤东路49号"
+            },
+            {
+              "label": "所在区域",
+              "value": "厦门市思明区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;公园"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "0592-5907909"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "厦门白鹭洲公园",
+          "city": "厦门",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "白鹭洲路",
+          "images": [
+            "http://store.is.autonavi.com/showpic/e3b43131e698a548d65a7d674af1bc44",
+            "http://store.is.autonavi.com/showpic/dd72e7d3256116cfbdf18d17e4e7ca97",
+            "http://store.is.autonavi.com/showpic/c64bab785712ad8b61ded77f19b3f97a"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "公园"
+          ],
+          "lat": 24.473704,
+          "lon": 118.093828,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "白鹭洲路"
+            },
+            {
+              "label": "所在区域",
+              "value": "厦门市思明区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;公园"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "DVLN PaRK退化公园",
+          "city": "厦门",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "斗西路156号祥和广场1楼和6楼",
+          "images": [
+            "https://store.is.autonavi.com/showpic/b50584abec0d116f0000002423730943?type=pic",
+            "https://store.is.autonavi.com/showpic/6da8aefddd8c80b50000003143992513?type=pic",
+            "https://store.is.autonavi.com/showpic/a6daa14c4aea1d8a0000002423782107?type=pic"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "餐饮服务",
+            "咖啡厅",
+            "咖啡厅"
+          ],
+          "lat": 24.462971,
+          "lon": 118.086649,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "斗西路156号祥和广场1楼和6楼"
+            },
+            {
+              "label": "所在区域",
+              "value": "厦门市思明区"
+            },
+            {
+              "label": "类型",
+              "value": "餐饮服务;咖啡厅;咖啡厅"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "19577600919"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "厦门市博物馆",
+          "city": "厦门",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "体育路95号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/fac7e4eeaceb7b33ee2a4d85bf2b79f5",
+            "http://store.is.autonavi.com/showpic/9fd2ec4cfef41483b6120a145976948f",
+            "http://store.is.autonavi.com/showpic/aadda28845eeb8343889c990e730ea97"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "科教文化服务",
+            "博物馆",
+            "博物馆"
+          ],
+          "lat": 24.49097,
+          "lon": 118.109209,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "体育路95号"
+            },
+            {
+              "label": "所在区域",
+              "value": "厦门市思明区"
+            },
+            {
+              "label": "类型",
+              "value": "科教文化服务;博物馆;博物馆"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "0592-5371607"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "鼓浪屿风琴博物馆",
+          "city": "厦门",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "鼓新路43号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/f72091e3f1574b0c8fea4952daf607d2",
+            "http://store.is.autonavi.com/showpic/7eed82363839d620b178110c68e2cf21",
+            "http://store.is.autonavi.com/showpic/75298d5e6c10d86a24d8219f0c18778d"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "科教文化服务",
+            "博物馆",
+            "博物馆"
+          ],
+          "lat": 24.447406,
+          "lon": 118.068321,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "鼓新路43号"
+            },
+            {
+              "label": "所在区域",
+              "value": "厦门市思明区"
+            },
+            {
+              "label": "类型",
+              "value": "科教文化服务;博物馆;博物馆"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "0592-2063226"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "重庆",
+      "attractions": [
+        {
+          "name": "洪崖洞民俗风貌区",
+          "city": "重庆",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "嘉陵江滨江路88号(小什字地铁站9号口步行430米)",
+          "images": [
+            "http://store.is.autonavi.com/showpic/d69a8d621edd4c1fc967029ac5011785",
+            "http://store.is.autonavi.com/showpic/b8524c74749d6e6147994eba24c363a7",
+            "http://store.is.autonavi.com/showpic/dddae7ed2d49555495a7aa59588e02ae"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "风景名胜"
+          ],
+          "lat": 29.562204,
+          "lon": 106.579027,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "嘉陵江滨江路88号(小什字地铁站9号口步行430米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "重庆市渝中区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;风景名胜"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "023-63039995;023-63039999"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "重庆十八梯传统风貌区",
+          "city": "重庆",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "中兴路1号(较场口地铁站出入口旁)",
+          "images": [
+            "http://aos-cdn-image.amap.com/sns/ugccomment/94c7f6f2-0f66-408d-a064-d2be65194a4d.jpg",
+            "https://store.is.autonavi.com/showpic/845615c889333d010000003712918744?type=pic",
+            "https://store.is.autonavi.com/showpic/8965e45e69cf1dc36fe2059814d10dca"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "风景名胜"
+          ],
+          "lat": 29.551015,
+          "lon": 106.573042,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "中兴路1号(较场口地铁站出入口旁)"
+            },
+            {
+              "label": "所在区域",
+              "value": "重庆市渝中区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;风景名胜"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "023-63256762"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "洪崖洞夜景观景台",
+          "city": "重庆",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "沧白路88号洪崖洞民俗风貌区11层",
+          "images": [
+            "https://store.is.autonavi.com/showpic/487d06ec44b68db80000007209488682?type=pic",
+            "https://store.is.autonavi.com/showpic/385b6b363e320c6b28a3e0086c0ddf33",
+            "https://store.is.autonavi.com/showpic/eb3e3cd5bba81d800000005114524093?type=pic"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "观景点"
+          ],
+          "lat": 29.562321,
+          "lon": 106.579169,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "沧白路88号洪崖洞民俗风貌区11层"
+            },
+            {
+              "label": "所在区域",
+              "value": "重庆市渝中区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;观景点"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "魁星楼",
+          "city": "重庆",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "临江门大唐广场17号(临江门地铁站2号口步行220米)",
+          "images": [
+            "https://store.is.autonavi.com/showpic/a97076f9e4979abd0000003334668049?type=pic",
+            "https://store.is.autonavi.com/showpic/b4492e453dc53e88110991f5c9349e6b",
+            "https://store.is.autonavi.com/showpic/e1845491b4a71a190000004806582652?type=pic"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜相关",
+            "旅游景点"
+          ],
+          "lat": 29.560258,
+          "lon": 106.573618,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "临江门大唐广场17号(临江门地铁站2号口步行220米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "重庆市渝中区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜相关;旅游景点"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "023-63537192"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "人民解放纪念碑",
+          "city": "重庆",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "邹容路133号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/3e5c41cec40e35e5675a47a7a326b3f4",
+            "https://store.is.autonavi.com/showpic/054816f1340960e40000000610556346",
+            "https://aos-comment.amap.com/B00170L5D4/comment/content_media_external_images_media_69145_ss__1770795366533_75710879.jpg"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "纪念馆"
+          ],
+          "lat": 29.557204,
+          "lon": 106.577034,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "邹容路133号"
+            },
+            {
+              "label": "所在区域",
+              "value": "重庆市渝中区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;纪念馆"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "江北嘴江滩公园",
+          "city": "重庆",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "金沙门路与桂花街交叉口东南120米",
+          "images": [
+            "https://store.is.autonavi.com/showpic/5d94156849967f1f0000002479890853?type=pic",
+            "https://store.is.autonavi.com/showpic/77575fb3b2158c500000004867882273?type=pic",
+            "https://store.is.autonavi.com/showpic/5cbb8de3e7debf8a0000002626432533?type=pic"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "公园"
+          ],
+          "lat": 29.567497,
+          "lon": 106.57564,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "金沙门路与桂花街交叉口东南120米"
+            },
+            {
+              "label": "所在区域",
+              "value": "重庆市两江新区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;公园"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "重庆中国三峡博物馆",
+          "city": "重庆",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "人民路236号",
+          "images": [
+            "http://store.is.autonavi.com/showpic/f0793548abccf60661920c5dc752e8b6",
+            "http://store.is.autonavi.com/showpic/cba5af9facb886509e75d49b306a7df3",
+            "http://store.is.autonavi.com/showpic/b67e8a164fe512c5cebc71ac71c65a8c"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.8,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "科教文化服务",
+            "博物馆",
+            "博物馆"
+          ],
+          "lat": 29.562014,
+          "lon": 106.550513,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "人民路236号"
+            },
+            {
+              "label": "所在区域",
+              "value": "重庆市渝中区"
+            },
+            {
+              "label": "类型",
+              "value": "科教文化服务;博物馆;博物馆"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "023-63679067;023-63679066"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "鹅岭公园",
+          "city": "重庆",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "鹅岭正街176号(鹅岭地铁站2A口步行360米)",
+          "images": [
+            "http://store.is.autonavi.com/showpic/e0c2074eb112d71ff3db00d166c5e4e8",
+            "http://store.is.autonavi.com/showpic/23a635a9a38e3c804c1cb7540c623f28",
+            "https://store.is.autonavi.com/showpic/d8c73a8b259847ee0000003296216104?type=pic"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "公园广场",
+            "公园"
+          ],
+          "lat": 29.549688,
+          "lon": 106.536235,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "鹅岭正街176号(鹅岭地铁站2A口步行360米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "重庆市渝中区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;公园广场;公园"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "023-63656270;023-63656202"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "罗汉寺",
+          "city": "重庆",
+          "category": "文化",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "解放碑街道罗汉寺街7号",
+          "images": [
+            "https://store.is.autonavi.com/showpic/738782e7bc8d1c9e0000003772096173?type=pic",
+            "https://store.is.autonavi.com/showpic/13d617aa42624d290000002671516907?type=pic",
+            "https://store.is.autonavi.com/showpic/d7d9bda0468b8f130000004532532694?type=pic"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "寺庙道观"
+          ],
+          "lat": 29.559756,
+          "lon": 106.581619,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "解放碑街道罗汉寺街7号"
+            },
+            {
+              "label": "所在区域",
+              "value": "重庆市渝中区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;寺庙道观"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "023-63815114"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        },
+        {
+          "name": "十八梯观景台",
+          "city": "重庆",
+          "category": "自然",
+          "estimated_duration": "2小时",
+          "ticket_price": 0.0,
+          "ticket_known": false,
+          "description": "较场口临68-17号",
+          "images": [
+            "https://aos-comment.amap.com/B0LDGAD2XG/comment/52998F9B_3AFB_4142_8373_42E192F61AAF_L0_001_1500_200_1770308098003_04968638.jpg",
+            "https://store.is.autonavi.com/showpic/c65dc8c2539901400000002438614114?type=pic",
+            "https://store.is.autonavi.com/showpic/1f43d5e839b6a5720000002262624627?type=pic"
+          ],
+          "opening_hours": "",
+          "closing_day": "",
+          "need_booking": false,
+          "rating": 4.7,
+          "review_count": 0,
+          "suggested_duration": "2-3小时",
+          "how_to_get": [],
+          "tips": "",
+          "tags": [
+            "风景名胜",
+            "风景名胜",
+            "风景名胜"
+          ],
+          "lat": 29.552407,
+          "lon": 106.574188,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "较场口临68-17号"
+            },
+            {
+              "label": "所在区域",
+              "value": "重庆市渝中区"
+            },
+            {
+              "label": "类型",
+              "value": "风景名胜;风景名胜;风景名胜"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "门票",
+              "value": "实时票价待查（以景区官方为准）"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

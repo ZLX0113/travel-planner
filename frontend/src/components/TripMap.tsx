@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import L from 'leaflet'
-import type { DayPlan } from '../types'
+import type { DayPlan, TimeNode } from '../types'
 
 // Fix Leaflet default icon issue
 delete (L.Icon.Default.prototype as any)._getIconUrl
@@ -11,66 +11,94 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
 })
 
-// Attraction coordinates — 覆盖所有城市景点
-const ATTRACTION_COORDS: Record<string, [number, number]> = {
-  // 东京
-  "浅草寺": [35.7148, 139.7967], "秋叶原": [35.7023, 139.7745],
-  "筑地市场": [35.6654, 139.7707], "涩谷十字路口": [35.6595, 139.7004],
-  "东京迪士尼乐园": [35.6329, 139.8804], "明治神宫": [35.6764, 139.6993],
-  "新宿御苑": [35.6852, 139.7100], "银座": [35.6717, 139.7650],
-  // 大阪
-  "大阪城": [34.6873, 135.5259], "道顿堀": [34.6687, 135.5013],
-  "环球影城": [34.6654, 135.4323], "心斋桥": [34.6725, 135.4998],
-  "通天阁": [34.6525, 135.5063], "大阪海游馆": [34.6545, 135.4289],
-  "梅田蓝天大厦": [34.7054, 135.4902], "四天王寺": [34.6539, 135.5152],
-  // 曼谷
-  "大皇宫": [13.7500, 100.4914], "恰图恰周末市场": [13.8000, 100.5510],
-  "考山路": [13.7588, 100.4974], "卧佛寺": [13.7465, 100.4930],
-  "暹罗天地": [13.7265, 100.5099], "郑王庙": [13.7437, 100.4888],
-  "丹嫩沙多水上市场": [13.5420, 99.9570], "拉差达火车夜市": [13.7669, 100.5695],
-  // 巴黎
-  "埃菲尔铁塔": [48.8584, 2.2945], "卢浮宫": [48.8606, 2.3376],
-  "香榭丽舍大街": [48.8698, 2.3075], "蒙马特高地": [48.8867, 2.3431],
-  "塞纳河游船": [48.8638, 2.3034], "玛黑区": [48.8575, 2.3600],
-  "奥赛博物馆": [48.8600, 2.3266], "拉丁区": [48.8500, 2.3447],
-  // 京都
-  "伏见稻荷大社": [34.9671, 135.7727], "清水寺": [34.9949, 135.7850],
-  "金阁寺": [35.0394, 135.7292], "岚山竹林": [35.0170, 135.6712],
-  "锦市场": [35.0048, 135.7656], "祇园": [35.0036, 135.7765],
-  "京都御所": [35.0254, 135.7621], "京都塔": [34.9876, 135.7592],
-  // 首尔
-  "景福宫": [37.5796, 126.9770], "明洞": [37.5637, 126.9847],
-  "N首尔塔": [37.5512, 126.9882], "北村韩屋村": [37.5824, 126.9857],
-  "广藏市场": [37.5700, 126.9990], "弘大": [37.5559, 126.9232],
-  "梨泰院": [37.5345, 126.9940], "汉江公园": [37.5283, 126.9340],
-  // 巴厘岛
-  "海神庙": [-8.6213, 115.0868], "乌布皇宫": [-8.5069, 115.2624],
-  "德格拉朗梯田": [-8.4310, 115.2796], "金巴兰海滩": [-8.7820, 115.1650],
-  "圣猴森林": [-8.5183, 115.2587], "水明漾": [-8.6914, 115.1550],
-  "乌鲁瓦图断崖": [-8.8291, 115.0849], "巴厘岛鸟园": [-8.5930, 115.2510],
-  // 纽约
-  "自由女神像": [40.6892, -74.0445], "时代广场": [40.7580, -73.9855],
-  "中央公园": [40.7829, -73.9654], "大都会艺术博物馆": [40.7794, -73.9632],
-  "第五大道": [40.7638, -73.9731], "布鲁克林大桥": [40.7061, -73.9969],
-  "切尔西市场": [40.7425, -74.0061], "高线公园": [40.7480, -74.0048],
-  // 伦敦
-  "大本钟": [51.5007, -0.1246], "大英博物馆": [51.5194, -0.1270],
-  "伦敦塔桥": [51.5055, -0.0754], "牛津街": [51.5152, -0.1419],
-  "博罗市场": [51.5055, -0.0910], "海德公园": [51.5073, -0.1657],
-  "伦敦眼": [51.5033, -0.1195], "诺丁山": [51.5124, -0.2045],
+// 少量兜底坐标（数据里没带经纬度时使用），正常情况都用节点自带的实时坐标
+const FALLBACK_COORDS: Record<string, [number, number]> = {
+  "天安门广场": [39.903182, 116.397755],
+  "故宫博物院": [39.917839, 116.397029],
+  "外滩": [31.239700, 121.490300],
+  "西湖": [30.248600, 120.141800],
+  "大熊猫繁育研究基地": [30.734200, 104.145700],
+  "兵马俑": [34.384100, 109.278500],
 }
 
+// 国内目的地城市中心（地图初始视角）
 const CITY_CENTERS: Record<string, [number, number]> = {
-  "东京": [35.6762, 139.6503], "大阪": [34.6937, 135.5023],
-  "曼谷": [13.7563, 100.5018], "巴黎": [48.8566, 2.3522],
-  "京都": [35.0116, 135.7681], "首尔": [37.5665, 126.9780],
-  "巴厘岛": [-8.3405, 115.0920], "纽约": [40.7128, -74.0060],
-  "伦敦": [51.5074, -0.1278],
+  "北京": [39.9042, 116.4074], "上海": [31.2304, 121.4737],
+  "广州": [23.1291, 113.2644], "深圳": [22.5431, 114.0579],
+  "成都": [30.5728, 104.0668], "重庆": [29.5630, 106.5516],
+  "西安": [34.3416, 108.9398], "杭州": [30.2741, 120.1551],
+  "南京": [32.0603, 118.7969], "苏州": [31.2989, 120.5853],
+  "武汉": [30.5928, 114.3055], "长沙": [28.2282, 112.9388],
+  "厦门": [24.4798, 118.0894], "青岛": [36.0671, 120.3826],
+  "三亚": [18.2528, 109.5119], "海口": [20.0444, 110.1999],
+  "桂林": [25.2736, 110.2900], "阳朔": [24.7785, 110.4966],
+  "张家界": [29.1170, 110.4792], "丽江": [26.8721, 100.2299],
+  "大理": [25.6065, 100.2676], "昆明": [24.8801, 102.8329],
+  "贵阳": [26.6470, 106.6302], "哈尔滨": [45.8038, 126.5340],
+  "沈阳": [41.8057, 123.4315], "大连": [38.9140, 121.6147],
+  "济南": [36.6512, 117.1201],
+  "天津": [39.0842, 117.2009], "郑州": [34.7466, 113.6254],
+  "洛阳": [34.6197, 112.4540], "敦煌": [40.1421, 94.6618],
+  "西宁": [36.6171, 101.7782], "银川": [38.4872, 106.2309],
+  "乌鲁木齐": [43.8256, 87.6168], "拉萨": [29.6500, 91.1000],
+  "黄山": [29.7147, 118.3376], "承德": [40.9515, 117.9634],
+}
+
+const DEFAULT_CENTER: [number, number] = [39.9042, 116.4074]  // 北京
+
+/** 取节点坐标：优先用数据源返回的经纬度，没有再用兜底表 */
+export function nodeCoord(node: TimeNode): [number, number] | null {
+  const detail = (node.detail || {}) as Record<string, any>
+  const lat = Number(detail.lat)
+  const lon = Number(detail.lon)
+  if (Number.isFinite(lat) && Number.isFinite(lon) && (lat !== 0 || lon !== 0)) {
+    return [lat, lon]
+  }
+  return FALLBACK_COORDS[node.title] || null
+}
+
+/** 点击地点后地图要定位到的目标 */
+export interface MapFocus {
+  /** 用于触发切换的标识（切换同一个地点时也能重新定位） */
+  id: string
+  /** 地点名称，显示在地图标题栏 */
+  name: string
+  lat: number
+  lon: number
 }
 
 interface TripMapProps {
   itinerary: DayPlan[]
   destination: string
+  /** 点击景点 / 餐厅 / 酒店后把地图切到该位置 */
+  focus?: MapFocus | null
+}
+
+function FocusOn({
+  focus,
+  markerRefs,
+}: {
+  focus?: MapFocus | null
+  markerRefs: React.MutableRefObject<Record<string, L.Marker | null>>
+}) {
+  const map = useMap()
+
+  useEffect(() => {
+    if (!focus) return
+    map.setView([focus.lat, focus.lon], 15)
+    // 有对应标记时顺手把气泡打开，位置更直观
+    const marker = Object.values(markerRefs.current).find((item) => {
+      const latlng = item?.getLatLng?.()
+      return (
+        latlng &&
+        Math.abs(latlng.lat - focus.lat) < 1e-6 &&
+        Math.abs(latlng.lng - focus.lon) < 1e-6
+      )
+    })
+    marker?.openPopup()
+  }, [focus?.id, focus?.lat, focus?.lon, map, markerRefs])
+
+  return null
 }
 
 function FitBounds({ itinerary, destination }: { itinerary: DayPlan[]; destination: string }) {
@@ -80,7 +108,7 @@ function FitBounds({ itinerary, destination }: { itinerary: DayPlan[]; destinati
     const coords: [number, number][] = []
     itinerary.forEach((day) => {
       day.nodes.forEach((node) => {
-        const coord = ATTRACTION_COORDS[node.title]
+        const coord = nodeCoord(node)
         if (coord) coords.push(coord)
       })
     })
@@ -89,7 +117,7 @@ function FitBounds({ itinerary, destination }: { itinerary: DayPlan[]; destinati
       const bounds = L.latLngBounds(coords.map((c) => L.latLng(c[0], c[1])))
       map.fitBounds(bounds, { padding: [40, 40] })
     } else {
-      const center = CITY_CENTERS[destination] || [35.6762, 139.6503]
+      const center = CITY_CENTERS[destination] || DEFAULT_CENTER
       map.setView(center, 12)
     }
   }, [itinerary, destination, map])
@@ -113,14 +141,15 @@ function MapErrorHandler({ onError }: { onError: () => void }) {
   return null
 }
 
-export default function TripMap({ itinerary, destination }: TripMapProps) {
-  const center = CITY_CENTERS[destination] || [35.6762, 139.6503]
+export default function TripMap({ itinerary, destination, focus }: TripMapProps) {
+  const center = CITY_CENTERS[destination] || DEFAULT_CENTER
   const [mapError, setMapError] = useState(false)
+  const markerRefs = useRef<Record<string, L.Marker | null>>({})
 
   const markers: { name: string; coord: [number, number]; day: number; category: string }[] = []
   itinerary.forEach((day) => {
     day.nodes.forEach((node) => {
-      const coord = ATTRACTION_COORDS[node.title]
+      const coord = nodeCoord(node)
       if (coord) {
         markers.push({ name: node.title, coord, day: day.day, category: node.category })
       }
@@ -131,7 +160,7 @@ export default function TripMap({ itinerary, destination }: TripMapProps) {
   itinerary.forEach((day) => {
     const dayCoords: [number, number][] = []
     day.nodes.forEach((node) => {
-      const coord = ATTRACTION_COORDS[node.title]
+      const coord = nodeCoord(node)
       if (coord) dayCoords.push(coord)
     })
     if (dayCoords.length > 1) polylines.push(dayCoords)
@@ -141,8 +170,9 @@ export default function TripMap({ itinerary, destination }: TripMapProps) {
 
   return (
     <div className="my-3 rounded-xl overflow-hidden border border-gray-200">
-      <div className="px-4 py-2 bg-gray-50 border-b border-gray-200 text-xs font-medium text-gray-500">
-        🗺️ 行程地图
+      <div className="px-4 py-2 bg-gray-50 border-b border-gray-200 text-xs font-medium text-gray-500 flex items-center justify-between gap-2">
+        <span>🗺️ 行程地图</span>
+        {focus && <span className="text-blue-600 truncate">📍 {focus.name}</span>}
       </div>
       <div style={{ height: '320px', width: '100%' }}>
         {mapError ? (
@@ -171,17 +201,27 @@ export default function TripMap({ itinerary, destination }: TripMapProps) {
             />
             <MapErrorHandler onError={() => setMapError(true)} />
             <FitBounds itinerary={itinerary} destination={destination} />
+            <FocusOn focus={focus} markerRefs={markerRefs} />
 
-            {markers.map((m, i) => (
-              <Marker key={i} position={m.coord}>
-                <Popup>
-                  <div className="text-sm">
-                    <div className="font-medium">{m.name}</div>
-                    <div className="text-xs text-gray-500">Day {m.day} · {m.category}</div>
-                  </div>
-                </Popup>
-              </Marker>
-            ))}
+            {markers.map((m, i) => {
+              const key = `${m.name}@${m.coord[0]},${m.coord[1]}`
+              return (
+                <Marker
+                  key={`${key}-${i}`}
+                  position={m.coord}
+                  ref={(instance) => {
+                    markerRefs.current[key] = instance
+                  }}
+                >
+                  <Popup>
+                    <div className="text-sm">
+                      <div className="font-medium">{m.name}</div>
+                      <div className="text-xs text-gray-500">Day {m.day} · {m.category}</div>
+                    </div>
+                  </Popup>
+                </Marker>
+              )
+            })}
 
             {polylines.map((line, i) => (
               <Polyline

@@ -1,890 +1,46 @@
-"""旅行搜索工具函数 — 当前为 mock 数据，后续接入真实 API"""
+"""旅行搜索工具函数 — 在线数据源优先，失败自动回退本地数据
 
+工具函数保持无状态：每次调用向数据源取原始数据，再做过滤与排序。
+数据源由配置决定（默认 auto：配了高德 Key 走在线实时数据，否则用本地 JSON），
+返回结果里带上 source / fields / raw，前端可自适应渲染字段。
+"""
+
+import logging
 import random
-from app.agents.state import FlightInfo, HotelInfo, AttractionInfo
+
+from app.agents.state import AttractionInfo, FlightInfo, FoodInfo, HotelInfo
+from app.core.config import app_config
+from app.tools.data_source import get_data_source, get_fallback_data_source
+from app.tools.flight_estimator import estimate_flights
+
+logger = logging.getLogger(__name__)
 
 
-# ============ Mock 数据库 ============
-
-MOCK_FLIGHTS = {
-    ("北京", "东京"): [
-        {"airline": "中国国航", "flight_no": "CA925", "departure_time": "08:30", "arrival_time": "12:30", "price": 3200, "duration": "4h", "baggage": "23kg×2", "seats_left": 12, "departure_airport": "北京首都T3", "arrival_airport": "东京成田T1"},
-        {"airline": "全日空", "flight_no": "NH964", "departure_time": "10:00", "arrival_time": "14:00", "price": 3800, "duration": "4h", "baggage": "23kg×2", "seats_left": 5, "departure_airport": "北京首都T3", "arrival_airport": "东京羽田T3"},
-        {"airline": "日本航空", "flight_no": "JL022", "departure_time": "13:00", "arrival_time": "17:00", "price": 3500, "duration": "4h", "baggage": "23kg×2", "seats_left": 8, "departure_airport": "北京首都T3", "arrival_airport": "东京成田T2"},
-    ],
-    ("上海", "东京"): [
-        {"airline": "东方航空", "flight_no": "MU523", "departure_time": "09:00", "arrival_time": "12:30", "price": 2800, "duration": "3h30m", "baggage": "23kg×2", "seats_left": 15, "departure_airport": "上海浦东T1", "arrival_airport": "东京成田T1"},
-        {"airline": "全日空", "flight_no": "NH972", "departure_time": "11:30", "arrival_time": "15:00", "price": 3500, "duration": "3h30m", "baggage": "23kg×2", "seats_left": 3, "departure_airport": "上海浦东T1", "arrival_airport": "东京羽田T3"},
-        {"airline": "春秋航空", "flight_no": "9C8888", "departure_time": "07:00", "arrival_time": "11:00", "price": 1500, "duration": "4h", "baggage": "手提7kg", "seats_left": 20, "departure_airport": "上海浦东T2", "arrival_airport": "东京成田T3"},
-    ],
-    ("北京", "大阪"): [
-        {"airline": "中国国航", "flight_no": "CA927", "departure_time": "09:00", "arrival_time": "12:30", "price": 3400, "duration": "3h30m", "baggage": "23kg×2", "seats_left": 10, "departure_airport": "北京首都T3", "arrival_airport": "大阪关西T1"},
-        {"airline": "东方航空", "flight_no": "MU747", "departure_time": "10:30", "arrival_time": "14:00", "price": 3100, "duration": "3h30m", "baggage": "23kg×2", "seats_left": 7, "departure_airport": "北京大兴", "arrival_airport": "大阪关西T1"},
-    ],
-    ("上海", "大阪"): [
-        {"airline": "春秋航空", "flight_no": "9C8589", "departure_time": "08:00", "arrival_time": "11:00", "price": 1200, "duration": "3h", "baggage": "手提7kg", "seats_left": 18, "departure_airport": "上海浦东T2", "arrival_airport": "大阪关西T2"},
-        {"airline": "吉祥航空", "flight_no": "HO1337", "departure_time": "14:00", "arrival_time": "17:00", "price": 1800, "duration": "3h", "baggage": "23kg×1", "seats_left": 12, "departure_airport": "上海浦东T1", "arrival_airport": "大阪关西T1"},
-    ],
-    ("北京", "曼谷"): [
-        {"airline": "泰国航空", "flight_no": "TG675", "departure_time": "17:00", "arrival_time": "21:00", "price": 2500, "duration": "5h", "baggage": "30kg", "seats_left": 6, "departure_airport": "北京首都T3", "arrival_airport": "曼谷素万那普"},
-        {"airline": "中国国航", "flight_no": "CA979", "departure_time": "13:00", "arrival_time": "17:00", "price": 2800, "duration": "5h", "baggage": "23kg×2", "seats_left": 9, "departure_airport": "北京首都T3", "arrival_airport": "曼谷素万那普"},
-    ],
-    ("北京", "京都"): [
-        {"airline": "中国国航", "flight_no": "CA927", "departure_time": "09:00", "arrival_time": "12:30", "price": 3400, "duration": "3h30m", "baggage": "23kg×2", "seats_left": 10, "departure_airport": "北京首都T3", "arrival_airport": "大阪关西T1"},
-        {"airline": "东方航空", "flight_no": "MU525", "departure_time": "10:30", "arrival_time": "14:00", "price": 3100, "duration": "3h30m", "baggage": "23kg×2", "seats_left": 7, "departure_airport": "北京大兴", "arrival_airport": "大阪关西T1"},
-        {"airline": "全日空", "flight_no": "NH980", "departure_time": "14:00", "arrival_time": "17:30", "price": 3900, "duration": "3h30m", "baggage": "23kg×2", "seats_left": 5, "departure_airport": "北京首都T3", "arrival_airport": "大阪关西T1"},
-    ],
-    ("上海", "京都"): [
-        {"airline": "春秋航空", "flight_no": "9C8589", "departure_time": "08:00", "arrival_time": "11:00", "price": 1200, "duration": "3h", "baggage": "手提7kg", "seats_left": 18, "departure_airport": "上海浦东T2", "arrival_airport": "大阪关西T2"},
-        {"airline": "吉祥航空", "flight_no": "HO1337", "departure_time": "14:00", "arrival_time": "17:00", "price": 1800, "duration": "3h", "baggage": "23kg×1", "seats_left": 12, "departure_airport": "上海浦东T1", "arrival_airport": "大阪关西T1"},
-        {"airline": "东方航空", "flight_no": "MU747", "departure_time": "11:00", "arrival_time": "14:30", "price": 2600, "duration": "3h30m", "baggage": "23kg×2", "seats_left": 9, "departure_airport": "上海浦东T1", "arrival_airport": "大阪关西T1"},
-    ],
-    ("北京", "首尔"): [
-        {"airline": "大韩航空", "flight_no": "KE856", "departure_time": "08:00", "arrival_time": "11:00", "price": 2200, "duration": "2h", "baggage": "23kg×2", "seats_left": 12, "departure_airport": "北京首都T3", "arrival_airport": "首尔仁川T2"},
-        {"airline": "中国国航", "flight_no": "CA123", "departure_time": "10:30", "arrival_time": "13:30", "price": 2000, "duration": "2h", "baggage": "23kg×1", "seats_left": 15, "departure_airport": "北京首都T3", "arrival_airport": "首尔仁川T1"},
-        {"airline": "韩亚航空", "flight_no": "OZ334", "departure_time": "15:00", "arrival_time": "18:00", "price": 2600, "duration": "2h", "baggage": "23kg×2", "seats_left": 8, "departure_airport": "北京首都T3", "arrival_airport": "首尔金浦I"},
-    ],
-    ("上海", "首尔"): [
-        {"airline": "东方航空", "flight_no": "MU5041", "departure_time": "09:00", "arrival_time": "11:30", "price": 1800, "duration": "1h30m", "baggage": "23kg×2", "seats_left": 14, "departure_airport": "上海浦东T1", "arrival_airport": "首尔仁川T1"},
-        {"airline": "大韩航空", "flight_no": "KE898", "departure_time": "12:00", "arrival_time": "14:30", "price": 2100, "duration": "1h30m", "baggage": "23kg×2", "seats_left": 10, "departure_airport": "上海浦东T1", "arrival_airport": "首尔仁川T2"},
-        {"airline": "春秋航空", "flight_no": "9C8569", "departure_time": "07:30", "arrival_time": "10:30", "price": 900, "duration": "2h", "baggage": "手提7kg", "seats_left": 20, "departure_airport": "上海浦东T2", "arrival_airport": "首尔仁川T1"},
-    ],
-    ("北京", "巴厘岛"): [
-        {"airline": "印尼鹰航", "flight_no": "GA893", "departure_time": "07:00", "arrival_time": "14:00", "price": 4200, "duration": "7h", "baggage": "30kg", "seats_left": 8, "departure_airport": "北京首都T3", "arrival_airport": "巴厘岛努拉莱伊"},
-        {"airline": "中国国航", "flight_no": "CA891", "departure_time": "16:00", "arrival_time": "23:00", "price": 3800, "duration": "7h", "baggage": "23kg×2", "seats_left": 6, "departure_airport": "北京首都T3", "arrival_airport": "巴厘岛努拉莱伊"},
-        {"airline": "厦门航空", "flight_no": "MF801", "departure_time": "09:00", "arrival_time": "17:00", "price": 3500, "duration": "8h（经停厦门）", "baggage": "23kg×2", "seats_left": 11, "departure_airport": "北京大兴", "arrival_airport": "巴厘岛努拉莱伊"},
-    ],
-    ("上海", "巴厘岛"): [
-        {"airline": "印尼鹰航", "flight_no": "GA895", "departure_time": "10:00", "arrival_time": "16:00", "price": 4000, "duration": "6h", "baggage": "30kg", "seats_left": 9, "departure_airport": "上海浦东T1", "arrival_airport": "巴厘岛努拉莱伊"},
-        {"airline": "东方航空", "flight_no": "MU5029", "departure_time": "17:00", "arrival_time": "23:30", "price": 3200, "duration": "6h30m", "baggage": "23kg×2", "seats_left": 12, "departure_airport": "上海浦东T1", "arrival_airport": "巴厘岛努拉莱伊"},
-        {"airline": "吉祥航空", "flight_no": "HO1355", "departure_time": "08:00", "arrival_time": "15:00", "price": 2800, "duration": "7h", "baggage": "23kg×1", "seats_left": 15, "departure_airport": "上海浦东T2", "arrival_airport": "巴厘岛努拉莱伊"},
-    ],
-    ("北京", "纽约"): [
-        {"airline": "中国国航", "flight_no": "CA981", "departure_time": "13:00", "arrival_time": "13:30", "price": 6800, "duration": "12h30m", "baggage": "23kg×2", "seats_left": 8, "departure_airport": "北京首都T3", "arrival_airport": "纽约肯尼迪T1"},
-        {"airline": "美联航", "flight_no": "UA088", "departure_time": "17:00", "arrival_time": "17:30", "price": 7200, "duration": "12h30m", "baggage": "23kg×2", "seats_left": 5, "departure_airport": "北京首都T3", "arrival_airport": "纽约纽瓦克TB"},
-        {"airline": "国泰航空", "flight_no": "CX899", "departure_time": "09:00", "arrival_time": "21:00", "price": 5500, "duration": "16h（经停香港）", "baggage": "30kg", "seats_left": 11, "departure_airport": "北京首都T3", "arrival_airport": "纽约肯尼迪T8"},
-    ],
-    ("上海", "纽约"): [
-        {"airline": "东方航空", "flight_no": "MU587", "departure_time": "11:00", "arrival_time": "12:30", "price": 6200, "duration": "13h30m", "baggage": "23kg×2", "seats_left": 7, "departure_airport": "上海浦东T1", "arrival_airport": "纽约肯尼迪T1"},
-        {"airline": "美联航", "flight_no": "UA087", "departure_time": "17:00", "arrival_time": "18:30", "price": 6500, "duration": "13h30m", "baggage": "23kg×2", "seats_left": 6, "departure_airport": "上海浦东T1", "arrival_airport": "纽约纽瓦克TC"},
-        {"airline": "达美航空", "flight_no": "DL582", "departure_time": "10:00", "arrival_time": "12:00", "price": 5800, "duration": "14h", "baggage": "23kg×2", "seats_left": 9, "departure_airport": "上海浦东T1", "arrival_airport": "纽约肯尼迪T4"},
-    ],
-    ("北京", "伦敦"): [
-        {"airline": "中国国航", "flight_no": "CA937", "departure_time": "14:00", "arrival_time": "17:00", "price": 6500, "duration": "11h", "baggage": "23kg×2", "seats_left": 8, "departure_airport": "北京首都T3", "arrival_airport": "伦敦希思罗T2"},
-        {"airline": "英国航空", "flight_no": "BA038", "departure_time": "11:00", "arrival_time": "14:00", "price": 7200, "duration": "11h", "baggage": "23kg×2", "seats_left": 5, "departure_airport": "北京大兴", "arrival_airport": "伦敦希思罗T5"},
-        {"airline": "南方航空", "flight_no": "CZ303", "departure_time": "09:00", "arrival_time": "13:00", "price": 5500, "duration": "12h（经停广州）", "baggage": "23kg×2", "seats_left": 10, "departure_airport": "北京大兴", "arrival_airport": "伦敦希思罗T4"},
-    ],
-    ("上海", "伦敦"): [
-        {"airline": "东方航空", "flight_no": "MU551", "departure_time": "13:00", "arrival_time": "17:30", "price": 6000, "duration": "11h30m", "baggage": "23kg×2", "seats_left": 7, "departure_airport": "上海浦东T1", "arrival_airport": "伦敦希思罗T2"},
-        {"airline": "英国航空", "flight_no": "BA168", "departure_time": "10:00", "arrival_time": "14:30", "price": 6800, "duration": "11h30m", "baggage": "23kg×2", "seats_left": 6, "departure_airport": "上海浦东T1", "arrival_airport": "伦敦希思罗T5"},
-        {"airline": "维珍航空", "flight_no": "VS251", "departure_time": "11:00", "arrival_time": "15:30", "price": 5200, "duration": "11h30m", "baggage": "23kg×1", "seats_left": 12, "departure_airport": "上海浦东T1", "arrival_airport": "伦敦希思罗T3"},
-    ],
-}
-
-MOCK_HOTELS = {
-    "东京": [
-        {"name": "新宿格拉斯丽酒店", "rating": 4.3, "price_per_night": 800, "address": "新宿区歌舞伎町1-19-1", "highlights": ["近地铁", "哥斯拉主题", "夜景"], "images": ["https://picsum.photos/seed/shinjuku-hotel/800/400"], "tags": ["城市景观", "主题酒店", "新宿"], "distance_to_station": "步行3分钟到JR新宿站", "match_reason": "位于新宿核心地段，交通便利"},
-        {"name": "浅草雷门酒店", "rating": 4.1, "price_per_night": 500, "address": "台东区浅草2-3-1", "highlights": ["近浅草寺", "传统日式", "性价比"], "images": ["https://picsum.photos/seed/asakusa-ryokan/800/400"], "tags": ["传统日式", "浅草", "经济型"], "distance_to_station": "步行5分钟到地铁浅草站", "match_reason": "紧邻浅草寺，体验传统日本文化"},
-        {"name": "东京半岛酒店", "rating": 4.8, "price_per_night": 2500, "address": "千代田区丸之内1-8-1", "highlights": ["奢华", "银座旁", "米其林餐厅"], "images": ["https://picsum.photos/seed/peninsula-hotel-tokyo/800/400"], "tags": ["奢华", "银座", "米其林", "五星"], "distance_to_station": "步行1分钟到地铁日比谷站", "match_reason": "顶级奢华体验，毗邻银座和皇居"},
-        {"name": "上野撒库拉酒店", "rating": 3.9, "price_per_night": 350, "address": "台东区上野3-20-1", "highlights": ["近上野公园", "经济型", "安静"], "images": ["https://picsum.photos/seed/ueno-hotel/800/400"], "tags": ["经济型", "上野", "安静"], "distance_to_station": "步行3分钟到JR上野站", "match_reason": "性价比之选，上野公园和文化设施步行可达"},
-    ],
-    "大阪": [
-        {"name": "心斋桥格兰多酒店", "rating": 4.2, "price_per_night": 600, "address": "中央区心斋桥筋2-2-1", "highlights": ["购物便利", "道顿堀旁"], "images": ["https://picsum.photos/seed/shinsaibashi-hotel/800/400"], "tags": ["购物", "心斋桥", "道顿堀"], "distance_to_station": "步行2分钟到地铁心斋桥站", "match_reason": "购物和美食的核心地段"},
-        {"name": "大阪万豪都酒店", "rating": 4.7, "price_per_night": 1800, "address": "阿倍野区阿倍野筋1-1-43", "highlights": ["高空景观", "豪华"], "images": ["https://picsum.photos/seed/marriott-osaka/800/400"], "tags": ["豪华", "高空景观", "五星"], "distance_to_station": "直连JR天王寺站", "match_reason": "大阪最高酒店，俯瞰全城夜景"},
-        {"name": "天王寺经济酒店", "rating": 3.8, "price_per_night": 300, "address": "天王寺区悲田院町3-16", "highlights": ["近JR站", "经济实惠"], "images": ["https://picsum.photos/seed/tennoji-hotel/800/400"], "tags": ["经济型", "天王寺", "交通便利"], "distance_to_station": "步行2分钟到JR天王寺站", "match_reason": "交通枢纽旁，经济实惠之选"},
-    ],
-    "曼谷": [
-        {"name": "曼谷暹罗凯宾斯基酒店", "rating": 4.6, "price_per_night": 900, "address": "991/9 Rama I Rd", "highlights": ["暹罗商圈", "泳池"], "images": ["https://picsum.photos/seed/kempinski-bangkok/800/400"], "tags": ["奢华", "暹罗", "泳池"], "distance_to_station": "步行3分钟到BTS Siam站", "match_reason": "暹罗商圈核心，购物天堂"},
-        {"name": "考山路背包客栈", "rating": 3.5, "price_per_night": 150, "address": "68 Khaosan Rd", "highlights": ["背包客天堂", "夜市"], "images": ["https://picsum.photos/seed/khaosan-road/800/400"], "tags": ["背包客", "夜市", "经济型"], "distance_to_station": "步行10分钟到码头", "match_reason": "背包客天堂，体验曼谷夜生活"},
-    ],
-    "巴黎": [
-        {"name": "巴黎星辰艾美酒店", "rating": 4.4, "price_per_night": 1200, "address": "81 Bd Gouvion Saint-Cyr", "highlights": ["近凯旋门", "法式风情"], "images": ["https://picsum.photos/seed/meridien-paris/800/400"], "tags": ["法式风情", "凯旋门", "四星"], "distance_to_station": "步行5分钟到地铁Porte Maillot站", "match_reason": "近凯旋门和香榭丽舍，法式优雅体验"},
-        {"name": "蒙马特艺术酒店", "rating": 4.0, "price_per_night": 600, "address": "16 Rue Tholozé", "highlights": ["艺术家区", "圣心堂旁"], "images": ["https://picsum.photos/seed/montmartre-hotel/800/400"], "tags": ["艺术区", "蒙马特", "圣心堂"], "distance_to_station": "步行5分钟到地铁Abbesses站", "match_reason": "蒙马特艺术家区，步行可达圣心大教堂"},
-    ],
-    "京都": [
-        {"name": "京都丽思卡尔顿酒店", "rating": 4.8, "price_per_night": 2800, "address": "中京区鸭川二条大桥畔", "highlights": ["鸭川景观", "日式庭院", "米其林餐厅"], "images": ["https://picsum.photos/seed/ritz-kyoto/800/400"], "tags": ["奢华", "鸭川", "日式庭院", "五星"], "distance_to_station": "步行3分钟到地铁京都市役所前站", "match_reason": "鸭川畔顶级奢华体验，融合传统与现代"},
-        {"name": "京都祇园赛莱斯廷酒店", "rating": 4.5, "price_per_night": 1200, "address": "东山区祇园町南侧570", "highlights": ["祇园核心", "温泉大浴场", "町屋风格"], "images": ["https://picsum.photos/seed/gion-hotel-kyoto/800/400"], "tags": ["祇园", "温泉", "传统日式", "四星"], "distance_to_station": "步行5分钟到京阪祇园四条站", "match_reason": "祇园核心地段，步行可达花见小路和八坂神社"},
-        {"name": "京都站前樱花酒店", "rating": 4.0, "price_per_night": 500, "address": "下京区东盐小路町570-3", "highlights": ["京都站直达", "性价比", "现代简约"], "images": ["https://picsum.photos/seed/kyoto-station-hotel/800/400"], "tags": ["交通便利", "经济型", "京都站"], "distance_to_station": "步行1分钟到JR京都站", "match_reason": "京都站步行1分钟，交通枢纽，性价比之选"},
-    ],
-    "首尔": [
-        {"name": "首尔朝鲜酒店", "rating": 4.7, "price_per_night": 1500, "address": "中区小公路106", "highlights": ["明洞旁", "传统韩式", "奢华"], "images": ["https://picsum.photos/seed/chosun-seoul/800/400"], "tags": ["奢华", "明洞", "传统韩式", "五星"], "distance_to_station": "步行2分钟到地铁明洞站", "match_reason": "韩国最具历史的酒店，紧邻明洞商圈"},
-        {"name": "弘大RYSE酒店", "rating": 4.4, "price_per_night": 700, "address": "麻浦区杨花路130", "highlights": ["设计师酒店", "弘大商圈", "年轻人聚集"], "images": ["https://picsum.photos/seed/ryse-hongdae/800/400"], "tags": ["设计师", "弘大", "潮流", "四星"], "distance_to_station": "步行2分钟到地铁弘大入口站", "match_reason": "弘大核心，潮流文化和夜生活中心"},
-        {"name": "仁寺洞传统韩屋民宿", "rating": 4.2, "price_per_night": 400, "address": "钟路区仁寺洞街12", "highlights": ["韩屋体验", "传统茶室", "仁寺洞文化街"], "images": ["https://picsum.photos/seed/insadong-hanok/800/400"], "tags": ["韩屋", "传统", "仁寺洞", "民宿"], "distance_to_station": "步行5分钟到地铁安国站", "match_reason": "体验传统韩屋住宿，仁寺洞文化街步行可达"},
-    ],
-    "巴厘岛": [
-        {"name": "巴厘岛阿雅娜度假村", "rating": 4.8, "price_per_night": 2200, "address": "Jl. Karang Mas Sejahtera, Jimbaran", "highlights": ["悬崖海景", "岩石酒吧", "私人海滩"], "images": ["https://picsum.photos/seed/ayana-bali/800/400"], "tags": ["奢华", "海景", "度假村", "五星"], "distance_to_station": "距金巴兰海滩5分钟车程", "match_reason": "巴厘岛最著名的悬崖度假村，Rock Bar观赏日落绝佳"},
-        {"name": "乌布阿赖耶度假村", "rating": 4.5, "price_per_night": 900, "address": "Jl. Raya Sayan, Ubud", "highlights": ["稻田景观", "瑜伽课程", "丛林SPA"], "images": ["https://picsum.photos/seed/alaya-ubud/800/400"], "tags": ["乌布", "稻田", "SPA", "四星"], "distance_to_station": "步行10分钟到乌布皇宫", "match_reason": "乌布稻田中的静谧度假村，身心放松的理想之地"},
-        {"name": "库塔海滩遗产酒店", "rating": 4.0, "price_per_night": 350, "address": "Jl. Pantai Kuta, Kuta", "highlights": ["库塔海滩旁", "冲浪便利", "性价比"], "images": ["https://picsum.photos/seed/kuta-beach-hotel/800/400"], "tags": ["海滩", "冲浪", "经济型"], "distance_to_station": "步行2分钟到库塔海滩", "match_reason": "库塔海滩旁，冲浪爱好者和背包客首选"},
-    ],
-    "纽约": [
-        {"name": "纽约华尔道夫酒店", "rating": 4.7, "price_per_night": 3200, "address": "301 Park Ave, New York, NY 10022", "highlights": ["公园大道", "传奇酒店", "豪华套房"], "images": ["https://picsum.photos/seed/waldorf-nyc/800/400"], "tags": ["奢华", "中城", "传奇", "五星"], "distance_to_station": "步行5分钟到地铁51街站", "match_reason": "纽约传奇酒店，公园大道地标，步行可达洛克菲勒中心"},
-        {"name": "时代广场希尔顿酒店", "rating": 4.3, "price_per_night": 1500, "address": "234 W 42nd St, New York, NY 10036", "highlights": ["时代广场景观", "百老汇旁", "交通便利"], "images": ["https://picsum.photos/seed/hilton-times-square/800/400"], "tags": ["时代广场", "百老汇", "四星"], "distance_to_station": "步行1分钟到地铁42街站", "match_reason": "时代广场核心位置，百老汇剧院步行可达"},
-        {"name": "布鲁克林桥假日酒店", "rating": 4.0, "price_per_night": 800, "address": "300 Schermerhorn St, Brooklyn, NY 11217", "highlights": ["布鲁克林桥景", "性价比", "地铁直达"], "images": ["https://picsum.photos/seed/brooklyn-bridge-hotel/800/400"], "tags": ["布鲁克林", "桥景", "经济型", "三星"], "distance_to_station": "步行2分钟到地铁Hoyt St站", "match_reason": "布鲁克林高性价比之选，地铁直达曼哈顿"},
-    ],
-    "伦敦": [
-        {"name": "伦敦萨沃伊酒店", "rating": 4.8, "price_per_night": 3500, "address": "Strand, London WC2R 0EZ", "highlights": ["泰晤士河景", "百年传奇", "米其林餐厅"], "images": ["https://picsum.photos/seed/savoy-london/800/400"], "tags": ["奢华", "泰晤士河", "传奇", "五星"], "distance_to_station": "步行3分钟到地铁Charing Cross站", "match_reason": "伦敦百年传奇酒店，泰晤士河畔，步行可达考文特花园"},
-        {"name": "肯辛顿国敦酒店", "rating": 4.3, "price_per_night": 1200, "address": "97 Cromwell Rd, London SW7 4DN", "highlights": ["博物馆区", "海德公园旁", "英式典雅"], "images": ["https://picsum.photos/seed/kensington-hotel/800/400"], "tags": ["肯辛顿", "博物馆", "海德公园", "四星"], "distance_to_station": "步行5分钟到地铁Gloucester Road站", "match_reason": "博物馆区核心，V&A博物馆和自然历史博物馆步行可达"},
-        {"name": "国王十字普瑞米尔酒店", "rating": 4.0, "price_per_night": 700, "address": "26-30 York Way, London N1 9AA", "highlights": ["国王十字站旁", "哈利波特9¾站台", "交通枢纽"], "images": ["https://picsum.photos/seed/kings-cross-hotel/800/400"], "tags": ["国王十字", "交通便利", "经济型", "三星"], "distance_to_station": "步行2分钟到国王十字圣潘克拉斯站", "match_reason": "国王十字交通枢纽旁，性价比之选，欧洲之星始发站"},
-    ],
-}
-
-MOCK_ATTRACTIONS = {
-    "东京": [
-        {
-            "name": "浅草寺",
-            "category": "文化",
-            "estimated_duration": "2小时",
-            "ticket_price": 0,
-            "description": "东京最古老的寺庙，雷门大灯笼是标志",
-            "images": ["https://picsum.photos/seed/sensoji-temple/800/400"],
-            "opening_hours": "6:00-17:00",
-            "closing_day": "全年无休",
-            "need_booking": False,
-            "rating": 4.5,
-            "review_count": 12340,
-            "suggested_duration": "2-3小时",
-            "how_to_get": [
-                {"mode": "🚇", "route": "地铁银座线·浅草站 步行5分钟", "duration": "5min", "price": 0},
-                {"mode": "🚕", "route": "从新宿打车约25分钟", "duration": "25min", "price": 3500},
-            ],
-            "tips": "建议早晨前往人少，雷门灯笼每月更换一次，仲见世通商店街可购买伴手礼。",
-            "tags": ["历史古迹", "网红打卡", "免费", "热门"],
-            "lat": 35.7148, "lon": 139.7967,
-        },
-        {
-            "name": "秋叶原",
-            "category": "购物",
-            "estimated_duration": "3小时",
-            "ticket_price": 0,
-            "description": "电器街与动漫文化中心，二次元天堂",
-            "images": ["https://picsum.photos/seed/akihabara-anime/800/400"],
-            "opening_hours": "店铺各异，通常10:00-20:00",
-            "closing_day": "无",
-            "need_booking": False,
-            "rating": 4.3,
-            "review_count": 8900,
-            "suggested_duration": "2-3小时",
-            "how_to_get": [
-                {"mode": "🚇", "route": "JR山手线·秋叶原站 步行1分钟", "duration": "1min", "price": 0},
-            ],
-            "tips": "Yodobashi Camera和Animate是必逛店铺，二手手办店值得淘。",
-            "tags": ["购物", "二次元", "电子产品"],
-            "lat": 35.7023, "lon": 139.7745,
-        },
-        {
-            "name": "筑地市场",
-            "category": "美食",
-            "estimated_duration": "2小时",
-            "ticket_price": 0,
-            "description": "新鲜海鲜和寿司，建议早上前往",
-            "images": ["https://picsum.photos/seed/tsukiji-fish-market/800/400"],
-            "opening_hours": "5:00-14:00（各店铺不同）",
-            "closing_day": "周日、周三、节假日",
-            "need_booking": False,
-            "rating": 4.6,
-            "review_count": 15600,
-            "suggested_duration": "2小时",
-            "how_to_get": [
-                {"mode": "🚇", "route": "都营大江户线·筑地市场站 步行1分钟", "duration": "1min", "price": 0},
-            ],
-            "tips": "建议早上5-6点到达看金枪鱼拍卖，场外市场随时可逛。",
-            "tags": ["美食", "海鲜", "网红打卡", "热门"],
-            "lat": 35.6654, "lon": 139.7707,
-        },
-        {
-            "name": "涩谷十字路口",
-            "category": "购物",
-            "estimated_duration": "1小时",
-            "ticket_price": 0,
-            "description": "世界最繁忙的十字路口，年轻人的聚集地",
-            "images": ["https://picsum.photos/seed/shibuya-crossing/800/400"],
-            "opening_hours": "全天开放",
-            "closing_day": "无",
-            "need_booking": False,
-            "rating": 4.4,
-            "review_count": 11000,
-            "suggested_duration": "1-2小时",
-            "how_to_get": [
-                {"mode": "🚇", "route": "JR山手线·涩谷站 步行1分钟", "duration": "1min", "price": 0},
-            ],
-            "tips": "SHIBUYA SKY展望台俯瞰十字路口绝佳，忠犬八公像是经典打卡点。",
-            "tags": ["购物", "网红打卡", "夜景", "热门"],
-            "lat": 35.6580, "lon": 139.7016,
-        },
-        {
-            "name": "东京迪士尼乐园",
-            "category": "娱乐",
-            "estimated_duration": "全天",
-            "ticket_price": 490,
-            "description": "亚洲最受欢迎的主题乐园之一",
-            "images": ["https://picsum.photos/seed/disneyland-tokyo/800/400"],
-            "opening_hours": "8:00-22:00",
-            "closing_day": "不定（请查看官网）",
-            "need_booking": True,
-            "rating": 4.7,
-            "review_count": 23000,
-            "suggested_duration": "全天",
-            "how_to_get": [
-                {"mode": "🚇", "route": "JR京叶线·舞滨站 步行5分钟", "duration": "5min", "price": 0},
-            ],
-            "tips": "建议提前下载官方APP预约快速通行，热门项目排队2小时以上。",
-            "tags": ["主题乐园", "亲子", "热门"],
-            "lat": 35.6329, "lon": 139.8804,
-        },
-        {
-            "name": "明治神宫",
-            "category": "文化",
-            "estimated_duration": "1.5小时",
-            "ticket_price": 0,
-            "description": "位于原宿的幽静神社，城市中的森林",
-            "images": ["https://picsum.photos/seed/meiji-shrine/800/400"],
-            "opening_hours": "日出-日落（随季节变化）",
-            "closing_day": "全年无休",
-            "need_booking": False,
-            "rating": 4.4,
-            "review_count": 9800,
-            "suggested_duration": "1-2小时",
-            "how_to_get": [
-                {"mode": "🚇", "route": "JR山手线·原宿站 步行1分钟", "duration": "1min", "price": 0},
-            ],
-            "tips": "参道入口的鸟居是全日本最大木制鸟居，御苑内菖蒲田6月最美。",
-            "tags": ["历史古迹", "自然", "免费"],
-            "lat": 35.6764, "lon": 139.6993,
-        },
-        {
-            "name": "新宿御苑",
-            "category": "自然",
-            "estimated_duration": "2小时",
-            "ticket_price": 15,
-            "description": "日式庭园与法式庭园结合的皇家花园",
-            "images": ["https://picsum.photos/seed/shinjuku-garden/800/400"],
-            "opening_hours": "9:00-16:30（10月-3月） / 9:00-18:30（4月-9月）",
-            "closing_day": "周一（如遇节假日则次日闭园）",
-            "need_booking": False,
-            "rating": 4.5,
-            "review_count": 7200,
-            "suggested_duration": "2小时",
-            "how_to_get": [
-                {"mode": "🚇", "route": "地铁丸之内线·新宿御苑前站 步行5分钟", "duration": "5min", "price": 0},
-            ],
-            "tips": "3-4月赏樱季节人极多，建议上午9点开门前到达排队。",
-            "tags": ["自然", "赏樱", "拍照"],
-            "lat": 35.6852, "lon": 139.7100,
-        },
-        {
-            "name": "银座",
-            "category": "购物",
-            "estimated_duration": "3小时",
-            "ticket_price": 0,
-            "description": "东京顶级购物区，奢侈品与百货林立",
-            "images": ["https://picsum.photos/seed/ginza-tokyo/800/400"],
-            "opening_hours": "店铺各异，通常11:00-20:00",
-            "closing_day": "无",
-            "need_booking": False,
-            "rating": 4.3,
-            "review_count": 8500,
-            "suggested_duration": "2-3小时",
-            "how_to_get": [
-                {"mode": "🚇", "route": "地铁银座线·银座站 步行1分钟", "duration": "1min", "price": 0},
-            ],
-            "tips": "周末银座中央通为步行者天国，可步行在大街上。",
-            "tags": ["购物", "奢侈品", "美食"],
-            "lat": 35.6719, "lon": 139.7646,
-        },
-    ],
-    "大阪": [
-        {
-            "name": "大阪城", "category": "文化", "estimated_duration": "2.5小时", "ticket_price": 40,
-            "description": "日本三大名城之一，天守阁可眺望市景", "images": ["https://picsum.photos/seed/osaka-castle/800/400"],
-            "opening_hours": "9:00-17:00", "closing_day": "年末年始(12/28-1/1)", "need_booking": False,
-            "rating": 4.5, "review_count": 15000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "JR大阪环状线·大阪城公园站 步行5分钟", "duration": "5min", "price": 0}],
-            "tips": "天守阁顶层可360度眺望大阪全景，公园内樱花季极美。",
-            "tags": ["历史古迹", "城市地标", "赏樱"], "lat": 34.6873, "lon": 135.5259,
-        },
-        {
-            "name": "道顿堀", "category": "美食", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "美食天堂，章鱼烧和螃蟹招牌是标志", "images": ["https://picsum.photos/seed/dotonbori/800/400"],
-            "opening_hours": "全天，店铺通常11:00-23:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.6, "review_count": 20000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁御堂筋线·难波站 步行3分钟", "duration": "3min", "price": 0}],
-            "tips": "必吃：章鱼烧、大阪烧、串炸。格力高广告牌是经典打卡点。",
-            "tags": ["美食", "网红打卡", "夜景", "热门"], "lat": 34.6687, "lon": 135.5013,
-        },
-        {
-            "name": "环球影城", "category": "娱乐", "estimated_duration": "全天", "ticket_price": 520,
-            "description": "超级任天堂世界和哈利波特园区", "images": ["https://picsum.photos/seed/usj-osaka/800/400"],
-            "opening_hours": "8:30-21:00（随季节调整）", "closing_day": "不定（请查看官网）", "need_booking": True,
-            "rating": 4.7, "review_count": 25000, "suggested_duration": "全天",
-            "how_to_get": [{"mode": "🚇", "route": "JR梦咲线·环球城站 步行5分钟", "duration": "5min", "price": 0}],
-            "tips": "超级任天堂世界需提前预约入场时间，建议购买快速通行券。",
-            "tags": ["主题乐园", "亲子", "热门"], "lat": 34.6654, "lon": 135.4323,
-        },
-        {
-            "name": "心斋桥", "category": "购物", "estimated_duration": "3小时", "ticket_price": 0,
-            "description": "大阪最繁华的购物街，药妆店和百货林立", "images": ["https://picsum.photos/seed/shinsaibashi/800/400"],
-            "opening_hours": "店铺通常10:00-21:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.4, "review_count": 12000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁御堂筋线·心斋桥站 步行1分钟", "duration": "1min", "price": 0}],
-            "tips": "药妆店松本清和SUNDRUG竞争激烈，多比价。筋商店街雨天也好逛。",
-            "tags": ["购物", "药妆", "流行"], "lat": 34.6725, "lon": 135.5011,
-        },
-        {
-            "name": "通天阁", "category": "文化", "estimated_duration": "1小时", "ticket_price": 45,
-            "description": "大阪地标，新世界区域的象征", "images": ["https://picsum.photos/seed/tsutenkaku/800/400"],
-            "opening_hours": "9:00-21:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.2, "review_count": 8000, "suggested_duration": "1-2小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁堺筋线·惠美须町站 步行3分钟", "duration": "3min", "price": 0}],
-            "tips": "通天阁周边的新世界区域有大量串炸店，比利肯雕像摸脚底可带来好运。",
-            "tags": ["历史古迹", "城市地标", "美食"], "lat": 34.6525, "lon": 135.5063,
-        },
-        {
-            "name": "大阪海游馆", "category": "自然", "estimated_duration": "2.5小时", "ticket_price": 140,
-            "description": "世界最大级别的水族馆，鲸鲨是镇馆之宝", "images": ["https://picsum.photos/seed/kaiyukan/800/400"],
-            "opening_hours": "10:00-20:00", "closing_day": "不定（每年约4天）", "need_booking": False,
-            "rating": 4.6, "review_count": 18000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁中央线·大阪港站 步行5分钟", "duration": "5min", "price": 0}],
-            "tips": "建议从顶层螺旋向下游览，触摸池可以亲手抚摸鳐鱼。",
-            "tags": ["自然", "亲子", "海洋"], "lat": 34.6545, "lon": 135.4289,
-        },
-        {
-            "name": "梅田蓝天大厦", "category": "娱乐", "estimated_duration": "1.5小时", "ticket_price": 80,
-            "description": "空中庭园展望台，360度俯瞰大阪夜景", "images": ["https://picsum.photos/seed/umeda-sky/800/400"],
-            "opening_hours": "9:30-22:30", "closing_day": "无", "need_booking": False,
-            "rating": 4.4, "review_count": 10000, "suggested_duration": "1-2小时",
-            "how_to_get": [{"mode": "🚇", "route": "JR大阪站 步行7分钟", "duration": "7min", "price": 0}],
-            "tips": "建议黄昏时分前往，日落+夜景一次看完。空中扶梯是网红拍照点。",
-            "tags": ["夜景", "网红打卡", "浪漫"], "lat": 34.7054, "lon": 135.4902,
-        },
-        {
-            "name": "四天王寺", "category": "文化", "estimated_duration": "1.5小时", "ticket_price": 0,
-            "description": "日本最古老的官寺，圣德太子创建", "images": ["https://picsum.photos/seed/shitennoji/800/400"],
-            "opening_hours": "8:30-16:30", "closing_day": "全年无休", "need_booking": False,
-            "rating": 4.3, "review_count": 6000, "suggested_duration": "1-2小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁谷町线·四天王寺前夕阳丘站 步行5分钟", "duration": "5min", "price": 0}],
-            "tips": "每月21日和22日有跳蚤市场，可以淘到古董和手工艺品。",
-            "tags": ["历史古迹", "寺庙", "免费"], "lat": 34.6539, "lon": 135.5152,
-        },
-    ],
-    "曼谷": [
-        {
-            "name": "大皇宫", "category": "文化", "estimated_duration": "2.5小时", "ticket_price": 100,
-            "description": "泰国最著名的地标，玉佛寺所在地", "images": ["https://picsum.photos/seed/grand-palace-bkk/800/400"],
-            "opening_hours": "8:30-15:30", "closing_day": "无", "need_booking": False,
-            "rating": 4.6, "review_count": 35000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "BTS Saphan Taksin站+船 或 出租车", "duration": "30min", "price": 50}],
-            "tips": "需穿长裤和遮肩衣服，门口可租借。建议早晨8点前到达避开人流。",
-            "tags": ["历史古迹", "城市地标", "必去"], "lat": 13.7500, "lon": 100.4914,
-        },
-        {
-            "name": "恰图恰周末市场", "category": "购物", "estimated_duration": "4小时", "ticket_price": 0,
-            "description": "世界最大的周末市场，8000+摊位", "images": ["https://picsum.photos/seed/chatuchak/800/400"],
-            "opening_hours": "周六日 9:00-18:00", "closing_day": "周一至周五", "need_booking": False,
-            "rating": 4.4, "review_count": 20000, "suggested_duration": "3-4小时",
-            "how_to_get": [{"mode": "🚇", "route": "BTS Mo Chit站 / MRT Chatuchak Park站", "duration": "5min", "price": 0}],
-            "tips": "带好现金，大部分摊位只收现金。建议从Section 1开始逛，有地图可以领。",
-            "tags": ["购物", "市集", "手工艺品", "热门"], "lat": 13.8000, "lon": 100.5500,
-        },
-        {
-            "name": "考山路", "category": "美食", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "背包客天堂，夜市小吃和酒吧", "images": ["https://picsum.photos/seed/khaosan-road/800/400"],
-            "opening_hours": "全天，夜市18:00-凌晨", "closing_day": "无", "need_booking": False,
-            "rating": 4.2, "review_count": 15000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚕", "route": "从市中心打车约15分钟", "duration": "15min", "price": 100}],
-            "tips": "晚上最热闹，推荐尝试泰式炒粉和芒果糯米饭，街边按摩也很便宜。",
-            "tags": ["美食", "夜市", "背包客", "热门"], "lat": 13.7588, "lon": 100.4974,
-        },
-        {
-            "name": "卧佛寺", "category": "文化", "estimated_duration": "1.5小时", "ticket_price": 60,
-            "description": "46米长的卧佛，泰国传统按摩发源地", "images": ["https://picsum.photos/seed/wat-pho/800/400"],
-            "opening_hours": "8:00-18:30", "closing_day": "无", "need_booking": False,
-            "rating": 4.5, "review_count": 18000, "suggested_duration": "1-2小时",
-            "how_to_get": [{"mode": "🚇", "route": "从大皇宫步行10分钟可达", "duration": "10min", "price": 0}],
-            "tips": "卧佛寺按摩学校提供正宗泰式按摩，建议提前预约。",
-            "tags": ["历史古迹", "寺庙", "按摩"], "lat": 13.7465, "lon": 100.4930,
-        },
-        {
-            "name": "暹罗天地", "category": "购物", "estimated_duration": "3小时", "ticket_price": 0,
-            "description": "曼谷最新地标商场，湄南河畔购物天堂", "images": ["https://picsum.photos/seed/iconsiam/800/400"],
-            "opening_hours": "10:00-22:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.6, "review_count": 12000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "BTS Saphan Taksin站+免费接驳船", "duration": "15min", "price": 0}],
-            "tips": "G层室内水上市场可以体验泰国各地美食，夜景喷泉秀不可错过。",
-            "tags": ["购物", "美食", "景点", "热门"], "lat": 13.7265, "lon": 100.5099,
-        },
-        {
-            "name": "郑王庙", "category": "文化", "estimated_duration": "1.5小时", "ticket_price": 30,
-            "description": "黎明寺，湄南河畔最美寺庙", "images": ["https://picsum.photos/seed/wat-arun/800/400"],
-            "opening_hours": "8:00-18:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.5, "review_count": 14000, "suggested_duration": "1-2小时",
-            "how_to_get": [{"mode": "🚢", "route": "从卧佛寺码头乘船3分钟", "duration": "3min", "price": 5}],
-            "tips": "建议下午4-5点前往，日落时分阳光照在瓷片上美轮美奂。",
-            "tags": ["历史古迹", "寺庙", "拍照", "网红打卡"], "lat": 13.7437, "lon": 100.4888,
-        },
-        {
-            "name": "丹嫩沙多水上市场", "category": "自然", "estimated_duration": "3小时", "ticket_price": 200,
-            "description": "泰国最著名的水上市场，体验传统水上交易", "images": ["https://picsum.photos/seed/floating-market/800/400"],
-            "opening_hours": "7:00-12:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.3, "review_count": 10000, "suggested_duration": "3-4小时",
-            "how_to_get": [{"mode": "🚕", "route": "从曼谷市区包车约1.5小时", "duration": "90min", "price": 500}],
-            "tips": "早上7-8点到达最热闹，可以租船体验水上交易。",
-            "tags": ["自然", "传统文化", "拍照", "网红打卡"], "lat": 13.5420, "lon": 99.9570,
-        },
-        {
-            "name": "拉差达火车夜市", "category": "美食", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "曼谷最火的夜市，彩色帐篷是网红打卡点", "images": ["https://picsum.photos/seed/rot-fai-market/800/400"],
-            "opening_hours": "17:00-01:00", "closing_day": "周一", "need_booking": False,
-            "rating": 4.4, "review_count": 9000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "MRT Thailand Cultural Centre站 步行5分钟", "duration": "5min", "price": 0}],
-            "tips": "旁边停车场4楼是绝佳拍照位置，海鲜桶和火山排骨是必吃。",
-            "tags": ["美食", "夜市", "网红打卡", "热门"], "lat": 13.7669, "lon": 100.5695,
-        },
-    ],
-    "巴黎": [
-        {
-            "name": "埃菲尔铁塔", "category": "文化", "estimated_duration": "2小时", "ticket_price": 150,
-            "description": "巴黎象征，登顶俯瞰全城", "images": ["https://picsum.photos/seed/eiffel-tower/800/400"],
-            "opening_hours": "9:00-23:45", "closing_day": "无", "need_booking": True,
-            "rating": 4.7, "review_count": 80000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁6号线 Bir-Hakeim站 步行5分钟", "duration": "5min", "price": 0}],
-            "tips": "建议提前2周网上购票避开长队，黄昏登塔可同时看日落和夜景。",
-            "tags": ["城市地标", "必去", "网红打卡"], "lat": 48.8584, "lon": 2.2945,
-        },
-        {
-            "name": "卢浮宫", "category": "文化", "estimated_duration": "4小时", "ticket_price": 120,
-            "description": "世界最大博物馆，《蒙娜丽莎》所在地", "images": ["https://picsum.photos/seed/louvre-museum/800/400"],
-            "opening_hours": "9:00-18:00（周三/五至21:45）", "closing_day": "周二", "need_booking": True,
-            "rating": 4.8, "review_count": 100000, "suggested_duration": "3-4小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁1/7号线 Palais Royal-Musée du Louvre站", "duration": "1min", "price": 0}],
-            "tips": "从玻璃金字塔入口进入，提前下载博物馆APP导览，周三晚上人少。",
-            "tags": ["博物馆", "艺术", "必去", "热门"], "lat": 48.8606, "lon": 2.3376,
-        },
-        {
-            "name": "香榭丽舍大街", "category": "购物", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "巴黎最美大道，凯旋门至协和广场", "images": ["https://picsum.photos/seed/champs-elysees/800/400"],
-            "opening_hours": "全天，店铺通常10:00-20:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.5, "review_count": 50000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁1号线 Champs-Élysées Clemenceau站", "duration": "1min", "price": 0}],
-            "tips": "LV旗舰店和Ladurée马卡龙是必逛，凯旋门顶楼可俯瞰大道全景。",
-            "tags": ["购物", "奢侈", "城市地标"], "lat": 48.8698, "lon": 2.3075,
-        },
-        {
-            "name": "蒙马特高地", "category": "文化", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "圣心大教堂和艺术家广场", "images": ["https://picsum.photos/seed/montmartre/800/400"],
-            "opening_hours": "圣心堂 6:00-22:30", "closing_day": "无", "need_booking": False,
-            "rating": 4.5, "review_count": 30000, "suggested_duration": "2小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁12号线 Abbesses站 步行10分钟", "duration": "10min", "price": 0}],
-            "tips": "小丘广场有街头画家为你画像，爱墙用250种语言写着我爱你。",
-            "tags": ["艺术", "网红打卡", "浪漫"], "lat": 48.8867, "lon": 2.3431,
-        },
-        {
-            "name": "塞纳河游船", "category": "自然", "estimated_duration": "1.5小时", "ticket_price": 90,
-            "description": "乘船游览塞纳河，欣赏两岸巴黎地标", "images": ["https://picsum.photos/seed/seine-cruise/800/400"],
-            "opening_hours": "10:00-22:30", "closing_day": "无", "need_booking": False,
-            "rating": 4.6, "review_count": 25000, "suggested_duration": "1-1.5小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁9号线 Alma-Marceau站 步行5分钟", "duration": "5min", "price": 0}],
-            "tips": "推荐选择黄昏班次，日落时分经过埃菲尔铁塔时灯光秀最美。",
-            "tags": ["自然", "浪漫", "夜景"], "lat": 48.8638, "lon": 2.3034,
-        },
-        {
-            "name": "玛黑区", "category": "购物", "estimated_duration": "3小时", "ticket_price": 0,
-            "description": "巴黎最时髦的街区，独立设计师店和复古市集", "images": ["https://picsum.photos/seed/le-marais/800/400"],
-            "opening_hours": "店铺通常11:00-19:00", "closing_day": "部分店铺周日休息", "need_booking": False,
-            "rating": 4.4, "review_count": 12000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁1号线 Saint-Paul站 步行3分钟", "duration": "3min", "price": 0}],
-            "tips": "蔷薇街(Rue des Rosiers)有最好吃的Falafel，周日部分区域为步行街。",
-            "tags": ["购物", "时尚", "美食"], "lat": 48.8575, "lon": 2.3600,
-        },
-        {
-            "name": "奥赛博物馆", "category": "文化", "estimated_duration": "3小时", "ticket_price": 100,
-            "description": "印象派艺术殿堂，莫奈和梵高作品收藏", "images": ["https://picsum.photos/seed/orsay-museum/800/400"],
-            "opening_hours": "9:30-18:00", "closing_day": "周一", "need_booking": True,
-            "rating": 4.7, "review_count": 35000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "RER C线 Musée d'Orsay站 步行1分钟", "duration": "1min", "price": 0}],
-            "tips": "顶楼大钟窗是经典拍照点，周四晚上延长开放至21:45。",
-            "tags": ["博物馆", "艺术", "网红打卡"], "lat": 48.8600, "lon": 2.3266,
-        },
-        {
-            "name": "拉丁区", "category": "美食", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "巴黎最古老的街区，咖啡馆和书店林立", "images": ["https://picsum.photos/seed/latin-quarter/800/400"],
-            "opening_hours": "全天", "closing_day": "无", "need_booking": False,
-            "rating": 4.4, "review_count": 18000, "suggested_duration": "2小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁10号线 Cluny-La Sorbonne站", "duration": "1min", "price": 0}],
-            "tips": "莎士比亚书店值得一逛，先贤祠旁的Rue Mouffetard有地道美食。",
-            "tags": ["美食", "历史", "文艺"], "lat": 48.8500, "lon": 2.3447,
-        },
-    ],
-    "京都": [
-        {
-            "name": "伏见稻荷大社", "category": "文化", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "千本鸟居闻名世界，稻荷信仰的总本山", "images": ["https://picsum.photos/seed/fushimi-inari/800/400"],
-            "opening_hours": "全天开放", "closing_day": "全年无休", "need_booking": False,
-            "rating": 4.7, "review_count": 30000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "JR奈良线·稻荷站 步行1分钟", "duration": "1min", "price": 0}],
-            "tips": "建议清晨6-7点前往避开人潮，登山到四ツ辻可俯瞰京都全景。",
-            "tags": ["历史古迹", "网红打卡", "免费", "必去"], "lat": 34.9671, "lon": 135.7727,
-        },
-        {
-            "name": "清水寺", "category": "文化", "estimated_duration": "2小时", "ticket_price": 25,
-            "description": "京都最著名寺院，悬空舞台是绝景", "images": ["https://picsum.photos/seed/kiyomizudera/800/400"],
-            "opening_hours": "6:00-18:00", "closing_day": "全年无休", "need_booking": False,
-            "rating": 4.6, "review_count": 35000, "suggested_duration": "2小时",
-            "how_to_get": [{"mode": "🚌", "route": "京都巴士100/206路·清水道站 步行10分钟", "duration": "10min", "price": 230}],
-            "tips": "二年坂三年坂沿途有众多传统店铺，建议穿和服游览更有氛围。",
-            "tags": ["历史古迹", "世界遗产", "必去", "网红打卡"], "lat": 34.9949, "lon": 135.7850,
-        },
-        {
-            "name": "金阁寺", "category": "文化", "estimated_duration": "1小时", "ticket_price": 25,
-            "description": "金箔包裹的舍利殿，倒映镜湖池中", "images": ["https://picsum.photos/seed/kinkakuji/800/400"],
-            "opening_hours": "9:00-17:00", "closing_day": "全年无休", "need_booking": False,
-            "rating": 4.5, "review_count": 28000, "suggested_duration": "1小时",
-            "how_to_get": [{"mode": "🚌", "route": "京都巴士101/205路·金阁寺道站 步行3分钟", "duration": "3min", "price": 230}],
-            "tips": "上午阳光照射金阁寺时最为璀璨，门票本身就是一张护身符。",
-            "tags": ["历史古迹", "世界遗产", "必去"], "lat": 35.0394, "lon": 135.7292,
-        },
-        {
-            "name": "岚山竹林", "category": "自然", "estimated_duration": "1.5小时", "ticket_price": 0,
-            "description": "漫步高耸竹林小径，岚山地区最受欢迎景点", "images": ["https://picsum.photos/seed/arashiyama-bamboo/800/400"],
-            "opening_hours": "全天开放", "closing_day": "全年无休", "need_booking": False,
-            "rating": 4.5, "review_count": 25000, "suggested_duration": "1-2小时",
-            "how_to_get": [{"mode": "🚇", "route": "JR嵯峨野线·嵯峨岚山站 步行10分钟", "duration": "10min", "price": 0}],
-            "tips": "建议清晨前往，乘坐嵯峨野小火车穿行保津峡也是绝佳体验。",
-            "tags": ["自然", "网红打卡", "免费", "必去"], "lat": 35.0170, "lon": 135.6712,
-        },
-        {
-            "name": "锦市场", "category": "美食", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "京都的厨房，400年历史的商店街", "images": ["https://picsum.photos/seed/nishiki-market/800/400"],
-            "opening_hours": "店铺通常10:00-18:00", "closing_day": "各店铺不同（多为周三）", "need_booking": False,
-            "rating": 4.4, "review_count": 15000, "suggested_duration": "1.5-2小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁乌丸线·四条站 步行3分钟", "duration": "3min", "price": 0}],
-            "tips": "推荐试吃：玉子烧、豆乳甜甜圈、京渍物。边走边吃但注意礼仪。",
-            "tags": ["美食", "购物", "传统文化"], "lat": 35.0048, "lon": 135.7656,
-        },
-        {
-            "name": "祇园", "category": "文化", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "京都传统花街，花见小路偶遇艺伎", "images": ["https://picsum.photos/seed/gion-district/800/400"],
-            "opening_hours": "全天开放", "closing_day": "全年无休", "need_booking": False,
-            "rating": 4.6, "review_count": 22000, "suggested_duration": "1.5-2小时",
-            "how_to_get": [{"mode": "🚌", "route": "京都巴士·祇园站 步行1分钟", "duration": "1min", "price": 230}],
-            "tips": "傍晚5-6点花见小路最有可能遇到艺伎，拍照时请保持距离尊重。",
-            "tags": ["历史古迹", "传统文化", "网红打卡"], "lat": 35.0036, "lon": 135.7765,
-        },
-        {
-            "name": "京都御所", "category": "文化", "estimated_duration": "1.5小时", "ticket_price": 0,
-            "description": "日本皇室旧居，广阔的御苑免费开放", "images": ["https://picsum.photos/seed/kyoto-imperial/800/400"],
-            "opening_hours": "9:00-17:00", "closing_day": "周一", "need_booking": False,
-            "rating": 4.3, "review_count": 8000, "suggested_duration": "1-2小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁乌丸线·丸太町站 步行5分钟", "duration": "5min", "price": 0}],
-            "tips": "御苑内可自由散步，春季樱花和秋季红叶都很美。",
-            "tags": ["历史古迹", "免费", "自然"], "lat": 35.0254, "lon": 135.7621,
-        },
-        {
-            "name": "京都塔", "category": "娱乐", "estimated_duration": "1小时", "ticket_price": 50,
-            "description": "京都地标建筑，100米高空俯瞰古城", "images": ["https://picsum.photos/seed/kyoto-tower/800/400"],
-            "opening_hours": "9:00-21:00", "closing_day": "全年无休", "need_booking": False,
-            "rating": 4.1, "review_count": 6000, "suggested_duration": "1小时",
-            "how_to_get": [{"mode": "🚇", "route": "JR京都站 步行1分钟", "duration": "1min", "price": 0}],
-            "tips": "京都塔地下有温泉大浴场，可以泡汤放松。",
-            "tags": ["城市地标", "夜景", "娱乐"], "lat": 34.9876, "lon": 135.7592,
-        },
-    ],
-    "首尔": [
-        {
-            "name": "景福宫", "category": "文化", "estimated_duration": "2小时", "ticket_price": 20,
-            "description": "韩国代表性宫殿，朝鲜王朝正宫", "images": ["https://picsum.photos/seed/gyeongbokgung/800/400"],
-            "opening_hours": "9:00-18:00", "closing_day": "周二", "need_booking": False,
-            "rating": 4.5, "review_count": 25000, "suggested_duration": "2小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁3号线 景福宫站 5号出口", "duration": "1min", "price": 0}],
-            "tips": "穿韩服可免费入场，每天10:00和14:00有守门将换岗仪式。",
-            "tags": ["历史古迹", "必去", "韩服体验"], "lat": 37.5796, "lon": 126.9770,
-        },
-        {
-            "name": "明洞", "category": "购物", "estimated_duration": "3小时", "ticket_price": 0,
-            "description": "首尔顶级购物区，化妆品和时尚天堂", "images": ["https://picsum.photos/seed/myeongdong/800/400"],
-            "opening_hours": "店铺通常10:00-22:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.4, "review_count": 30000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁4号线 明洞站 6号出口", "duration": "1min", "price": 0}],
-            "tips": "化妆品店多送赠品，明洞饺子刀削面是必吃美食。",
-            "tags": ["购物", "化妆品", "美食", "热门"], "lat": 37.5637, "lon": 126.9847,
-        },
-        {
-            "name": "N首尔塔", "category": "娱乐", "estimated_duration": "1.5小时", "ticket_price": 80,
-            "description": "南山之巅的地标，首尔夜景最佳观赏点", "images": ["https://picsum.photos/seed/namsan-tower/800/400"],
-            "opening_hours": "10:00-23:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.4, "review_count": 20000, "suggested_duration": "1.5-2小时",
-            "how_to_get": [{"mode": "🚡", "route": "南山缆车 或 步行上南山", "duration": "15min", "price": 60}],
-            "tips": "情人锁墙是经典打卡点，建议黄昏时分前往看日落转夜景。",
-            "tags": ["城市地标", "夜景", "浪漫", "网红打卡"], "lat": 37.5512, "lon": 126.9882,
-        },
-        {
-            "name": "北村韩屋村", "category": "文化", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "保存完好的传统韩屋村落，600年历史", "images": ["https://picsum.photos/seed/bukchon-hanok/800/400"],
-            "opening_hours": "全天开放（居民区，请保持安静）", "closing_day": "无", "need_booking": False,
-            "rating": 4.5, "review_count": 18000, "suggested_duration": "1.5-2小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁3号线 安国站 2号出口 步行10分钟", "duration": "10min", "price": 0}],
-            "tips": "建议上午10点前前往避开人流，穿韩服拍照更有氛围。",
-            "tags": ["历史古迹", "传统文化", "网红打卡", "免费"], "lat": 37.5824, "lon": 126.9857,
-        },
-        {
-            "name": "广藏市场", "category": "美食", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "百年传统市场，韩国街头美食圣地", "images": ["https://picsum.photos/seed/gwangjang-market/800/400"],
-            "opening_hours": "9:00-23:00", "closing_day": "全年无休", "need_booking": False,
-            "rating": 4.3, "review_count": 15000, "suggested_duration": "1.5-2小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁1号线 钟路5街站 8号出口", "duration": "1min", "price": 0}],
-            "tips": "必吃：绿豆煎饼、生拌牛肉、麻药饭卷。Running Man曾在此拍摄。",
-            "tags": ["美食", "传统文化", "热门"], "lat": 37.5700, "lon": 126.9990,
-        },
-        {
-            "name": "弘大", "category": "娱乐", "estimated_duration": "3小时", "ticket_price": 0,
-            "description": "年轻人文化中心，街头表演和独立音乐", "images": ["https://picsum.photos/seed/hongdae-street/800/400"],
-            "opening_hours": "全天，店铺通常11:00起", "closing_day": "无", "need_booking": False,
-            "rating": 4.4, "review_count": 20000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁2号线 弘大入口站 9号出口", "duration": "1min", "price": 0}],
-            "tips": "周末下午有街头表演和自由市场，弘大周边咖啡厅和美食店众多。",
-            "tags": ["娱乐", "购物", "美食", "年轻人"], "lat": 37.5559, "lon": 126.9232,
-        },
-        {
-            "name": "梨泰院", "category": "美食", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "国际化街区，异国料理和夜生活中心", "images": ["https://picsum.photos/seed/itaewon/800/400"],
-            "opening_hours": "全天，餐厅和酒吧晚上更热闹", "closing_day": "无", "need_booking": False,
-            "rating": 4.2, "review_count": 12000, "suggested_duration": "2小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁6号线 梨泰院站 1号出口", "duration": "1min", "price": 0}],
-            "tips": "梨泰院地球村节每年10月举办，各国美食应有尽有。",
-            "tags": ["美食", "夜生活", "国际化"], "lat": 37.5345, "lon": 126.9940,
-        },
-        {
-            "name": "汉江公园", "category": "自然", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "汝矣岛汉江公园，野餐和骑行的好去处", "images": ["https://picsum.photos/seed/han-river-park/800/400"],
-            "opening_hours": "全天开放", "closing_day": "无", "need_booking": False,
-            "rating": 4.5, "review_count": 8000, "suggested_duration": "2小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁5号线 汝矣渡口站 2号出口", "duration": "1min", "price": 0}],
-            "tips": "可以租自行车骑行，便利店买炸鸡和啤酒在草地上野餐是韩国人的经典玩法。",
-            "tags": ["自然", "休闲", "免费", "骑行"], "lat": 37.5283, "lon": 126.9340,
-        },
-    ],
-    "巴厘岛": [
-        {
-            "name": "海神庙", "category": "文化", "estimated_duration": "2小时", "ticket_price": 30,
-            "description": "巴厘岛最重要的海神庙，涨潮时如漂浮海上", "images": ["https://picsum.photos/seed/tanah-lot/800/400"],
-            "opening_hours": "7:00-19:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.5, "review_count": 20000, "suggested_duration": "2小时",
-            "how_to_get": [{"mode": "🚕", "route": "从库塔包车约45分钟", "duration": "45min", "price": 150}],
-            "tips": "日落时分是最佳观赏时间，低潮时可以走到庙下接受圣水祝福。",
-            "tags": ["历史古迹", "日落", "必去", "网红打卡"], "lat": -8.6213, "lon": 115.0868,
-        },
-        {
-            "name": "乌布皇宫", "category": "文化", "estimated_duration": "1小时", "ticket_price": 0,
-            "description": "乌布王室居所，巴厘传统建筑精华", "images": ["https://picsum.photos/seed/ubud-palace/800/400"],
-            "opening_hours": "8:00-19:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.2, "review_count": 12000, "suggested_duration": "1小时",
-            "how_to_get": [{"mode": "🚕", "route": "乌布镇中心步行可达", "duration": "5min", "price": 0}],
-            "tips": "每晚19:30有传统巴厘舞蹈表演，乌布市场就在皇宫对面。",
-            "tags": ["历史古迹", "传统文化", "免费"], "lat": -8.5069, "lon": 115.2624,
-        },
-        {
-            "name": "德格拉朗梯田", "category": "自然", "estimated_duration": "2小时", "ticket_price": 10,
-            "description": "巴厘岛最著名的梯田景观，椰林稻田如画", "images": ["https://picsum.photos/seed/tegallalang/800/400"],
-            "opening_hours": "6:00-18:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.4, "review_count": 15000, "suggested_duration": "1.5-2小时",
-            "how_to_get": [{"mode": "🚕", "route": "从乌布包车约20分钟", "duration": "20min", "price": 50}],
-            "tips": "早晨光线最适合拍照，沿途有网红秋千可以体验。",
-            "tags": ["自然", "网红打卡", "拍照", "必去"], "lat": -8.4310, "lon": 115.2796,
-        },
-        {
-            "name": "金巴兰海滩", "category": "自然", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "世界十大最美日落海滩之一，海鲜烧烤", "images": ["https://picsum.photos/seed/jimbaran-beach/800/400"],
-            "opening_hours": "全天开放", "closing_day": "无", "need_booking": False,
-            "rating": 4.5, "review_count": 18000, "suggested_duration": "2小时",
-            "how_to_get": [{"mode": "🚕", "route": "从库塔/机场约15分钟车程", "duration": "15min", "price": 50}],
-            "tips": "傍晚5:30左右到达看日落，沙滩上海鲜大排档人均¥100-200。",
-            "tags": ["自然", "日落", "美食", "必去"], "lat": -8.7820, "lon": 115.1650,
-        },
-        {
-            "name": "圣猴森林", "category": "自然", "estimated_duration": "1.5小时", "ticket_price": 25,
-            "description": "乌布猴林，数百只巴厘长尾猕猴自由栖息", "images": ["https://picsum.photos/seed/monkey-forest/800/400"],
-            "opening_hours": "8:30-18:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.3, "review_count": 10000, "suggested_duration": "1-1.5小时",
-            "how_to_get": [{"mode": "🚶", "route": "乌布镇中心步行10分钟", "duration": "10min", "price": 0}],
-            "tips": "不要带食物和塑料袋，猴子会抢；眼镜和帽子也要注意。",
-            "tags": ["自然", "亲子", "动物"], "lat": -8.5183, "lon": 115.2587,
-        },
-        {
-            "name": "水明漾", "category": "购物", "estimated_duration": "3小时", "ticket_price": 0,
-            "description": "巴厘岛最时尚的区域，精品店和海滩俱乐部", "images": ["https://picsum.photos/seed/seminyak/800/400"],
-            "opening_hours": "店铺通常10:00-21:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.4, "review_count": 8000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚕", "route": "从库塔约15分钟车程", "duration": "15min", "price": 30}],
-            "tips": "Potato Head Beach Club和Ku De Ta是著名日落观赏点。",
-            "tags": ["购物", "美食", "海滩", "网红打卡"], "lat": -8.6914, "lon": 115.1550,
-        },
-        {
-            "name": "乌鲁瓦图断崖", "category": "文化", "estimated_duration": "2小时", "ticket_price": 20,
-            "description": "悬崖上的神庙，印度洋壮丽海景", "images": ["https://picsum.photos/seed/uluwatu/800/400"],
-            "opening_hours": "7:00-19:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.6, "review_count": 16000, "suggested_duration": "2小时",
-            "how_to_get": [{"mode": "🚕", "route": "从库塔包车约1小时", "duration": "60min", "price": 200}],
-            "tips": "傍晚18:00有Kecak火舞表演，悬崖上的猴子会抢眼镜和帽子。",
-            "tags": ["历史古迹", "日落", "网红打卡", "必去"], "lat": -8.8291, "lon": 115.0849,
-        },
-        {
-            "name": "巴厘岛鸟园", "category": "娱乐", "estimated_duration": "2小时", "ticket_price": 50,
-            "description": "拥有1000+只珍稀鸟类的大型鸟园", "images": ["https://picsum.photos/seed/bali-bird-park/800/400"],
-            "opening_hours": "9:00-17:30", "closing_day": "无", "need_booking": False,
-            "rating": 4.3, "review_count": 6000, "suggested_duration": "1.5-2小时",
-            "how_to_get": [{"mode": "🚕", "route": "从乌布约15分钟车程", "duration": "15min", "price": 40}],
-            "tips": "有科莫多龙和天堂鸟等珍稀鸟类，可以与鹦鹉互动拍照。",
-            "tags": ["娱乐", "亲子", "自然"], "lat": -8.5930, "lon": 115.2510,
-        },
-    ],
-    "纽约": [
-        {
-            "name": "自由女神像", "category": "文化", "estimated_duration": "3小时", "ticket_price": 150,
-            "description": "美国精神象征，自由岛上的标志性雕像", "images": ["https://picsum.photos/seed/statue-of-liberty/800/400"],
-            "opening_hours": "8:30-17:00", "closing_day": "感恩节/圣诞节", "need_booking": True,
-            "rating": 4.6, "review_count": 50000, "suggested_duration": "3-4小时",
-            "how_to_get": [{"mode": "🚢", "route": "Battery Park乘渡轮前往", "duration": "20min", "price": 0}],
-            "tips": "皇冠票需提前3个月预订，登岛后可以免费领取语音导览器。",
-            "tags": ["城市地标", "必去", "历史古迹"], "lat": 40.6892, "lon": -74.0445,
-        },
-        {
-            "name": "时代广场", "category": "娱乐", "estimated_duration": "1小时", "ticket_price": 0,
-            "description": "世界的十字路口，霓虹灯广告牌闪耀", "images": ["https://picsum.photos/seed/times-square/800/400"],
-            "opening_hours": "全天开放", "closing_day": "无", "need_booking": False,
-            "rating": 4.5, "review_count": 80000, "suggested_duration": "1小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁1/2/3/7号线 Times Sq-42 St站", "duration": "1min", "price": 0}],
-            "tips": "新年倒计时在此举行，百老汇剧院区就在附近。",
-            "tags": ["城市地标", "必去", "夜景"], "lat": 40.7580, "lon": -73.9855,
-        },
-        {
-            "name": "中央公园", "category": "自然", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "曼哈顿的绿色心脏，都市中的森林", "images": ["https://picsum.photos/seed/central-park/800/400"],
-            "opening_hours": "6:00-1:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.8, "review_count": 60000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁多条线路可达", "duration": "1min", "price": 0}],
-            "tips": "草莓园纪念约翰列侬，可以租自行车环湖骑行，马车游船也很浪漫。",
-            "tags": ["自然", "免费", "休闲", "必去"], "lat": 40.7829, "lon": -73.9654,
-        },
-        {
-            "name": "大都会艺术博物馆", "category": "文化", "estimated_duration": "4小时", "ticket_price": 160,
-            "description": "世界三大博物馆之一，200万件藏品", "images": ["https://picsum.photos/seed/met-museum/800/400"],
-            "opening_hours": "10:00-17:00（周五/六至21:00）", "closing_day": "周三", "need_booking": False,
-            "rating": 4.8, "review_count": 45000, "suggested_duration": "3-4小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁4/5/6号线 86 St站 步行10分钟", "duration": "10min", "price": 0}],
-            "tips": "建议从顶层开始往下逛，屋顶花园可以俯瞰中央公园。",
-            "tags": ["博物馆", "艺术", "必去", "热门"], "lat": 40.7794, "lon": -73.9632,
-        },
-        {
-            "name": "第五大道", "category": "购物", "estimated_duration": "3小时", "ticket_price": 0,
-            "description": "世界顶级购物街，奢侈品旗舰店林立", "images": ["https://picsum.photos/seed/fifth-avenue/800/400"],
-            "opening_hours": "店铺通常10:00-21:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.6, "review_count": 30000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁E/M线 5 Av/53 St站", "duration": "1min", "price": 0}],
-            "tips": "Tiffany旗舰店和Apple Store Fifth Avenue值得一逛。",
-            "tags": ["购物", "奢侈", "热门"], "lat": 40.7638, "lon": -73.9731,
-        },
-        {
-            "name": "布鲁克林大桥", "category": "文化", "estimated_duration": "1.5小时", "ticket_price": 0,
-            "description": "纽约最古老的悬索桥，步行穿越曼哈顿天际线", "images": ["https://picsum.photos/seed/brooklyn-bridge/800/400"],
-            "opening_hours": "全天开放", "closing_day": "无", "need_booking": False,
-            "rating": 4.7, "review_count": 35000, "suggested_duration": "1-1.5小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁4/5/6号线 Brooklyn Bridge站", "duration": "1min", "price": 0}],
-            "tips": "从曼哈顿往布鲁克林方向走，上午光线最适合拍照。DUMBO区是经典机位。",
-            "tags": ["城市地标", "网红打卡", "免费", "必去"], "lat": 40.7061, "lon": -73.9969,
-        },
-        {
-            "name": "切尔西市场", "category": "美食", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "纽约最受欢迎的美食市场，生蚝和龙虾是招牌", "images": ["https://picsum.photos/seed/chelsea-market/800/400"],
-            "opening_hours": "7:00-21:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.5, "review_count": 15000, "suggested_duration": "1.5-2小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁A/C/E线 14 St站 步行5分钟", "duration": "5min", "price": 0}],
-            "tips": "Lobster Place的龙虾卷必吃，高线公园入口就在旁边。",
-            "tags": ["美食", "市集", "热门"], "lat": 40.7425, "lon": -74.0061,
-        },
-        {
-            "name": "高线公园", "category": "自然", "estimated_duration": "1.5小时", "ticket_price": 0,
-            "description": "废弃铁路改造的空中花园，城市更新典范", "images": ["https://picsum.photos/seed/high-line/800/400"],
-            "opening_hours": "7:00-22:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.6, "review_count": 20000, "suggested_duration": "1-1.5小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁A/C/E线 14 St站 步行5分钟", "duration": "5min", "price": 0}],
-            "tips": "从切尔西市场入口开始，一直走到Hudson Yards看Vessel。",
-            "tags": ["自然", "免费", "网红打卡", "拍照"], "lat": 40.7480, "lon": -74.0048,
-        },
-    ],
-    "伦敦": [
-        {
-            "name": "大本钟", "category": "文化", "estimated_duration": "0.5小时", "ticket_price": 0,
-            "description": "伦敦标志性地标，议会大厦钟楼", "images": ["https://picsum.photos/seed/big-ben/800/400"],
-            "opening_hours": "外观全天可参观", "closing_day": "无", "need_booking": False,
-            "rating": 4.7, "review_count": 60000, "suggested_duration": "30分钟",
-            "how_to_get": [{"mode": "🚇", "route": "地铁Jubilee/District线 Westminster站", "duration": "1min", "price": 0}],
-            "tips": "威斯敏斯特桥上是经典拍照角度，伦敦眼就在对岸。",
-            "tags": ["城市地标", "必去", "网红打卡"], "lat": 51.5007, "lon": -0.1246,
-        },
-        {
-            "name": "大英博物馆", "category": "文化", "estimated_duration": "4小时", "ticket_price": 0,
-            "description": "世界最大博物馆之一，罗塞塔石碑和埃及木乃伊", "images": ["https://picsum.photos/seed/british-museum/800/400"],
-            "opening_hours": "10:00-17:30（周五至20:30）", "closing_day": "无", "need_booking": False,
-            "rating": 4.7, "review_count": 55000, "suggested_duration": "3-4小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁Central线 Tottenham Court Road站 步行5分钟", "duration": "5min", "price": 0}],
-            "tips": "免费入场，大中庭玻璃穹顶是经典拍照点，建议租语音导览器。",
-            "tags": ["博物馆", "免费", "必去", "热门"], "lat": 51.5194, "lon": -0.1270,
-        },
-        {
-            "name": "伦敦塔桥", "category": "文化", "estimated_duration": "1.5小时", "ticket_price": 70,
-            "description": "伦敦象征，维多利亚时期开启式桥梁", "images": ["https://picsum.photos/seed/tower-bridge/800/400"],
-            "opening_hours": "9:30-18:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.6, "review_count": 35000, "suggested_duration": "1-1.5小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁District/Circle线 Tower Hill站 步行5分钟", "duration": "5min", "price": 0}],
-            "tips": "玻璃栈道可以俯瞰桥下车辆和泰晤士河，伦敦塔就在旁边。",
-            "tags": ["城市地标", "必去", "网红打卡"], "lat": 51.5055, "lon": -0.0754,
-        },
-        {
-            "name": "牛津街", "category": "购物", "estimated_duration": "3小时", "ticket_price": 0,
-            "description": "欧洲最繁忙的购物街，Selfridges百货所在地", "images": ["https://picsum.photos/seed/oxford-street/800/400"],
-            "opening_hours": "店铺通常10:00-20:00（周四至21:00）", "closing_day": "无", "need_booking": False,
-            "rating": 4.3, "review_count": 25000, "suggested_duration": "2-3小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁Central线 Oxford Circus站", "duration": "1min", "price": 0}],
-            "tips": "圣诞季灯光装饰世界闻名，Selfridges的食品大厅值得一逛。",
-            "tags": ["购物", "热门"], "lat": 51.5152, "lon": -0.1419,
-        },
-        {
-            "name": "博罗市场", "category": "美食", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "伦敦最古老的美食市场，1000年历史", "images": ["https://picsum.photos/seed/borough-market/800/400"],
-            "opening_hours": "周一至六 10:00-17:00", "closing_day": "周日", "need_booking": False,
-            "rating": 4.6, "review_count": 20000, "suggested_duration": "1.5-2小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁Jubilee线 London Bridge站 步行2分钟", "duration": "2min", "price": 0}],
-            "tips": "必吃：海鲜饭、芝士三明治、生蚝。周末人极多，建议工作日前往。",
-            "tags": ["美食", "市集", "热门", "必去"], "lat": 51.5055, "lon": -0.0910,
-        },
-        {
-            "name": "海德公园", "category": "自然", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "伦敦最大皇家公园，演讲者之角自由辩论", "images": ["https://picsum.photos/seed/hyde-park/800/400"],
-            "opening_hours": "5:00-00:00", "closing_day": "无", "need_booking": False,
-            "rating": 4.6, "review_count": 25000, "suggested_duration": "1.5-2小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁Piccadilly线 Hyde Park Corner站", "duration": "1min", "price": 0}],
-            "tips": "蛇形湖可以划船，冬季有Winter Wonderland圣诞集市。",
-            "tags": ["自然", "免费", "休闲"], "lat": 51.5073, "lon": -0.1657,
-        },
-        {
-            "name": "伦敦眼", "category": "娱乐", "estimated_duration": "1小时", "ticket_price": 200,
-            "description": "泰晤士河畔的巨型摩天轮，俯瞰伦敦全景", "images": ["https://picsum.photos/seed/london-eye/800/400"],
-            "opening_hours": "10:00-20:30", "closing_day": "无", "need_booking": True,
-            "rating": 4.4, "review_count": 30000, "suggested_duration": "1小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁Jubilee线 Waterloo站 步行5分钟", "duration": "5min", "price": 0}],
-            "tips": "建议提前网上购票，日落时段最受欢迎，转一圈约30分钟。",
-            "tags": ["城市地标", "夜景", "网红打卡"], "lat": 51.5033, "lon": -0.1195,
-        },
-        {
-            "name": "诺丁山", "category": "购物", "estimated_duration": "2小时", "ticket_price": 0,
-            "description": "彩色房子和古董市集，电影《诺丁山》取景地", "images": ["https://picsum.photos/seed/notting-hill/800/400"],
-            "opening_hours": "Portobello Market 周六最热闹", "closing_day": "无", "need_booking": False,
-            "rating": 4.4, "review_count": 12000, "suggested_duration": "2小时",
-            "how_to_get": [{"mode": "🚇", "route": "地铁Central线 Notting Hill Gate站", "duration": "1min", "price": 0}],
-            "tips": "周六Portobello Road古董市场最精彩，彩色房子是网红打卡点。",
-            "tags": ["购物", "网红打卡", "拍照"], "lat": 51.5124, "lon": -0.2045,
-        },
-    ],
-}
+def _raw_attraction(a: dict, city: str) -> AttractionInfo:
+    return AttractionInfo(
+        name=a["name"],
+        city=city,
+        category=a["category"],
+        estimated_duration=a["estimated_duration"],
+        ticket_price=a["ticket_price"],
+        ticket_known=a.get("ticket_known", True),
+        description=a["description"],
+        images=a.get("images", []),
+        opening_hours=a.get("opening_hours", ""),
+        closing_day=a.get("closing_day", ""),
+        need_booking=a.get("need_booking", False),
+        rating=a.get("rating", 0),
+        review_count=a.get("review_count", 0),
+        suggested_duration=a.get("suggested_duration", a.get("estimated_duration", "2小时")),
+        how_to_get=a.get("how_to_get", []),
+        tips=a.get("tips", ""),
+        tags=a.get("tags", []),
+        lat=a.get("lat", 0),
+        lon=a.get("lon", 0),
+        source=a.get("source", "local"),
+        fields=a.get("fields", []),
+        raw=a.get("raw", {}),
+    )
 
 
 # ============ 工具函数 ============
@@ -894,9 +50,14 @@ def search_flights(
     destination: str,
     budget: float | None = None
 ) -> list[FlightInfo]:
-    """搜索航班信息"""
-    key = (departure, destination)
-    flights = MOCK_FLIGHTS.get(key, [])
+    """搜索航班：在线数据源优先，无数据时用大模型生成参考航班，最后回退本地数据"""
+    flights = get_data_source().get_flights(departure, destination)
+
+    if not flights and app_config.flight_source in ("auto", "llm"):
+        flights = estimate_flights(departure, destination)
+
+    if not flights:
+        flights = get_fallback_data_source().get_flights(departure, destination)
 
     if not flights:
         flights = [{
@@ -910,6 +71,9 @@ def search_flights(
             "seats_left": random.randint(1, 20),
             "departure_airport": f"{departure}国际机场",
             "arrival_airport": f"{destination}国际机场",
+            "source": "estimate",
+            "is_reference": True,
+            "note": "参考航班，非实时数据",
         }]
 
     result = []
@@ -928,6 +92,9 @@ def search_flights(
                 seats_left=f.get("seats_left", 0),
                 departure_airport=f.get("departure_airport", ""),
                 arrival_airport=f.get("arrival_airport", ""),
+                source=f.get("source", "local"),
+                is_reference=f.get("is_reference", False),
+                note=f.get("note", ""),
             ))
 
     return sorted(result, key=lambda x: x["price"])
@@ -938,8 +105,10 @@ def search_hotels(
     budget_per_night: float | None = None,
     min_rating: float = 3.5
 ) -> list[HotelInfo]:
-    """搜索酒店信息"""
-    hotels = MOCK_HOTELS.get(city, [])
+    """搜索酒店：在线数据源优先，取不到时回退本地数据"""
+    hotels = get_data_source().get_hotels(city)
+    if not hotels:
+        hotels = get_fallback_data_source().get_hotels(city)
 
     if not hotels:
         hotels = [{
@@ -952,6 +121,7 @@ def search_hotels(
             "tags": ["经济型"],
             "distance_to_station": "步行5分钟",
             "match_reason": "便利的地理位置",
+            "source": "fallback",
         }]
 
     result = []
@@ -969,6 +139,11 @@ def search_hotels(
                     tags=h.get("tags", []),
                     distance_to_station=h.get("distance_to_station", ""),
                     match_reason=h.get("match_reason", ""),
+                    lat=h.get("lat", 0),
+                    lon=h.get("lon", 0),
+                    source=h.get("source", "local"),
+                    fields=h.get("fields", []),
+                    raw=h.get("raw", {}),
                 ))
 
     return sorted(result, key=lambda x: x["rating"], reverse=True)
@@ -978,8 +153,10 @@ def search_attractions(
     city: str,
     preferences: list[str] | None = None
 ) -> list[AttractionInfo]:
-    """搜索景点信息"""
-    attractions = MOCK_ATTRACTIONS.get(city, [])
+    """搜索景点：在线数据源优先，取不到时回退本地数据"""
+    attractions = get_data_source().get_attractions(city)
+    if not attractions:
+        attractions = get_fallback_data_source().get_attractions(city)
 
     if not attractions:
         attractions = [{
@@ -999,30 +176,41 @@ def search_attractions(
             "tips": "",
             "tags": ["文化"],
             "lat": 0, "lon": 0,
+            "source": "fallback",
         }]
 
     result = []
     for a in attractions:
         if not preferences or a["category"] in preferences:
-            result.append(AttractionInfo(
-                name=a["name"],
-                city=city,
-                category=a["category"],
-                estimated_duration=a["estimated_duration"],
-                ticket_price=a["ticket_price"],
-                description=a["description"],
-                images=a.get("images", []),
-                opening_hours=a.get("opening_hours", ""),
-                closing_day=a.get("closing_day", ""),
-                need_booking=a.get("need_booking", False),
-                rating=a.get("rating", 0),
-                review_count=a.get("review_count", 0),
-                suggested_duration=a.get("suggested_duration", a.get("estimated_duration", "2小时")),
-                how_to_get=a.get("how_to_get", []),
-                tips=a.get("tips", ""),
-                tags=a.get("tags", []),
-                lat=a.get("lat", 0),
-                lon=a.get("lon", 0),
-            ))
+            result.append(_raw_attraction(a, city))
 
+    # 偏好没有命中任何景点时，返回全部，避免出现空行程
+    if not result:
+        result = [_raw_attraction(a, city) for a in attractions]
+
+    return result
+
+
+def search_food(city: str, preferences: list[str] | None = None) -> list[FoodInfo]:
+    """搜索餐饮：在线数据源返回实时 POI，离线数据源返回空（由本地餐表兜底）"""
+    foods = get_data_source().get_food(city)
+    if not foods:
+        return []
+
+    result = []
+    for f in foods:
+        result.append(FoodInfo(
+            name=f["name"],
+            city=city,
+            category=f.get("category", "美食"),
+            price=f.get("price", 0),
+            address=f.get("address", ""),
+            rating=f.get("rating", 0),
+            images=f.get("images", []),
+            lat=f.get("lat", 0),
+            lon=f.get("lon", 0),
+            source=f.get("source", "amap"),
+            fields=f.get("fields", []),
+            raw=f.get("raw", {}),
+        ))
     return result

@@ -1,0 +1,2444 @@
+{
+  "cities": [
+    {
+      "city": "北京",
+      "hotels": [
+        {
+          "name": "北京宝山脚下民宿",
+          "city": "北京",
+          "rating": 5.0,
+          "price_per_night": 260.0,
+          "address": "道德坑村126号",
+          "highlights": [
+            "住宿服务;旅馆招待所;旅馆招待所"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/fa2a869d0d069b2004731199b45b77ba",
+            "https://store.is.autonavi.com/showpic/9ebfe9f21f6b59ea2615a69b7c834099"
+          ],
+          "tags": [
+            "住宿服务",
+            "旅馆招待所",
+            "旅馆招待所"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 40.873596,
+          "lon": 116.408723,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "道德坑村126号"
+            },
+            {
+              "label": "所在区域",
+              "value": "北京市怀柔区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;旅馆招待所;旅馆招待所"
+            },
+            {
+              "label": "评分",
+              "value": "5.0"
+            },
+            {
+              "label": "电话",
+              "value": "18610023070"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "北京雁屿湖民宿(国科大雁栖湖店)",
+          "city": "北京",
+          "rating": 4.9,
+          "price_per_night": 260.0,
+          "address": "怀北镇西庄村234号",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/d22470aac31c5a7531b7ab3d0ef15082",
+            "https://store.is.autonavi.com/showpic/498a3a163202bbfd43f2044f3d8e85b0"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 40.390002,
+          "lon": 116.690497,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "怀北镇西庄村234号"
+            },
+            {
+              "label": "所在区域",
+              "value": "北京市怀柔区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "电话",
+              "value": "010-61660599"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "几个秋美宿(北京大兴国际机场店)",
+          "city": "北京",
+          "rating": 4.9,
+          "price_per_night": 260.0,
+          "address": "礼贤镇东郏河村西二条3号",
+          "highlights": [
+            "住宿服务;旅馆招待所;旅馆招待所"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/a8eda4427ab59b80670889385681cbb4",
+            "https://store.is.autonavi.com/showpic/200fd9b5ba9ff7b906aaada14f2463cf"
+          ],
+          "tags": [
+            "住宿服务",
+            "旅馆招待所",
+            "旅馆招待所"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 39.550675,
+          "lon": 116.37564,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "礼贤镇东郏河村西二条3号"
+            },
+            {
+              "label": "所在区域",
+              "value": "北京市大兴区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;旅馆招待所;旅馆招待所"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "电话",
+              "value": "15011367982"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "驿小栈青年酒店(北京朝阳高铁站青年路地铁站店)",
+          "city": "北京",
+          "rating": 4.8,
+          "price_per_night": 600.0,
+          "address": "青年路西里3号院1号楼2层",
+          "highlights": [
+            "住宿服务;住宿服务相关;住宿服务相关"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/d3e12a1d0dea22e10000003278286245?type=pic",
+            "https://store.is.autonavi.com/showpic/4fbdeb28ad62a71f917d8fda0aaea433"
+          ],
+          "tags": [
+            "住宿服务",
+            "住宿服务相关",
+            "住宿服务相关"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 39.932325,
+          "lon": 116.513757,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "青年路西里3号院1号楼2层"
+            },
+            {
+              "label": "所在区域",
+              "value": "北京市朝阳区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;住宿服务相关;住宿服务相关"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "010-82826028;15600622902"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "北京艺栈青年酒店(燕莎亮马桥地铁站店)",
+          "city": "北京",
+          "rating": 4.8,
+          "price_per_night": 600.0,
+          "address": "新源南路甲3号佳亿广场F4层",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/ab282aa27762e7bc9284a2314f8883ff",
+            "https://store.is.autonavi.com/showpic/5799e79fa525392da716b71f08e01e80"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 39.950448,
+          "lon": 116.458589,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "新源南路甲3号佳亿广场F4层"
+            },
+            {
+              "label": "所在区域",
+              "value": "北京市朝阳区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "17812510865"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "住小叮酒店(北京中关村人民大学地铁站店)",
+          "city": "北京",
+          "rating": 4.8,
+          "price_per_night": 600.0,
+          "address": "北京城区中关村南大街6号(人民大学地铁站C东南口步行310米)",
+          "highlights": [
+            "住宿服务;住宿服务相关;住宿服务相关"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/e57836dbb07ec1088e6c19b4ca53d98e",
+            "https://store.is.autonavi.com/showpic/0f3047808b7dcf4dde5465b857987553"
+          ],
+          "tags": [
+            "住宿服务",
+            "住宿服务相关",
+            "住宿服务相关"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 39.964652,
+          "lon": 116.323457,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "北京城区中关村南大街6号(人民大学地铁站C东南口步行310米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "北京市海淀区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;住宿服务相关;住宿服务相关"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "13661231797"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "上海",
+      "hotels": [
+        {
+          "name": "一间森林青年旅舍(上海同济大学四平路地铁站店)",
+          "city": "上海",
+          "rating": 4.9,
+          "price_per_night": 260.0,
+          "address": "天宝路888号(近和平公园、四平路地铁站)",
+          "highlights": [
+            "住宿服务;旅馆招待所;青年旅舍|住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/ca30124ba767a32883bab0d829f0d701",
+            "http://store.is.autonavi.com/showpic/757ebe32c79c40d55576bd5f0842ac5a"
+          ],
+          "tags": [
+            "住宿服务",
+            "旅馆招待所",
+            "青年旅舍|住宿服务"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 31.27231,
+          "lon": 121.500645,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "天宝路888号(近和平公园、四平路地铁站)"
+            },
+            {
+              "label": "所在区域",
+              "value": "上海市虹口区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;旅馆招待所;青年旅舍|住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "电话",
+              "value": "18521420834;+861056320612,6325201"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "伍豪商务宾馆(上海第九人民医院奉城分院店)",
+          "city": "上海",
+          "rating": 4.8,
+          "price_per_night": 600.0,
+          "address": "南奉公路343号",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/027b29be02f0f83a1a6a99538ce2ecf8",
+            "https://store.is.autonavi.com/showpic/72cdc57fca2224cb9e98c4fb5ca67352"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 30.912056,
+          "lon": 121.631828,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "南奉公路343号"
+            },
+            {
+              "label": "所在区域",
+              "value": "上海市奉贤区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "021-31598566;13062802660"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "此间青年酒店(上海虹桥威宁路地铁站店)",
+          "city": "上海",
+          "rating": 4.8,
+          "price_per_night": 600.0,
+          "address": "新渔东路295号2楼(威宁路地铁站2号口步行480米)",
+          "highlights": [
+            "住宿服务;住宿服务相关;住宿服务相关"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/3a8327945fa64705a8d7f4a3a61e3df7",
+            "https://store.is.autonavi.com/showpic/1e29e4ce8c0732381907e39b5595a606"
+          ],
+          "tags": [
+            "住宿服务",
+            "住宿服务相关",
+            "住宿服务相关"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 31.21203,
+          "lon": 121.388503,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "新渔东路295号2楼(威宁路地铁站2号口步行480米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "上海市长宁区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;住宿服务相关;住宿服务相关"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "021-52323932;13331926273"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "大隐国际青年旅舍(上海陆家嘴滨江道店)",
+          "city": "上海",
+          "rating": 4.7,
+          "price_per_night": 260.0,
+          "address": "陆家嘴街道浦东大道834弄-840号甲",
+          "highlights": [
+            "住宿服务;旅馆招待所;青年旅舍"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/51bf896aa3674b72f122010bc6bcf1da",
+            "https://store.is.autonavi.com/showpic/54570ec47ad837eda6e1ad786787a404"
+          ],
+          "tags": [
+            "住宿服务",
+            "旅馆招待所",
+            "青年旅舍"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 31.239356,
+          "lon": 121.527291,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "陆家嘴街道浦东大道834弄-840号甲"
+            },
+            {
+              "label": "所在区域",
+              "value": "上海市浦东新区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;旅馆招待所;青年旅舍"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "021-58312330;021-58312370"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "迷家青年酒店(上海财经大学店)",
+          "city": "上海",
+          "rating": 4.6,
+          "price_per_night": 450.0,
+          "address": "三门路497号4幢2-3楼",
+          "highlights": [
+            "住宿服务;宾馆酒店;经济型连锁酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/c67ea2581c2b9bac5df3b42db5c555a5",
+            "https://store.is.autonavi.com/showpic/98aa43e154c27d3d4e70b3b7df11332e"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "经济型连锁酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 31.312127,
+          "lon": 121.493052,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "三门路497号4幢2-3楼"
+            },
+            {
+              "label": "所在区域",
+              "value": "上海市宝山区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;经济型连锁酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.6"
+            },
+            {
+              "label": "电话",
+              "value": "18018520153"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "真心求职公寓",
+          "city": "上海",
+          "rating": 4.5,
+          "price_per_night": 450.0,
+          "address": "共和新路5000弄4号2011室",
+          "highlights": [
+            "住宿服务;宾馆酒店;经济型连锁酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/af1e2e0f9f7731e30000002939562490?type=pic",
+            "https://store.is.autonavi.com/showpic/df3084b6faa12271909992707d22232e"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "经济型连锁酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 31.322125,
+          "lon": 121.443875,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "共和新路5000弄4号2011室"
+            },
+            {
+              "label": "所在区域",
+              "value": "上海市宝山区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;经济型连锁酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.5"
+            },
+            {
+              "label": "电话",
+              "value": "15618277169"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "成都",
+      "hotels": [
+        {
+          "name": "丽友酒店",
+          "city": "成都",
+          "rating": 4.8,
+          "price_per_night": 450.0,
+          "address": "潘家街三段66号",
+          "highlights": [
+            "住宿服务;宾馆酒店;三星级宾馆"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/2346512b6a152e3507481aa4d5cd9a7f",
+            "https://store.is.autonavi.com/showpic/61829c0ecf80555cf33f854cbef7c262"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "三星级宾馆"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 30.576579,
+          "lon": 103.535819,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "潘家街三段66号"
+            },
+            {
+              "label": "所在区域",
+              "value": "成都市大邑县"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;三星级宾馆"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "028-88338111"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "成都舒逸酒店公寓(新会展中心香年广场店)",
+          "city": "成都",
+          "rating": 4.8,
+          "price_per_night": 600.0,
+          "address": "吉泰五路88号香年广场T1栋3层",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/9899edb28bb815a54f84ae0bc57a6a1a",
+            "https://store.is.autonavi.com/showpic/7454546330356fb498d9919b8ef6bed3"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 30.544422,
+          "lon": 104.066597,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "吉泰五路88号香年广场T1栋3层"
+            },
+            {
+              "label": "所在区域",
+              "value": "成都市武侯区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "028-85177933;028-85177939"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "成都一家驿站(华西医院上锦院区店)",
+          "city": "成都",
+          "rating": 4.8,
+          "price_per_night": 600.0,
+          "address": "合作街道尚锦路268号上锦颐园55栋2单元4楼20号",
+          "highlights": [
+            "住宿服务;住宿服务相关;住宿服务相关"
+          ],
+          "images": [
+            "http://store.is.autonavi.com/showpic/2c47a6668a7fcfcf048e234c477b9912",
+            "https://store.is.autonavi.com/showpic/4aeb5db959b1925dfe38018771cf490e"
+          ],
+          "tags": [
+            "住宿服务",
+            "住宿服务相关",
+            "住宿服务相关"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 30.779454,
+          "lon": 103.931295,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "合作街道尚锦路268号上锦颐园55栋2单元4楼20号"
+            },
+            {
+              "label": "所在区域",
+              "value": "成都市郫都区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;住宿服务相关;住宿服务相关"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "18382250577"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "成都乐浮青年旅舍Nova Traveller's Lodge(Chengdu Nova Youth Hostel)",
+          "city": "成都",
+          "rating": 4.7,
+          "price_per_night": 260.0,
+          "address": "太升北路10号(太升南路地铁站C口步行490米)",
+          "highlights": [
+            "住宿服务;旅馆招待所;青年旅舍"
+          ],
+          "images": [
+            "https://aos-comment.amap.com/B001C8MH1V/comment/2c0f3a054e76c6bbb23701417d08a9fb_2048_2048_80.jpg",
+            "https://store.is.autonavi.com/showpic/e0d4ad9569bd76034da5e0b6190f9911"
+          ],
+          "tags": [
+            "住宿服务",
+            "旅馆招待所",
+            "青年旅舍"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 30.668637,
+          "lon": 104.079744,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "太升北路10号(太升南路地铁站C口步行490米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "成都市青羊区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;旅馆招待所;青年旅舍"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "028-85253362;028-86144568;028-86950016"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "速8酒店(简阳香港城新民街店)",
+          "city": "成都",
+          "rating": 4.7,
+          "price_per_night": 600.0,
+          "address": "简城新民街121号王府景.熙园A座",
+          "highlights": [
+            "住宿服务;住宿服务相关;住宿服务相关"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/ee572cf8901fa40650ca9662d60df3e8",
+            "https://store.is.autonavi.com/showpic/4a07d0cce218fd8e385891fa2723c450"
+          ],
+          "tags": [
+            "住宿服务",
+            "住宿服务相关",
+            "住宿服务相关"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 30.391216,
+          "lon": 104.54711,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "简城新民街121号王府景.熙园A座"
+            },
+            {
+              "label": "所在区域",
+              "value": "成都市简阳市"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;住宿服务相关;住宿服务相关"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "028-60392588"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "POSHPACKER拖板鞋青年旅舍旅行民宿(成都太古里春熙路地铁站店)",
+          "city": "成都",
+          "rating": 4.6,
+          "price_per_night": 260.0,
+          "address": "东升街98号3楼(春熙路地铁站E2口步行350米)",
+          "highlights": [
+            "住宿服务;旅馆招待所;旅馆招待所"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/38157254d56c1a55db95d0241c9621a8",
+            "https://store.is.autonavi.com/showpic/01ecc8911328d59f005bbc23276f19c1"
+          ],
+          "tags": [
+            "住宿服务",
+            "旅馆招待所",
+            "旅馆招待所"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 30.650365,
+          "lon": 104.078001,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "东升街98号3楼(春熙路地铁站E2口步行350米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "成都市锦江区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;旅馆招待所;旅馆招待所"
+            },
+            {
+              "label": "评分",
+              "value": "4.6"
+            },
+            {
+              "label": "电话",
+              "value": "028-62500185"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "西安",
+      "hotels": [
+        {
+          "name": "海友酒店(西安沣东新区建章路店)",
+          "city": "西安",
+          "rating": 5.0,
+          "price_per_night": 600.0,
+          "address": "建章路石化大道 61 号",
+          "highlights": [
+            "住宿服务;住宿服务相关;住宿服务相关"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/3c590253eaf7e4981fbcd8260c8ee133",
+            "https://store.is.autonavi.com/showpic/2794a06e9029cc6592506c1050057dc1"
+          ],
+          "tags": [
+            "住宿服务",
+            "住宿服务相关",
+            "住宿服务相关"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 34.321156,
+          "lon": 108.842298,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "建章路石化大道 61 号"
+            },
+            {
+              "label": "所在区域",
+              "value": "西安市未央区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;住宿服务相关;住宿服务相关"
+            },
+            {
+              "label": "评分",
+              "value": "5.0"
+            },
+            {
+              "label": "电话",
+              "value": "029-86218666;13759970889"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "壹壹酒店(小寨吉祥村地铁站店)",
+          "city": "西安",
+          "rating": 5.0,
+          "price_per_night": 260.0,
+          "address": "含光路南段3号颐和宫5楼",
+          "highlights": [
+            "住宿服务;旅馆招待所;旅馆招待所"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/d9dfaf878e89a9eff13ec10f82a1600d",
+            "https://store.is.autonavi.com/showpic/152f6333a01fb69f8088db13ba8277eb"
+          ],
+          "tags": [
+            "住宿服务",
+            "旅馆招待所",
+            "旅馆招待所"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 34.225998,
+          "lon": 108.93258,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "含光路南段3号颐和宫5楼"
+            },
+            {
+              "label": "所在区域",
+              "value": "西安市雁塔区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;旅馆招待所;旅馆招待所"
+            },
+            {
+              "label": "评分",
+              "value": "5.0"
+            },
+            {
+              "label": "电话",
+              "value": "13309246809"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "唐苑旅馆(西安火车站店)",
+          "city": "西安",
+          "rating": 5.0,
+          "price_per_night": 260.0,
+          "address": "东六路与尚勤路十字路口向东50米",
+          "highlights": [
+            "住宿服务;旅馆招待所;旅馆招待所"
+          ],
+          "images": [
+            "http://store.is.autonavi.com/showpic/52d2f994c69471abbc4a2ae36b1d5d27",
+            "https://store.is.autonavi.com/showpic/5a81d89fd1405b3be3bafad731e1ef3a"
+          ],
+          "tags": [
+            "住宿服务",
+            "旅馆招待所",
+            "旅馆招待所"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 34.271791,
+          "lon": 108.967872,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "东六路与尚勤路十字路口向东50米"
+            },
+            {
+              "label": "所在区域",
+              "value": "西安市新城区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;旅馆招待所;旅馆招待所"
+            },
+            {
+              "label": "评分",
+              "value": "5.0"
+            },
+            {
+              "label": "电话",
+              "value": "15091625143"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "西安佳烨公寓",
+          "city": "西安",
+          "rating": 5.0,
+          "price_per_night": 600.0,
+          "address": "元朔大道长乐东苑A区4号楼1602室",
+          "highlights": [
+            "住宿服务;住宿服务相关;住宿服务相关"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/f34e80c754a02ac0d7448f7b481dd4a1",
+            "https://store.is.autonavi.com/showpic/a0a1020fc38059fdc88f4fa7f7cca990"
+          ],
+          "tags": [
+            "住宿服务",
+            "住宿服务相关",
+            "住宿服务相关"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 34.374356,
+          "lon": 108.949759,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "元朔大道长乐东苑A区4号楼1602室"
+            },
+            {
+              "label": "所在区域",
+              "value": "西安市未央区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;住宿服务相关;住宿服务相关"
+            },
+            {
+              "label": "评分",
+              "value": "5.0"
+            },
+            {
+              "label": "电话",
+              "value": "15319936457"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "西安大屋小栈",
+          "city": "西安",
+          "rating": 5.0,
+          "price_per_night": 600.0,
+          "address": "韦曲街道航拓路紫禁长安1栋二单元2603室",
+          "highlights": [
+            "住宿服务;住宿服务相关;住宿服务相关"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/2c2e306542eab4f092469e934eb0ca99",
+            "https://store.is.autonavi.com/showpic/8be68970587d4caa0dc48632b602e5b5"
+          ],
+          "tags": [
+            "住宿服务",
+            "住宿服务相关",
+            "住宿服务相关"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 34.163975,
+          "lon": 108.976475,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "韦曲街道航拓路紫禁长安1栋二单元2603室"
+            },
+            {
+              "label": "所在区域",
+              "value": "西安市长安区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;住宿服务相关;住宿服务相关"
+            },
+            {
+              "label": "评分",
+              "value": "5.0"
+            },
+            {
+              "label": "电话",
+              "value": "13992934216"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "梵琪媛酒店(西安高陵泾渭路店)",
+          "city": "西安",
+          "rating": 4.9,
+          "price_per_night": 600.0,
+          "address": "姬家街道杨官寨七组书亦烧仙草对面",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/366562fbe4d918ef809526b62c166d2d",
+            "https://store.is.autonavi.com/showpic/837960deb50d1d4dc1b664075bf52c7b"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 34.463001,
+          "lon": 109.007394,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "姬家街道杨官寨七组书亦烧仙草对面"
+            },
+            {
+              "label": "所在区域",
+              "value": "西安市高陵区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "电话",
+              "value": "13709253444;18192600494"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "三亚",
+      "hotels": [
+        {
+          "name": "三亚湾海忆时光海景公寓(三亚湾椰梦长廊店)",
+          "city": "三亚",
+          "rating": 5.0,
+          "price_per_night": 450.0,
+          "address": "三亚湾路碧海蓝天小区海日阁2A18房",
+          "highlights": [
+            "住宿服务;宾馆酒店;经济型连锁酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/829bc3038d9602ff02f873e448bed1de",
+            "https://store.is.autonavi.com/showpic/7b67cf2bf8a5e7f680ddc7d66370ae76"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "经济型连锁酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 18.266851,
+          "lon": 109.489845,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "三亚湾路碧海蓝天小区海日阁2A18房"
+            },
+            {
+              "label": "所在区域",
+              "value": "三亚市天涯区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;经济型连锁酒店"
+            },
+            {
+              "label": "评分",
+              "value": "5.0"
+            },
+            {
+              "label": "电话",
+              "value": "13398927227"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "忆游尤近精致体验客栈",
+          "city": "三亚",
+          "rating": 5.0,
+          "price_per_night": 260.0,
+          "address": "青龙街78号",
+          "highlights": [
+            "住宿服务;旅馆招待所;旅馆招待所"
+          ],
+          "images": [
+            "http://store.is.autonavi.com/showpic/282ddeb2a34bbfb53c676cfe05bec7bb",
+            "http://store.is.autonavi.com/showpic/f2928611882ae131850e612d8e7eb3bc"
+          ],
+          "tags": [
+            "住宿服务",
+            "旅馆招待所",
+            "旅馆招待所"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 18.305604,
+          "lon": 109.33164,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "青龙街78号"
+            },
+            {
+              "label": "所在区域",
+              "value": "三亚市天涯区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;旅馆招待所;旅馆招待所"
+            },
+            {
+              "label": "评分",
+              "value": "5.0"
+            },
+            {
+              "label": "电话",
+              "value": "17776939639;18839610166"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "三亚万吉度假公寓",
+          "city": "三亚",
+          "rating": 4.9,
+          "price_per_night": 1500.0,
+          "address": "解放四路嘉盛花园2层万吉度假主题公寓(月川桥往农垦医院方向走100米)",
+          "highlights": [
+            "住宿服务;旅馆招待所;旅馆招待所"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/e2659c524c65140e88523382ae008a10",
+            "https://store.is.autonavi.com/showpic/ac51c45ab44de7a4a2ae914bf284b1c6"
+          ],
+          "tags": [
+            "住宿服务",
+            "旅馆招待所",
+            "旅馆招待所"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 18.265169,
+          "lon": 109.498362,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "解放四路嘉盛花园2层万吉度假主题公寓(月川桥往农垦医院方向走100米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "三亚市天涯区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;旅馆招待所;旅馆招待所"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "电话",
+              "value": "0898-38290958;0898-88660691;13789601192"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "三亚巴哥度假屋",
+          "city": "三亚",
+          "rating": 4.9,
+          "price_per_night": 1500.0,
+          "address": "三亚湾路88号兰海花园一期B座CD单元3D房",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/0163b037ce7a7e695a0e19c4bd5b0d28",
+            "https://store.is.autonavi.com/showpic/3cf59202c3d71f2ae4dd3afb0508b9a7"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 18.266784,
+          "lon": 109.488544,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "三亚湾路88号兰海花园一期B座CD单元3D房"
+            },
+            {
+              "label": "所在区域",
+              "value": "三亚市天涯区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "电话",
+              "value": "13637510592;13876862238"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "三亚夏末花开海岸客栈(三亚湾吉祥街有轨电车站店)",
+          "city": "三亚",
+          "rating": 4.3,
+          "price_per_night": 260.0,
+          "address": "吉祥街老铁路东巷44号",
+          "highlights": [
+            "购物服务;花鸟鱼虫市场;花卉市场|住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/d7beb5e38d004066bb7b30227d5e78e5",
+            "https://store.is.autonavi.com/showpic/825f00326c0ac8c3b52b762aec29e7f5"
+          ],
+          "tags": [
+            "购物服务",
+            "花鸟鱼虫市场",
+            "花卉市场|住宿服务"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 18.25773,
+          "lon": 109.500026,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "吉祥街老铁路东巷44号"
+            },
+            {
+              "label": "所在区域",
+              "value": "三亚市天涯区"
+            },
+            {
+              "label": "类型",
+              "value": "购物服务;花鸟鱼虫市场;花卉市场|住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.3"
+            },
+            {
+              "label": "电话",
+              "value": "17789865835;18078904104"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "哪里那里海岸精品客栈(三亚亚龙湾店)",
+          "city": "三亚",
+          "rating": 4.1,
+          "price_per_night": 900.0,
+          "address": "吉阳镇亚龙湾六盘村内",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店|住宿服务;旅馆招待所;旅馆招待所"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/03c693148542abccbf6c5d0fc2cb50d1",
+            "https://store.is.autonavi.com/showpic/e6df856903551963567d993a552f4e8b"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店|住宿服务"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 18.250987,
+          "lon": 109.624882,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "吉阳镇亚龙湾六盘村内"
+            },
+            {
+              "label": "所在区域",
+              "value": "三亚市吉阳区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店|住宿服务;旅馆招待所;旅馆招待所"
+            },
+            {
+              "label": "评分",
+              "value": "4.1"
+            },
+            {
+              "label": "电话",
+              "value": "0898-88262577;13322087139"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "杭州",
+      "hotels": [
+        {
+          "name": "杭州未见杉民宿(西湖青芝坞店)",
+          "city": "杭州",
+          "rating": 4.8,
+          "price_per_night": 260.0,
+          "address": "青芝坞68号69",
+          "highlights": [
+            "住宿服务;旅馆招待所;青年旅舍"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/a4b4eefec0627fb47a2f49cd41bc5c09",
+            "https://store.is.autonavi.com/showpic/5c8b80b8ca05be4b54f408d00d8127dc"
+          ],
+          "tags": [
+            "住宿服务",
+            "旅馆招待所",
+            "青年旅舍"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 30.25813,
+          "lon": 120.120604,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "青芝坞68号69"
+            },
+            {
+              "label": "所在区域",
+              "value": "杭州市西湖区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;旅馆招待所;青年旅舍"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "17300951618"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "杭州柚子花园民宿(雷峰塔店)",
+          "city": "杭州",
+          "rating": 4.8,
+          "price_per_night": 260.0,
+          "address": "四眼井106号",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/e8ab892556d9128395b9bfd67496d2ce",
+            "https://store.is.autonavi.com/showpic/346b45266c5dd9f76c7c431b9774a672"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 30.215944,
+          "lon": 120.136896,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "四眼井106号"
+            },
+            {
+              "label": "所在区域",
+              "value": "杭州市西湖区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "0571-56320606;17357182663;+861056320612,39617"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "杭州龙门古镇农家客栈",
+          "city": "杭州",
+          "rating": 4.7,
+          "price_per_night": 260.0,
+          "address": "中樟线328号(S307省道边龙门古镇停车场对面)",
+          "highlights": [
+            "住宿服务;旅馆招待所;旅馆招待所"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/377ce483202478475b98f52527cb0dd0",
+            "https://store.is.autonavi.com/showpic/954b958f3b04e5c7b9a566fafc7d9466"
+          ],
+          "tags": [
+            "住宿服务",
+            "旅馆招待所",
+            "旅馆招待所"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 29.905347,
+          "lon": 119.949624,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "中樟线328号(S307省道边龙门古镇停车场对面)"
+            },
+            {
+              "label": "所在区域",
+              "value": "杭州市富阳区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;旅馆招待所;旅馆招待所"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "0571-63506661"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "布丁精选酒店(杭州武林广场西湖文化广场地铁站店)",
+          "city": "杭州",
+          "rating": 4.6,
+          "price_per_night": 450.0,
+          "address": "湖墅南路96号",
+          "highlights": [
+            "住宿服务;宾馆酒店;经济型连锁酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/7c2759bdfd0c91213e6ce16fe2212be8",
+            "https://store.is.autonavi.com/showpic/b58666ecd2a2021dc28d1a22cbb6fa3e"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "经济型连锁酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 30.278191,
+          "lon": 120.156187,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "湖墅南路96号"
+            },
+            {
+              "label": "所在区域",
+              "value": "杭州市拱墅区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;经济型连锁酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.6"
+            },
+            {
+              "label": "电话",
+              "value": "0571-85801173"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "布丁严选酒店(杭州西湖武林广场建国北路地铁站店)",
+          "city": "杭州",
+          "rating": 4.4,
+          "price_per_night": 450.0,
+          "address": "凤起路66号(建国北路地铁站B口步行110米)",
+          "highlights": [
+            "住宿服务;宾馆酒店;经济型连锁酒店"
+          ],
+          "images": [
+            "http://store.is.autonavi.com/showpic/adba01d9bf226478e5a4f80426acd794",
+            "https://store.is.autonavi.com/showpic/47edd83948dd0061aeeee298b3fe7cbe"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "经济型连锁酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 30.265451,
+          "lon": 120.18223,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "凤起路66号(建国北路地铁站B口步行110米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "杭州市拱墅区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;经济型连锁酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.4"
+            },
+            {
+              "label": "电话",
+              "value": "0571-85281680"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "杭州果派酒店",
+          "city": "杭州",
+          "rating": 4.4,
+          "price_per_night": 450.0,
+          "address": "灯彩路水映苑39-8号",
+          "highlights": [
+            "住宿服务;宾馆酒店;经济型连锁酒店"
+          ],
+          "images": [
+            "https://aos-comment.amap.com/B023B14FRX/comment/content_media_external_file_1000076745_ss__1758270806825_18733341.jpg",
+            "http://store.is.autonavi.com/showpic/5c8b75ba271acd052099dd8562c15e50"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "经济型连锁酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 30.328177,
+          "lon": 120.094939,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "灯彩路水映苑39-8号"
+            },
+            {
+              "label": "所在区域",
+              "value": "杭州市拱墅区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;经济型连锁酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.4"
+            },
+            {
+              "label": "电话",
+              "value": "15268186083"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "厦门",
+      "hotels": [
+        {
+          "name": "锦江之星(厦门集美杏林店)",
+          "city": "厦门",
+          "rating": 4.8,
+          "price_per_night": 450.0,
+          "address": "杏林文康路377号(纺织东路与交汇处)",
+          "highlights": [
+            "住宿服务;宾馆酒店;经济型连锁酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/3ff294b3f1c4276b163ddfde4939a0d7",
+            "https://store.is.autonavi.com/showpic/0bc27af893e38b59753f2d640cc680e2"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "经济型连锁酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 24.566894,
+          "lon": 118.053367,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "杏林文康路377号(纺织东路与交汇处)"
+            },
+            {
+              "label": "所在区域",
+              "value": "厦门市集美区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;经济型连锁酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "0592-6373999"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "艾尚住宿(何厝店)",
+          "city": "厦门",
+          "rating": 4.8,
+          "price_per_night": 600.0,
+          "address": "民安街道何厝东里91号楼",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/2021281788b3f8a6b2e2f8d2874e75a0",
+            "https://store.is.autonavi.com/showpic/3fa00cb444e7ceea6796da813ce8ff7b"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 24.680496,
+          "lon": 118.212729,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "民安街道何厝东里91号楼"
+            },
+            {
+              "label": "所在区域",
+              "value": "厦门市翔安区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "18559208815"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "OYO全洲商务酒店(祥平街道店)",
+          "city": "厦门",
+          "rating": 4.7,
+          "price_per_night": 600.0,
+          "address": "祥平街道烧灰综合楼190号",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "http://store.is.autonavi.com/showpic/f665a72b80a13710f8ef63ef26e55685",
+            "https://store.is.autonavi.com/showpic/c3328d335b3b57f20a5f37ac9447743d"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 24.714218,
+          "lon": 118.141982,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "祥平街道烧灰综合楼190号"
+            },
+            {
+              "label": "所在区域",
+              "value": "厦门市同安区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.7"
+            },
+            {
+              "label": "电话",
+              "value": "0592-7777125"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "厦门有缘豪客电梯公寓",
+          "city": "厦门",
+          "rating": 4.3,
+          "price_per_night": 600.0,
+          "address": "马巷镇万家春路山亭侯阁里123号楼",
+          "highlights": [
+            "住宿服务;住宿服务相关;住宿服务相关"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/d2d31ee1f3143f11b04e33bf86301b55",
+            "https://store.is.autonavi.com/showpic/4940765cbe5e5d2ad92e40c7dbf8d47d"
+          ],
+          "tags": [
+            "住宿服务",
+            "住宿服务相关",
+            "住宿服务相关"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 24.635227,
+          "lon": 118.208609,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "马巷镇万家春路山亭侯阁里123号楼"
+            },
+            {
+              "label": "所在区域",
+              "value": "厦门市翔安区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;住宿服务相关;住宿服务相关"
+            },
+            {
+              "label": "评分",
+              "value": "4.3"
+            },
+            {
+              "label": "电话",
+              "value": "17750584989"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "厦门新阳光公寓(高崎国际机场板尚路店)",
+          "city": "厦门",
+          "rating": 4.3,
+          "price_per_night": 260.0,
+          "address": "坂尚路围里社723号宸鸿科技1号门斜对面",
+          "highlights": [
+            "住宿服务;旅馆招待所;旅馆招待所"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/fce7cd74d1a444a917b71daba59e642b",
+            "https://store.is.autonavi.com/showpic/6cc75e1fc1ca33761bdfe23730dd4669"
+          ],
+          "tags": [
+            "住宿服务",
+            "旅馆招待所",
+            "旅馆招待所"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 24.528548,
+          "lon": 118.14353,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "坂尚路围里社723号宸鸿科技1号门斜对面"
+            },
+            {
+              "label": "所在区域",
+              "value": "厦门市湖里区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;旅馆招待所;旅馆招待所"
+            },
+            {
+              "label": "评分",
+              "value": "4.3"
+            },
+            {
+              "label": "电话",
+              "value": "13023982280;+861056320612,4176292"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "厦门筱金酒店",
+          "city": "厦门",
+          "rating": 4.3,
+          "price_per_night": 600.0,
+          "address": "西林路2-12号",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/0f7b0adfd781db8d62dc0dd733305fa2",
+            "https://store.is.autonavi.com/showpic/92b3e6b699b4c6def3bf7168aad6d746"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 24.476299,
+          "lon": 118.14151,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "西林路2-12号"
+            },
+            {
+              "label": "所在区域",
+              "value": "厦门市思明区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.3"
+            },
+            {
+              "label": "电话",
+              "value": "0592-2029299"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "重庆",
+      "hotels": [
+        {
+          "name": "杰友酒店(开州新世纪百货店)",
+          "city": "重庆",
+          "rating": 4.9,
+          "price_per_night": 600.0,
+          "address": "汉丰街道安康街57号",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/21c14878dcf273e7af4a96db52118e3f",
+            "http://store.is.autonavi.com/showpic/ef774bd188765537ad3ab46fd9d32b21"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 31.166771,
+          "lon": 108.402937,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "汉丰街道安康街57号"
+            },
+            {
+              "label": "所在区域",
+              "value": "重庆市开州区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.9"
+            },
+            {
+              "label": "电话",
+              "value": "023-52668111;15826359559"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "江畔假日酒店",
+          "city": "重庆",
+          "rating": 4.8,
+          "price_per_night": 600.0,
+          "address": "三合街道滨江东路4号",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/91c89c3dcf70b6273a9696c2585523c9",
+            "https://store.is.autonavi.com/showpic/91b8b5c9bede7350d1b8e970bf096abd"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 29.871596,
+          "lon": 107.734049,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "三合街道滨江东路4号"
+            },
+            {
+              "label": "所在区域",
+              "value": "重庆市丰都县"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "023-70685555;17729688021"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "重庆家愉美宾馆",
+          "city": "重庆",
+          "rating": 4.8,
+          "price_per_night": 600.0,
+          "address": "双龙西路12号",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/4733107104224b8946ed80a3d7562188",
+            "https://store.is.autonavi.com/showpic/fff00eb2e77e1ea9882aabb04f985a5d"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 29.483341,
+          "lon": 105.770238,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "双龙西路12号"
+            },
+            {
+              "label": "所在区域",
+              "value": "重庆市大足区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "023-43333122"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "上阁酒店(新牌坊中渝广场店)",
+          "city": "重庆",
+          "rating": 4.8,
+          "price_per_night": 600.0,
+          "address": "松牌路8号金龙商厦1楼(嘉州路地铁站8号口步行380米)",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/ccba5dfdc733c5a81619e397d94bfed7",
+            "https://aos-comment.amap.com/B00170ACOO/comment/87339ea4cef8be02362896805cdd3727_2048_2048_80.jpg"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 29.59895,
+          "lon": 106.517926,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "松牌路8号金龙商厦1楼(嘉州路地铁站8号口步行380米)"
+            },
+            {
+              "label": "所在区域",
+              "value": "重庆市两江新区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "023-88796688"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "月友酒店(重庆汽博轻轨站叠彩城店)",
+          "city": "重庆",
+          "rating": 4.8,
+          "price_per_night": 600.0,
+          "address": "金童路9号叠彩城H2幢4层",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/5a590ed925f84bf9e1dd8ac0e61d3286",
+            "http://store.is.autonavi.com/showpic/d8c5e55aa97145a7bcdbb16bc5cd5f49"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 29.639895,
+          "lon": 106.569993,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "金童路9号叠彩城H2幢4层"
+            },
+            {
+              "label": "所在区域",
+              "value": "重庆市两江新区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "023-63088979;023-67832299"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        },
+        {
+          "name": "重庆月友宾馆(江北北辰名都店)",
+          "city": "重庆",
+          "rating": 4.8,
+          "price_per_night": 600.0,
+          "address": "建北四支路2号北辰名都15-16号",
+          "highlights": [
+            "住宿服务;宾馆酒店;宾馆酒店"
+          ],
+          "images": [
+            "https://store.is.autonavi.com/showpic/fdcf85a22a0a6e570bbf5826f4594e0c",
+            "https://store.is.autonavi.com/showpic/833e89cf39f827e4e8786bf9bda8a6d3"
+          ],
+          "tags": [
+            "住宿服务",
+            "宾馆酒店",
+            "宾馆酒店"
+          ],
+          "distance_to_station": "",
+          "match_reason": "来自高德地图实时检索结果",
+          "lat": 29.577089,
+          "lon": 106.530071,
+          "source": "seed",
+          "fields": [
+            {
+              "label": "地址",
+              "value": "建北四支路2号北辰名都15-16号"
+            },
+            {
+              "label": "所在区域",
+              "value": "重庆市两江新区"
+            },
+            {
+              "label": "类型",
+              "value": "住宿服务;宾馆酒店;宾馆酒店"
+            },
+            {
+              "label": "评分",
+              "value": "4.8"
+            },
+            {
+              "label": "电话",
+              "value": "023-67511198;023-67874888;15123040274"
+            },
+            {
+              "label": "价格说明",
+              "value": "参考估价，实时房价请以预订平台为准"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

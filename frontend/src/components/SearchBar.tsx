@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const HOT_CITIES = ['东京', '纽约', '巴黎', '京都', '巴厘岛', '曼谷', '首尔', '伦敦']
+const HOT_CITIES = ['北京', '上海', '成都', '西安', '杭州', '三亚', '厦门', '重庆']
 
 export default function SearchBar() {
   const [query, setQuery] = useState('')
@@ -22,7 +22,7 @@ export default function SearchBar() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-          placeholder="搜索城市、国家、景点、酒店..."
+          placeholder="搜索国内城市，如 北京、成都、三亚..."
           className="flex-1 border-none outline-none text-sm px-2 py-2 text-gray-700 placeholder-gray-400"
         />
         <button

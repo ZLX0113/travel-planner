@@ -284,6 +284,8 @@ async def summarize_node(state: PlannerState) -> PlannerState:
         attractions=attractions,
         days=days,
         destination=destination,
+        start_date=state.get("start_date"),
+        special_needs=state.get("special_needs"),
     )
     state["itinerary"] = itinerary
     

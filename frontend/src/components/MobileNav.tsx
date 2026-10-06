@@ -4,6 +4,7 @@ const NAV_ITEMS = [
   { path: '/', label: '首页', icon: '🏠' },
   { path: '/plan', label: '规划', icon: '📋' },
   { path: '/chat', label: '对话', icon: '💬' },
+  { path: '/history', label: '历史', icon: '🗂️' },
 ]
 
 export default function MobileNav() {

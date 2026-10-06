@@ -1,8 +1,10 @@
-"""聊天路由 — 支持 SSE 流式输出"""
+"""聊天路由 — 支持 SSE 流式输出（需登录）"""
 
 import json
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import StreamingResponse
+from app.core.security import get_current_user
+from app.models.db_models import User
 from app.models.schemas import ChatRequest, ChatResponse
 from app.core.llm import get_llm_client
 
@@ -17,7 +19,10 @@ SYSTEM_PROMPT = """你是一个专业的 AI 旅行规划师助手。你可以帮
 
 
 @router.post("")
-async def chat(request: ChatRequest):
+async def chat(
+    request: ChatRequest,
+    current_user: User = Depends(get_current_user),
+):
     """聊天接口 — 支持流式和非流式"""
     llm = get_llm_client()
 

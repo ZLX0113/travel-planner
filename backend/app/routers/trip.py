@@ -1,8 +1,11 @@
-"""旅行规划路由 — 支持流式 Agent 输出"""
+"""旅行规划路由 — 支持流式 Agent 输出（需登录）"""
 
 import json
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import StreamingResponse
+from app.core.security import get_current_user
+from app.core.cities import ensure_domestic_city, normalize_departure
+from app.models.db_models import User
 from app.tools.itinerary_builder import modify_itinerary, generate_versions
 from app.models.schemas import TripPlanRequest, ModifyRequest, VersionPlanRequest
 from app.agents.planner_graph import planner_graph
@@ -12,22 +15,30 @@ router = APIRouter(prefix="/api/trip", tags=["trip"])
 
 
 @router.post("/plan")
-async def plan_trip(request: TripPlanRequest):
+async def plan_trip(
+    request: TripPlanRequest,
+    current_user: User = Depends(get_current_user),
+):
     """生成旅行规划
     
     通过 Agent 工作流搜索航班、酒店、景点，生成结构化行程。
-    支持 SSE 流式输出每一步的进度。
+    支持 SSE 流式输出每一步的进度。仅支持国内目的地。
     """
+    destination = ensure_domestic_city(request.destination)
+    departure = normalize_departure(request.departure)
+
     initial_state: PlannerState = {
         "messages": [
-            {"role": "user", "content": f"请帮我规划一次{request.destination}的{request.days}天旅行。预算{request.budget or '不限'}元。偏好：{', '.join(request.preferences) if request.preferences else '综合'}。出发城市：{request.departure or '北京'}。"}
+            {"role": "user", "content": f"请帮我规划一次{destination}的{request.days}天旅行。预算{request.budget or '不限'}元。偏好：{', '.join(request.preferences) if request.preferences else '综合'}。出发城市：{departure}。"}
         ],
-        "destination": request.destination,
+        "destination": destination,
         "days": request.days,
         "budget": request.budget,
         "preferences": request.preferences,
-        "departure_city": request.departure or "北京",
+        "departure_city": departure,
         "travelers": request.travelers or 1,
+        "special_needs": request.special_needs or [],
+        "start_date": request.start_date,
         "flights": None,
         "hotels": None,
         "attractions": None,
@@ -85,7 +96,10 @@ async def _stream_plan(state: PlannerState):
 
 
 @router.post("/modify")
-async def modify_trip(request: ModifyRequest):
+async def modify_trip(
+    request: ModifyRequest,
+    current_user: User = Depends(get_current_user),
+):
     """修改已有行程 — 根据用户指令局部调整"""
     try:
         modified, message = modify_itinerary(
@@ -99,19 +113,27 @@ async def modify_trip(request: ModifyRequest):
 
 
 @router.post("/versions")
-async def plan_versions(request: VersionPlanRequest):
-    """生成多版本方案对比（省钱版/舒适版/网红版）"""
+async def plan_versions(
+    request: VersionPlanRequest,
+    current_user: User = Depends(get_current_user),
+):
+    """生成多版本方案对比（省钱版/舒适版/网红版），仅支持国内目的地"""
     from app.agents.planner_graph import search_node
+
+    destination = ensure_domestic_city(request.destination)
+    departure = normalize_departure(request.departure)
 
     try:
         state: PlannerState = {
             "messages": [],
-            "destination": request.destination,
+            "destination": destination,
             "days": request.days,
             "budget": request.budget,
             "preferences": request.preferences,
-            "departure_city": request.departure or "北京",
+            "departure_city": departure,
             "travelers": request.travelers or 1,
+            "special_needs": request.special_needs or [],
+            "start_date": request.start_date,
             "flights": None,
             "hotels": None,
             "attractions": None,
@@ -128,9 +150,11 @@ async def plan_versions(request: VersionPlanRequest):
             hotels=state.get("hotels", []),
             attractions=state.get("attractions", []),
             days=request.days,
-            destination=request.destination,
+            destination=destination,
             budget=request.budget,
             travelers=request.travelers or 1,
+            start_date=request.start_date,
+            special_needs=request.special_needs or [],
         )
 
         return {"status": "ok", "versions": versions}

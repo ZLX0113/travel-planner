@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
+import { apiFetch } from '../api/client'
 
 interface Overview {
   name: string
@@ -69,15 +70,34 @@ export default function SearchResultPage() {
   const query = searchParams.get('q') || ''
   const [data, setData] = useState<SearchData>({ overview: null, attractions: [], hotels: [], flights: [] })
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
   const [activeTab, setActiveTab] = useState<'attractions' | 'hotels' | 'flights'>('attractions')
 
   useEffect(() => {
     if (!query) return
     setLoading(true)
-    fetch(`/api/search?q=${encodeURIComponent(query)}`)
-      .then((res) => res.json())
+    setError('')
+    apiFetch(`/api/search?q=${encodeURIComponent(query)}`)
+      .then(async (res) => {
+        // 境外城市等原因被拒绝时，把原因展示出来
+        if (!res.ok) {
+          let detail = `搜索失败（HTTP ${res.status}）`
+          try {
+            const body = await res.json()
+            if (body?.detail) detail = body.detail
+          } catch {
+            // 非 JSON 响应，用默认提示
+          }
+          throw new Error(detail)
+        }
+        return res.json()
+      })
       .then(setData)
-      .catch((err) => console.error('搜索失败:', err))
+      .catch((err) => {
+        // 境外城市被拒绝属于正常业务拦截，用 warn 而不是 error
+        console.warn('搜索未通过校验:', err instanceof Error ? err.message : err)
+        setError(err instanceof Error ? err.message : '搜索失败')
+      })
       .finally(() => setLoading(false))
   }, [query])
 
@@ -88,6 +108,19 @@ export default function SearchResultPage() {
           <div className="w-10 h-10 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
           <p className="text-gray-400">正在搜索 "{query}" ...</p>
         </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 gap-4 px-6 text-center">
+        <div className="text-3xl">🚧</div>
+        <p className="text-red-500 text-sm max-w-md">{error}</p>
+        <p className="text-xs text-gray-400">目前仅支持国内目的地，境外城市暂不开放</p>
+        <button onClick={() => navigate('/')} className="text-blue-600 hover:underline text-sm">
+          返回首页
+        </button>
       </div>
     )
   }

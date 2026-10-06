@@ -3,6 +3,7 @@ import html2pdf from 'html2pdf.js'
 import ChatWindow from '../components/ChatWindow'
 import ChatInput from '../components/ChatInput'
 import { Message } from '../types'
+import { apiFetch } from '../api/client'
 
 export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([
@@ -43,7 +44,7 @@ export default function ChatPage() {
         .filter((m) => m.id !== 'welcome')
         .map((m) => ({ role: m.role, content: m.content }))
 
-      const response = await fetch('/api/chat', {
+      const response = await apiFetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: history, stream: true }),
@@ -113,7 +114,7 @@ export default function ChatPage() {
 
   const handleQuickPlan = async () => {
     const planRequest = {
-      destination: "东京",
+      destination: "成都",
       days: 5,
       budget: 10000,
       preferences: ["美食", "文化"],
@@ -140,7 +141,7 @@ export default function ChatPage() {
     let tripItinerary: any[] | null = null
 
     try {
-      const response = await fetch("/api/trip/plan", {
+      const response = await apiFetch("/api/trip/plan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(planRequest),
@@ -217,7 +218,7 @@ export default function ChatPage() {
 
   const handleVersions = async () => {
     const planRequest = {
-      destination: "东京",
+      destination: "成都",
       days: 5,
       budget: 10000,
       preferences: ["美食", "文化"],
@@ -241,7 +242,7 @@ export default function ChatPage() {
     setMessages((prev) => [...prev, assistantMsg])
 
     try {
-      const response = await fetch("/api/trip/versions", {
+      const response = await apiFetch("/api/trip/versions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(planRequest),
@@ -328,7 +329,7 @@ export default function ChatPage() {
           disabled={isLoading}
           className="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full text-xs font-medium hover:from-blue-600 hover:to-cyan-600 disabled:opacity-40 transition-all"
         >
-          ✈️ 东京5天·美食文化之旅
+          ✈️ 成都5天·美食文化之旅
         </button>
         <button
           onClick={handleVersions}
@@ -345,11 +346,11 @@ export default function ChatPage() {
           🔄 修改行程
         </button>
         <button
-          onClick={() => handleSend("帮我规划一次大阪的4天旅行，预算8000元，偏好购物和美食")}
+          onClick={() => handleSend("帮我规划一次西安的4天旅行，预算8000元，偏好历史古迹和美食")}
           disabled={isLoading}
           className="px-3 py-1.5 bg-white text-gray-600 border border-gray-200 rounded-full text-xs font-medium hover:bg-gray-50 disabled:opacity-40 transition-all"
         >
-          🏯 大阪4天·购物美食
+          🏯 西安4天·古迹美食
         </button>
         <button
           onClick={handleExportPDF}
