@@ -192,6 +192,11 @@ class RegisterRequest(BaseModel):
     username: str = Field(..., min_length=3, max_length=32, description="用户名")
     password: str = Field(..., min_length=6, max_length=64, description="密码")
     nickname: str = Field(default="", max_length=32, description="昵称，可留空")
+    invite_code: str = Field(
+        default="",
+        max_length=64,
+        description="注册邀请码，服务端配置了 REGISTER_CODE 时必填",
+    )
 
 
 class LoginRequest(BaseModel):

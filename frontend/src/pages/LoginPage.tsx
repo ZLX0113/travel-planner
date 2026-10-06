@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { apiJson } from '../api/client'
 
 type Mode = 'login' | 'register'
 
@@ -14,10 +15,25 @@ export default function LoginPage() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [nickname, setNickname] = useState('')
+  const [inviteCode, setInviteCode] = useState('')
+  // 服务端配置了 REGISTER_CODE 时才要求填邀请码
+  const [requireInviteCode, setRequireInviteCode] = useState(false)
   const [error, setError] = useState('')
   const [submitting, setSubmitting] = useState(false)
 
   const isRegister = mode === 'register'
+
+  useEffect(() => {
+    const controller = new AbortController()
+    apiJson<{ require_invite_code: boolean }>('/api/auth/registration-policy', {
+      signal: controller.signal,
+    })
+      .then((res) => setRequireInviteCode(Boolean(res?.require_invite_code)))
+      .catch(() => {
+        // 取不到策略时按"不需要邀请码"处理，真正的校验在服务端
+      })
+    return () => controller.abort()
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -31,11 +47,15 @@ export default function LoginPage() {
       setError('密码至少 6 位')
       return
     }
+    if (isRegister && requireInviteCode && !inviteCode.trim()) {
+      setError('请填写邀请码')
+      return
+    }
 
     setSubmitting(true)
     try {
       if (isRegister) {
-        await register(username.trim(), password, nickname.trim())
+        await register(username.trim(), password, nickname.trim(), inviteCode.trim())
       } else {
         await login(username.trim(), password)
       }
@@ -93,6 +113,19 @@ export default function LoginPage() {
                   value={nickname}
                   onChange={(e) => setNickname(e.target.value)}
                   placeholder="不填则与用户名相同"
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+                />
+              </div>
+            )}
+
+            {isRegister && requireInviteCode && (
+              <div>
+                <label className="text-xs font-semibold text-gray-500 mb-1 block">邀请码</label>
+                <input
+                  type="text"
+                  value={inviteCode}
+                  onChange={(e) => setInviteCode(e.target.value)}
+                  placeholder="请输入邀请码"
                   className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
                 />
               </div>

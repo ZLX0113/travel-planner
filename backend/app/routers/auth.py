@@ -3,6 +3,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session, select
 
+from app.core.config import app_config
 from app.core.db import get_session
 from app.core.security import (
     create_access_token,
@@ -28,9 +29,24 @@ def _to_token_response(user: User) -> TokenResponse:
     )
 
 
+@router.get("/registration-policy")
+def registration_policy():
+    """注册策略：前端据此决定是否显示「邀请码」输入框"""
+    return {"require_invite_code": bool(app_config.register_code)}
+
+
 @router.post("/register", response_model=TokenResponse)
 def register(request: RegisterRequest, session: Session = Depends(get_session)):
-    """注册新用户，成功后直接返回登录令牌"""
+    """注册新用户，成功后直接返回登录令牌
+
+    服务端配置了 REGISTER_CODE 时，必须填对邀请码才能注册。
+    """
+    if app_config.register_code and request.invite_code != app_config.register_code:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="邀请码不正确",
+        )
+
     exists = session.exec(
         select(User).where(User.username == request.username)
     ).first()

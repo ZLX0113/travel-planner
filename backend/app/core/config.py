@@ -62,8 +62,11 @@ class AppConfig:
     data_dir: str = os.getenv("DATA_DIR", _DEFAULT_DATA_DIR)
     # 航班数据来源：auto（优先在线，无则大模型生成参考航班）/ llm / local
     flight_source: str = os.getenv("FLIGHT_SOURCE", "auto")
-    # 用户数据库（SQLite，可通过 DATABASE_URL 切换为 MySQL 等）
+    # 用户数据库（SQLite，可通过 DATABASE_URL 切换 MySQL 等）
     database_url: str = os.getenv("DATABASE_URL", f"sqlite:///{_DEFAULT_DB_PATH}")
+    # 注册邀请码：填了才校验，留空则开放注册。
+    # 公开演示时填上，避免陌生人注册后消耗自己的大模型额度。
+    register_code: str = os.getenv("REGISTER_CODE", "")
 
 
 app_config = AppConfig()
