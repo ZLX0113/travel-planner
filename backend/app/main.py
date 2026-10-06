@@ -11,8 +11,11 @@ if not os.environ.get('VERCEL'):
 from dotenv import load_dotenv
 load_dotenv()
 
-from fastapi import FastAPI
+from pathlib import Path
+
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 from app.core.config import app_config
 from app.core.cities import suggest_places, supported_cities_payload
 from app.core.db import init_db
@@ -70,6 +73,25 @@ def suggest_cities(q: str = ""):
     同步函数，FastAPI 会放到线程池执行，避免阻塞事件循环。
     """
     return {"items": suggest_places(q)}
+
+
+# ---------- 前端托管（生产部署用） ----------
+# 本地开发时前端跑在 5173，由 vite 把 /api 代理过来，这个分支不会生效；
+# 部署时镜像里带了 frontend/dist，同一个服务直接托管 SPA，省掉跨域配置。
+_FRONTEND_DIST = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"
+
+if _FRONTEND_DIST.is_dir():
+    _dist_root = _FRONTEND_DIST.resolve()
+
+    @app.get("/{full_path:path}", include_in_schema=False)
+    async def spa_fallback(full_path: str):
+        """静态资源按原路径返回，其余交给前端路由（BrowserRouter）"""
+        if full_path.startswith("api/"):
+            raise HTTPException(status_code=404, detail="Not Found")
+        target = (_dist_root / full_path).resolve()
+        if full_path and _dist_root in target.parents and target.is_file():
+            return FileResponse(target)
+        return FileResponse(_dist_root / "index.html")
 
 
 if __name__ == "__main__":

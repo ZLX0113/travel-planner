@@ -140,6 +140,10 @@ AMAP_KEY=
 DATA_SOURCE=auto
 # 航班来源：auto（在线优先，无数据时用大模型生成参考航班）/ llm / local
 FLIGHT_SOURCE=auto
+
+# 注册邀请码：留空 = 开放注册；公开部署时建议填上，
+# 否则任何人都能注册账号并消耗你的大模型额度
+REGISTER_CODE=
 ```
 
 > `AMAP_KEY` 不填也能跑，程序会自动回退到 `backend/app/data/` 里的离线种子数据，只是数据不实时。
@@ -197,4 +201,36 @@ npm run dev
 
 ## 部署
 
-仓库内含 `vercel.json` 与 `api/index.py`，前端静态资源 + 后端 Serverless 函数可一并部署到 Vercel；后端环境变量需在平台侧配置。详细步骤见 `DEPLOY.md`。
+### Docker（推荐，单容器）
+
+镜像分两阶段构建：先用 Node 构建前端，再把 `frontend/dist` 交给 FastAPI 一起托管，因此**前端和 API 同源**，不需要额外配 CORS 或跨域代理。
+
+```bash
+docker build -t travel-planner .
+docker run -p 8000:8000 --env-file backend/.env travel-planner
+```
+
+访问 http://localhost:8000 即可。
+
+### Railway
+
+仓库根目录有 `Dockerfile`，Railway 会自动识别并按镜像构建。
+
+1. 新建项目 → Deploy from GitHub repo → 选本仓库
+2. 在 **Variables** 里配置环境变量：
+
+   | 变量 | 说明 |
+   |---|---|
+   | `OPENAI_API_KEY` / `OPENAI_BASE_URL` / `LLM_MODEL` | 大模型接口 |
+   | `AMAP_KEY` | 高德 Web 服务 Key |
+   | `REGISTER_CODE` | 注册邀请码，公开演示时必填 |
+   | `DATABASE_URL` | 建议挂持久卷后设为 `sqlite:////data/app.db` |
+
+3. 在 **Volumes** 里挂一个卷到 `/data`，否则容器重启后用户和历史行程会丢失
+4. 生成域名后即可访问
+
+> 公开部署务必设置 `REGISTER_CODE`。应用是开放注册的，任何人都能注册账号并消耗你的大模型额度。
+
+### 前端单独部署
+
+如果想让前端独立托管（Vercel / Netlify 等），构建 `frontend` 目录并把 `/api` 反向代理到后端地址即可，前端所有请求都走相对路径，无需改动代码。

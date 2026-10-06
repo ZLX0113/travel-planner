@@ -1,0 +1,34 @@
+# 构建镜像时不需要进上下文的东西
+
+.git
+.gitignore
+.github
+
+# 依赖与缓存（镜像内会重新安装）
+**/node_modules
+**/venv
+**/lib
+**/__pycache__
+**/*.py[cod]
+**/.pytest_cache
+
+# 本地构建产物（镜像里会重新构建前端）
+frontend/dist
+
+# 本地数据与密钥
+backend/data
+.env
+**/.env
+!**/.env.example
+*.db
+*.sqlite*
+ngrok.exe
+ngrok.zip
+cloudflared.exe
+ai-travel-planner.zip
+
+# 与运行无关的文档
+docs
+.superpowers
+.trae
+*.doc
